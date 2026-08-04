@@ -1357,7 +1357,8 @@ const QUEUE_CAP=8;   // cards shown in the action queue; the rest are reachable 
 function pdbRisk(p){
   if(p.r<=1) return {lvl:'new',pts:0,lbl:'No history'};
   let pts=0;
-  pts += p.d>=3?3:p.d>=1.5?2:p.d>=0.5?1:0;   // average minutes/hole over target
+  pts += p.d>=4.5?5:p.d>=3?3:p.d>=1.5?2:p.d>=0.5?1:0;  // avg min/hole over target;
+                                                       // >=4.5 is ~80 min/round, High on its own
   pts += p.mar>=3?2:p.mar>=1?1:0;            // times a marshal has been sent
   pts += p.late>=2?1:0;                      // repeated late arrivals
   pts += p.ns>=1?1:0;                        // no-shows
@@ -1839,6 +1840,111 @@ function logTurn(id){ GROUPS.find(x=>x.id===id).turnLogged=true; renderAll(); }
 const closeModal = () => document.getElementById('modal-root').innerHTML='';
 
 /* ══════════════════════════════════════════════
+   SELF-TEST  — open with ?selftest=1
+   Assertions run against the shipped functions, not copies.
+   Kept in-page deliberately: the deliverable is one portable
+   file with no build step, so the tests must not need a toolchain.
+══════════════════════════════════════════════ */
+function runSelfTest(){
+  const R=[]; let pass=0, fail=0;
+  const ok=(name,cond,got)=>{ cond?pass++:fail++; R.push({name,cond,got}); };
+  const near=(a,b,tol)=>Math.abs(a-b)<=(tol||0.05);
+
+  // fixed clock so results never depend on when the page loaded
+  const T=td(9,25);                                    // 85 min after an 8:00 tee
+  const G=(over)=>Object.assign({id:9001,teeOff:td(8,0),name:'Test',players:4,
+    holes:18,mode:'cart',flags:[],status:'on-course'},over);
+
+  // ── pace matrix ──
+  ok('PACE 18-cart per-hole = 14.2', paceProf(G({})).per===14.2, paceProf(G({})).per);
+  ok('PACE 18-walking slower than cart', PACE['18-walking'].per>PACE['18-cart'].per);
+
+  // ── projection vs actual ──
+  ok('projHole: 85min / 14.2 -> hole 6', projHole(G({}),T)===6, projHole(G({}),T));
+  ok('actHole: 85min / 18.4 -> hole 5', actHole(G({actualPer:18.4}),T)===5, actHole(G({actualPer:18.4}),T));
+  ok('projHole 0 before tee time', projHole(G({teeOff:td(11,0)}),T)===0);
+  ok('actHole = holes when completed', actHole(G({status:'completed',actualPer:20}),T)===18);
+
+  // ── minsBehind ──
+  ok('minsBehind = 1 hole x 14.2', near(minsBehind(G({actualPer:18.4}),T),14.2), minsBehind(G({actualPer:18.4}),T));
+  ok('minsBehind = 0 when on target', minsBehind(G({actualPer:14.2}),T)===0, minsBehind(G({actualPer:14.2}),T));
+  ok('minsBehind never negative', minsBehind(G({actualPer:9}),T)>=0, minsBehind(G({actualPer:9}),T));
+
+  // ── paceStatus is PROPORTIONAL, not absolute (see ARCHITECTURE.md 4) ──
+  ok('paceStatus on-target -> on', paceStatus(G({actualPer:14.2}),T)==='on', paceStatus(G({actualPer:14.2}),T));
+  ok('paceStatus 14min/85min (17%) -> watch', paceStatus(G({actualPer:18.4}),T)==='watch', paceStatus(G({actualPer:18.4}),T));
+  ok('paceStatus 28min/85min (33%) -> behind', paceStatus(G({actualPer:22}),T)==='behind', paceStatus(G({actualPer:22}),T));
+  ok('paceStatus idle before tee off', paceStatus(G({teeOff:td(11,0),actualPer:22}),T)==='idle');
+  ok('paceStatus done when completed', paceStatus(G({status:'completed'}),T)==='done');
+  // same absolute deficit, later in the round -> no longer alarming
+  const early=paceStatus(G({actualPer:24}),td(8,40)), late=paceStatus(G({actualPer:15.6}),td(12,0));
+  ok('same drift matters more early than late', early==='behind'&&late!=='behind', early+' / '+late);
+
+  // ── gap separation ──
+  const A=G({id:9002,teeOff:td(8,0),actualPer:14.2}), B=G({id:9003,teeOff:td(8,10),actualPer:14.2});
+  ok('gapMin = tee interval when both on pace', near(gapMin(A,B,T),10), gapMin(A,B,T));
+  ok('gapMin null if either not on course', gapMin(A,G({id:9004,status:'pending'}),T)===null);
+
+  // ── provenance: confidence changes system behaviour (ARCHITECTURE.md 5) ──
+  const g2=GROUPS.find(g=>g.id===2), g3=GROUPS.find(g=>g.id===3), g4=GROUPS.find(g=>g.id===4);
+  ok('trackerSource live when GPS fresh', trackerSource(g2)==='live', trackerSource(g2));
+  ok('trackerSource stale when tracker silent', trackerSource(g4)==='stale', trackerSource(g4));
+  ok('trackerSource est when no tracker', trackerSource(G({id:9005}))==='est');
+  ok('position carries its source', position(g2).src==='live'&&typeof position(g2).hole==='number');
+  ok('stale position falls back to last known hole', position(g4).hole===7, position(g4).hole);
+  ok('est position uses projection', position(G({id:9006})).src==='est');
+  ok('gapThr TIGHTER (5) when both live', gapThr(g2,g3)===5, gapThr(g2,g3));
+  ok('gapThr LOOSER (6) when one is not', gapThr(g4,g2)===6, gapThr(g4,g2));
+
+  // ── pre-round risk from group attributes ──
+  ok('riskScore stacks all flags -> 8', riskScore(G({flags:['First Timer','Rental Clubs','Late Arrival'],mode:'walking'}))===8,
+     riskScore(G({flags:['First Timer','Rental Clubs','Late Arrival'],mode:'walking'})));
+  ok('riskLvl high at >=5', riskLvl(G({flags:['First Timer','Rental Clubs','Late Arrival'],mode:'walking'}))==='high');
+  ok('riskScore 0 for a clean 2-ball', riskScore(G({players:2,flags:[]}))===0);
+  ok('riskLvl low at 0', riskLvl(G({players:2,flags:[]}))==='low');
+
+  // ── historical risk is BEHAVIOURAL, not pace alone (ARCHITECTURE.md 8) ──
+  const P=(o)=>Object.assign({n:'X',t:'guest',r:10,d:0,c:85,late:0,ns:0,mar:0,last:5,nx:0,tr:[],tags:[]},o);
+  ok('pdbRisk mid pace alone -> elevated (needs corroboration)', pdbRisk(P({d:3.5})).lvl==='elevated', pdbRisk(P({d:3.5})).lvl);
+  ok('pdbRisk extreme pace alone -> high', pdbRisk(P({d:4.8})).lvl==='high', pdbRisk(P({d:4.8})).lvl);
+  ok('pdbRisk low for reliable player', pdbRisk(P({d:0.0,c:90})).lvl==='low', pdbRisk(P({d:0.0,c:90})).lvl);
+  ok('pdbRisk "no history" at <=1 round', pdbRisk(P({r:1})).lvl==='new', pdbRisk(P({r:1})).lvl);
+  // the case pace-only scoring would miss:
+  ok('modest pace + callouts + no-shows -> High', pdbRisk(P({d:1.7,mar:3,ns:2})).lvl==='high',
+     pdbRisk(P({d:1.7,mar:3,ns:2})).lvl);
+  ok('pdbAction returns guidance for every tier',
+     ['high','elevated','watch','low','new'].every(l=>{
+       const f={high:{d:4,mar:3,late:2,ns:1,c:40},elevated:{d:1.6,mar:1},watch:{d:0.6},low:{d:0},new:{r:1}}[l];
+       return typeof pdbAction(P(f),pdbRisk(P(f)))==='string' && pdbAction(P(f),pdbRisk(P(f))).length>0;
+     }));
+
+  // ── data integrity ──
+  ok('every on-course group has a pace profile', GROUPS.every(g=>!!paceProf(g)));
+  ok('18 holes defined', COURSE_HOLES.length===18, COURSE_HOLES.length);
+  ok('tracker group refs resolve', TRACKERS.filter(t=>t.group).every(t=>GROUPS.some(g=>g.id===t.group)));
+  ok('no tracker assigned to two groups', new Set(TRACKERS.filter(t=>t.status==='assigned').map(t=>t.group)).size
+     === TRACKERS.filter(t=>t.status==='assigned').length);
+  ok('player deltas within sane bounds', PLAYERS.every(p=>p.d>=-3&&p.d<=7));
+
+  document.body.insertAdjacentHTML('afterbegin',`
+    <div style="position:fixed;inset:0;background:#0d1410;color:#d8e6dc;z-index:9999;overflow:auto;
+                font-family:ui-monospace,monospace;font-size:12.5px;padding:22px 26px">
+      <div style="font-size:15px;font-weight:700;margin-bottom:3px">Tee Sheet Pulse — self-test</div>
+      <div style="color:#7a9a80;margin-bottom:14px">Assertions run against the shipped functions · fixed clock 9:25 AM</div>
+      <div style="font-size:22px;font-weight:700;margin-bottom:14px;color:${fail?'#ff8a80':'#7dcb96'}">
+        ${pass} passed${fail?` · ${fail} FAILED`:' · 0 failed'}
+      </div>
+      ${R.map(r=>`<div style="padding:3px 0;border-bottom:1px solid #1a2a1e">
+        <span style="color:${r.cond?'#7dcb96':'#ff8a80'};display:inline-block;width:16px">${r.cond?'✓':'✗'}</span>
+        <span style="color:${r.cond?'#c8d8cc':'#ffb3ad'}">${r.name}</span>
+        ${!r.cond&&r.got!==undefined?`<span style="color:#ff8a80"> — got ${JSON.stringify(r.got)}</span>`:''}
+      </div>`).join('')}
+      <div style="margin-top:16px"><a href="?" style="color:#7dcb96">← back to the board</a></div>
+    </div>`);
+  return {pass,fail};
+}
+
+/* ══════════════════════════════════════════════
    BOOT
 ══════════════════════════════════════════════ */
 setInterval(()=>{
@@ -1848,7 +1954,8 @@ setInterval(()=>{
   if(currentTab==='dashboard')renderAll(); else if(currentTab==='map')renderMap();
 },30000);
 
-renderAll();
+if(new URLSearchParams(location.search).get('selftest')==='1') runSelfTest();
+else renderAll();
 </script>
 
 
