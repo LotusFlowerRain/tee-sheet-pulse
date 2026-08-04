@@ -2,6 +2,8 @@
 # Tee Sheet Pulse
 Real-time pace-of-play management for semi-private and university golf courses.
 Live demo: https://tee-sheet-pulse.vercel.app
+Self-test: append `?selftest=1` to the demo URL (40 assertions against the pace logic)
+Architecture and data flow: [ARCHITECTURE.md](ARCHITECTURE.md)
 Built for CEE 250 / MS&E 265 (Feature Flow), Stanford, Spring 2026.
 Pro shop dashboard built with AI-assisted development (Claude Code);
 hardware (GPS clip) designed in Fusion 360, not yet manufactured — demo runs
