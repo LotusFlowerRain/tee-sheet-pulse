@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://tee-sheet-pulse.vercel.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tee Sheet Pulse — Stanford Golf Course</title>
+<link href="./Tee Sheet Pulse — Stanford Golf Course_files/css2" rel="stylesheet">
+<style>
+:root {
+  --bg:#f0f2ee; --panel:#fff; --ink:#1a1d19; --ink-2:#484d46; --ink-3:#8a9088;
+  --line:#e2e5de; --line-2:#eceee9;
+  --forest:#1e3a28; --forest-2:#2d5239; --forest-3:#3d6e4d;
+  --green:#2a7a48; --green-bg:#e0f0e7;
+  --amber:#a85f00; --amber-bg:#fdecd3;
+  --red:#b0241c; --red-bg:#fce0de;
+  --blue:#1a4a7a; --blue-bg:#dce8f5;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 2px 8px rgba(0,0,0,.04);
+  --shadow-lg:0 4px 20px rgba(0,0,0,.12);
+  --radius:8px; --font:'DM Sans',system-ui,sans-serif; --mono:'DM Mono',ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg)}
+body{font-family:var(--font);font-size:14px;color:var(--ink);line-height:1.45}
+button{font-family:var(--font);cursor:pointer}
+.hidden{display:none!important}
+
+/* ── DEMO NAV ── */
+.demo-nav{background:#15110a;color:#e8c97a;padding:6px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:2px solid #e8c97a;font-size:12px;position:sticky;top:0;z-index:50}
+.dn-tag{font-size:9.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;background:#e8c97a;color:#15110a;padding:3px 8px;border-radius:3px;white-space:nowrap}
+.dn-label{color:#b89a52;font-size:11px}
+.dn-cur{color:#fff;font-weight:600}
+.dn-sep{width:1px;height:18px;background:#3a3220;flex-shrink:0}
+.demo-nav button{background:rgba(232,201,122,.12);border:1px solid rgba(232,201,122,.3);color:#e8c97a;padding:4px 10px;border-radius:5px;font-size:11.5px;font-weight:500;transition:background .12s;white-space:nowrap}
+.demo-nav button:hover{background:rgba(232,201,122,.24)}
+.demo-nav button.dn-active{background:#e8c97a;color:#15110a;border-color:#e8c97a}
+.demo-nav select{background:#221b0f;border:1px solid rgba(232,201,122,.3);color:#e8c97a;padding:4px 8px;border-radius:5px;font-size:11.5px;font-family:var(--font)}
+.dn-spacer{margin-left:auto}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--forest);color:#e8ede9;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #0d1e12;position:sticky;top:33px;z-index:40}
+.topbar-left{display:flex;align-items:center;gap:14px}
+.logo-mark{width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7dcb96,#2a7a48 55%,#163821);box-shadow:0 0 0 2px #0d1e12,0 0 0 3px #3d6e4d;flex-shrink:0}
+.brand-text h1{margin:0;font-size:15px;font-weight:600;color:#e8ede9}
+.brand-text span{font-size:11.5px;color:#8aaa90;letter-spacing:.3px}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.topbar-clock{font-family:var(--mono);font-size:17px;font-weight:500;color:#c5d8c8;background:rgba(255,255,255,.06);padding:5px 12px;border-radius:6px}
+
+/* ── TABS ── */
+.view-tabs{display:flex;padding:0 24px;background:var(--forest-2);border-bottom:1px solid #183020;position:sticky;top:89px;z-index:39}
+.vtab{padding:10px 18px;font-size:12.5px;font-weight:500;color:#8aaa90;background:none;border:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;letter-spacing:.3px}
+.vtab:hover{color:#c5d8c8}
+.vtab.active{color:#e8ede9;border-bottom-color:#7dcb96}
+
+/* ── LAYOUT ── */
+.dashboard{padding:20px 24px 64px;max-width:1560px;margin:0 auto}
+.main-grid{display:grid;grid-template-columns:1fr 340px;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.panel-head{padding:12px 16px;border-bottom:1px solid var(--line-2);display:flex;align-items:center;justify-content:space-between;background:#fcfcfb}
+.panel-head h2{margin:0;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.9px;color:var(--ink-2)}
+.panel-head .ph-meta{font-size:11.5px;color:var(--ink-3)}
+
+/* ── STAT CARDS ── */
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.stat-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:4px}
+.s-label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ink-3)}
+.s-value{font-size:28px;font-weight:700;font-family:var(--mono);line-height:1}
+.s-sub{font-size:11px;color:var(--ink-3)}
+.stat-card.green .s-value{color:var(--green)}
+.stat-card.amber .s-value{color:var(--amber)}
+.stat-card.red .s-value{color:var(--red)}
+
+/* ── TRACKER PANEL ── */
+.tracker-panel{margin-bottom:16px}
+.tracker-head{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:12px 16px;background:#fcfcfb;border:1px solid var(--line);border-radius:var(--radius) var(--radius) 0 0}
+.tracker-head h2{margin:0;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.9px;color:var(--ink-2)}
+.th-meta{font-size:11.5px;color:var(--ink-3);display:flex;gap:14px;align-items:center}
+.tracker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;padding:12px;background:var(--panel);border:1px solid var(--line);border-top:none;border-radius:0 0 var(--radius) var(--radius)}
+.clip{border:1px solid var(--line);border-radius:7px;padding:9px 11px;background:#fff;display:flex;flex-direction:column;gap:5px}
+.clip.assigned{border-left:3px solid var(--green)}
+.clip.charging{border-left:3px solid var(--blue);background:#fafbfc}
+.clip.ready{border-left:3px solid #b8bdb4}
+.clip.returned{border-left:3px solid var(--amber);background:#fffdf8}
+.clip.missing{border-left:3px solid var(--red);background:#fdf5f4;animation:ppulse 2s infinite}
+.clip-top{display:flex;align-items:center;justify-content:space-between}
+.clip-id{font-family:var(--mono);font-weight:600;font-size:12.5px}
+.clip-batt{display:flex;align-items:center;gap:4px;font-size:10.5px;color:var(--ink-3);font-family:var(--mono)}
+.batt-bar{width:22px;height:8px;border:1px solid var(--ink-3);border-radius:2px;position:relative;padding:1px}
+.batt-fill{height:100%;border-radius:1px}
+.clip-status{font-size:11px;font-weight:600}
+.clip.assigned .clip-status{color:var(--green)}
+.clip.charging .clip-status{color:var(--blue)}
+.clip.ready .clip-status{color:#5a6157}
+.clip.returned .clip-status{color:var(--amber)}
+.clip.missing .clip-status{color:var(--red)}
+.clip-sub{font-size:10.5px;color:var(--ink-3)}
+
+/* ── ALERTS ── */
+.alerts{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.alert{background:var(--panel);border-radius:var(--radius);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid;box-shadow:var(--shadow)}
+.alert.gap{background:#fffaee;border-color:#e8c96e}
+.alert.cascade{background:#fdf4f4;border-color:#e6a8a4}
+.alert-left{display:flex;align-items:center;gap:12px}
+.alert-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.6px;white-space:nowrap}
+.alert.gap .alert-badge{background:var(--amber);color:#fff}
+.alert.cascade .alert-badge{background:var(--red);color:#fff}
+.alert-title{font-weight:600;font-size:13px}
+.alert-body{font-size:13px;color:var(--ink-2);margin-top:2px}
+.src-tag{font-size:9.5px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:.4px;text-transform:uppercase;margin-left:6px}
+.src-tag.live{background:var(--green-bg);color:var(--green)}
+.src-tag.est{background:#ececec;color:#666}
+.src-tag.stale{background:var(--amber-bg);color:var(--amber)}
+.dispatch-btn{background:var(--ink);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:600;white-space:nowrap;transition:background .15s}
+.dispatch-btn:hover{background:#000}
+
+/* ── TEE SHEET ── */
+table.tee{width:100%;border-collapse:collapse;font-size:13px}
+table.tee thead th{text-align:left;padding:9px 12px;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--ink-3);background:#f8f9f6;border-bottom:1px solid var(--line)}
+table.tee tbody td{padding:11px 12px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+table.tee tbody tr:last-child td{border-bottom:none}
+table.tee tbody tr:hover{background:#f8f9f6}
+table.tee tbody tr.row-behind{box-shadow:inset 4px 0 0 var(--red);background:#fdf5f4}
+table.tee tbody tr.row-watch{box-shadow:inset 4px 0 0 var(--amber)}
+table.tee tbody tr.row-on{box-shadow:inset 4px 0 0 var(--green)}
+table.tee tbody tr.row-risk{background:#fffaf5}
+.tee-time{font-family:var(--mono);font-weight:500;font-size:13.5px}
+.group-name{font-weight:600;font-size:13.5px}
+.group-meta{color:var(--ink-3);font-size:12px;margin-top:2px}
+.flags{margin-top:5px;display:flex;flex-wrap:wrap;gap:4px}
+.flag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;letter-spacing:.3px;background:var(--blue-bg);color:var(--blue)}
+.flag.warn{background:var(--amber-bg);color:var(--amber)}
+.risk-badge{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:12px;letter-spacing:.4px;text-transform:uppercase}
+.risk-badge.low{background:var(--green-bg);color:var(--green)}
+.risk-badge.med{background:var(--amber-bg);color:var(--amber)}
+.risk-badge.high{background:var(--red-bg);color:var(--red)}
+.tcell{display:flex;flex-direction:column;gap:3px}
+.tclip{font-family:var(--mono);font-size:12px;font-weight:600}
+.tnone{font-size:11.5px;color:var(--ink-3)}
+.src{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600}
+.sdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.src.live{color:var(--green)}.src.live .sdot{background:var(--green)}
+.src.stale{color:var(--amber)}.src.stale .sdot{background:var(--amber)}
+.src.est{color:var(--ink-3)}.src.est .sdot{background:#aaa}
+.pace-pill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:12px;letter-spacing:.4px;text-transform:uppercase}
+.pdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.pace-pill.on{background:var(--green-bg);color:var(--green)}.pace-pill.on .pdot{background:var(--green)}
+.pace-pill.watch{background:var(--amber-bg);color:var(--amber)}.pace-pill.watch .pdot{background:var(--amber)}
+.pace-pill.behind{background:var(--red-bg);color:var(--red);animation:ppulse 1.6s infinite}.pace-pill.behind .pdot{background:var(--red)}
+.pace-pill.idle{background:#ebebeb;color:#777}.pace-pill.idle .pdot{background:#aaa}
+.pace-pill.done{background:#e4e6e2;color:#555}.pace-pill.done .pdot{background:#888}
+@keyframes ppulse{0%,100%{box-shadow:0 0 0 0 rgba(176,36,28,0)}50%{box-shadow:0 0 0 4px rgba(176,36,28,.16)}}
+.status-cell strong{display:block;font-size:13px}
+.status-cell span{font-size:11.5px;color:var(--ink-3)}
+.action-btns{display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:6px 12px;border-radius:6px;font-size:12px;font-weight:600;white-space:nowrap;transition:background .12s}
+.btn:hover{background:var(--line-2)}
+.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.primary:hover{background:#000}
+.btn.success{background:var(--green);color:#fff;border-color:var(--green)}
+.btn.success:hover{background:#1e5c38}
+.btn.danger{background:var(--red);color:#fff;border-color:var(--red)}
+.btn.danger:hover{background:#8a1a14}
+.btn.ghost{color:var(--ink-3);border-color:transparent;background:none;cursor:default}
+.cascade-warn td{background:#fdf2f2!important;padding:7px 12px!important;font-size:12px;color:var(--red);border-bottom:1px solid var(--line-2)}
+
+/* ── SIDEBAR ── */
+.sidebar{display:flex;flex-direction:column;gap:14px}
+.upcoming-list{padding:12px;display:flex;flex-direction:column;gap:8px}
+.up-card{border:1px solid var(--line);border-radius:6px;padding:10px 12px;background:#fff}
+.up-card.high{border-color:#e6a8a4;background:#fdf5f4}
+.up-card.med{border-color:#e8c96e;background:#fffaee}
+.up-row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.up-time{font-family:var(--mono);font-size:13px;font-weight:500}
+.up-name{font-size:12.5px;margin-top:2px}
+.up-detail{font-size:11.5px;color:var(--ink-3);margin-top:2px}
+.prompt-box{margin-top:8px;padding:9px 11px;background:var(--forest);color:#d8e8da;border-radius:5px;font-size:11.5px;line-height:1.5}
+.prompt-box .plbl{display:block;font-size:10px;letter-spacing:.9px;text-transform:uppercase;color:#7aaa82;margin-bottom:4px}
+.prompt-box em{color:#c5d9c8;font-style:italic}
+.dlog-list{padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.dlog-item{border:1px solid var(--line);border-radius:6px;padding:9px 11px;background:#fff}
+.dl-who{font-size:12.5px;font-weight:600}
+.dl-time{font-size:11px;color:var(--ink-3);margin-left:4px}
+.dl-script{margin-top:6px;padding:8px;border-radius:4px;background:var(--forest);color:#d0e4d4;font-family:var(--mono);font-size:11px;line-height:1.5}
+
+/* ── MODAL ── */
+.modal-bg{position:fixed;inset:0;background:rgba(15,20,15,.55);display:flex;align-items:center;justify-content:center;z-index:60;padding:16px}
+.modal{background:#fff;border-radius:12px;width:520px;max-width:100%;box-shadow:0 20px 60px rgba(0,0,0,.28);overflow:hidden;max-height:92vh;display:flex;flex-direction:column}
+.modal-head{padding:16px 20px;border-bottom:1px solid var(--line-2);display:flex;justify-content:space-between;align-items:center;background:var(--forest);color:#e8ede9}
+.modal-head h3{margin:0;font-size:15px;font-weight:700;color:#e8ede9}
+.modal-head .mh-sub{font-size:11.5px;color:#8aaa90;margin-top:2px}
+.modal-close{background:rgba(255,255,255,.12);border:none;font-size:18px;color:#c5d8c8;line-height:1;padding:4px 8px;border-radius:5px}
+.modal-close:hover{background:rgba(255,255,255,.22);color:#fff}
+.modal-body{padding:0;overflow-y:auto;flex:1}
+
+/* check-in step wizard */
+.ci-steps{display:flex;border-bottom:1px solid var(--line-2);background:#f8f9f6}
+.ci-step{flex:1;padding:10px 8px;text-align:center;font-size:11.5px;font-weight:600;color:var(--ink-3);border-bottom:2px solid transparent;transition:all .15s}
+.ci-step.active{color:var(--forest);border-bottom-color:var(--green);background:#fff}
+.ci-step.done{color:var(--green)}
+.ci-step-num{display:block;font-size:18px;font-family:var(--mono);font-weight:700;line-height:1;margin-bottom:2px}
+.ci-panel{padding:18px 20px;display:none}
+.ci-panel.active{display:block}
+.modal-row{margin-bottom:14px}
+.modal-row label{display:block;font-size:12px;font-weight:600;color:var(--ink-2);margin-bottom:5px}
+.modal-row input,.modal-row select{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:6px;font-size:13.5px;font-family:var(--font);transition:border-color .12s}
+.modal-row input:focus,.modal-row select:focus{outline:none;border-color:var(--green)}
+.modal-check-row{display:flex;gap:20px}
+.modal-check{display:flex;align-items:center;gap:7px;font-size:13px;cursor:pointer}
+.modal-help{font-size:11.5px;color:var(--ink-3);margin-top:4px;line-height:1.5}
+.modal-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-foot{padding:13px 20px;background:#f8f9f6;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.risk-preview{font-size:12px;color:var(--ink-2);margin-top:6px}
+.radio-script{background:var(--forest);color:#d8eadc;border-radius:6px;padding:14px;font-family:var(--mono);font-size:12.5px;line-height:1.6}
+.radio-script .rs-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.9px;color:#7aaa82;margin-bottom:6px}
+.modal-hole-big{font-size:28px;font-weight:800;font-family:var(--mono);color:var(--ink)}
+.modal-note{font-size:11.5px;color:var(--ink-3);margin-top:8px;line-height:1.5}
+
+/* clip picker */
+.clip-pick{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.clip-opt{border:1px solid var(--line);border-radius:7px;padding:10px 6px;text-align:center;cursor:pointer;transition:all .12s}
+.clip-opt:hover{border-color:var(--green);background:#f4faf6}
+.clip-opt.sel{border-color:var(--green);background:var(--green-bg);box-shadow:0 0 0 1px var(--green)}
+.clip-opt.unavail{opacity:.4;cursor:not-allowed;background:#f5f5f5}
+.co-id{font-family:var(--mono);font-weight:700;font-size:14px}
+.co-batt{font-size:9.5px;color:var(--ink-3);margin-top:3px;font-family:var(--mono)}
+.co-status{font-size:9px;font-weight:700;text-transform:uppercase;margin-top:2px}
+.clip-assigned-ok{background:var(--green-bg);color:var(--green);padding:10px 12px;border-radius:6px;font-size:13px;font-weight:600;margin-top:8px;display:flex;align-items:center;gap:8px}
+
+/* checkout modal */
+.co-choice{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.co-btn{border:2px solid var(--line);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .15s;background:#fff}
+.co-btn:hover{border-color:var(--green);background:#f4faf6}
+.co-btn.sel-yes{border-color:var(--green);background:var(--green-bg)}
+.co-btn.sel-no{border-color:var(--red);background:var(--red-bg)}
+.co-btn-icon{font-size:28px;display:block;margin-bottom:4px}
+.co-btn-label{font-size:13px;font-weight:700}
+.co-btn-sub{font-size:11px;color:var(--ink-3);margin-top:2px}
+.batt-choice{display:flex;gap:8px;margin-top:4px}
+.batt-opt{flex:1;border:2px solid var(--line);border-radius:8px;padding:9px 6px;text-align:center;cursor:pointer;font-size:12px;font-weight:600;transition:all .15s}
+.batt-opt:hover{border-color:var(--green)}
+.batt-opt.sel{border-color:var(--green);background:var(--green-bg);color:var(--green)}
+.checkout-summary{background:var(--forest);color:#d8eadc;border-radius:8px;padding:14px 16px;margin-top:6px;font-size:12.5px;line-height:1.7;font-family:var(--mono)}
+.checkout-summary .cs-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.9px;color:#7aaa82;display:block;margin-bottom:4px}
+.missing-warn{background:var(--red-bg);border:1px solid #e2a8a4;border-radius:8px;padding:12px 14px;margin-top:10px;font-size:12.5px;color:var(--red);line-height:1.6}
+
+/* ── GOLFER PAGE ── */
+.golfer-page{background:linear-gradient(180deg,#eef3ee 0%,#f0f2ee 240px);min-height:100vh}
+.golfer-view-wrap{max-width:420px;margin:0 auto;padding:0 18px 80px}
+.gv-topbar{text-align:center;padding:24px 8px 12px}
+.gv-course{font-size:11px;letter-spacing:2.5px;color:var(--forest-3);text-transform:uppercase;font-weight:600}
+.gv-group{font-size:24px;font-weight:700;margin-top:6px}
+.gv-date{font-size:12.5px;color:var(--ink-3);margin-top:3px}
+.gv-clip{display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:var(--forest);color:#c5d8c8;padding:6px 14px;border-radius:20px;font-size:12.5px;font-weight:600;font-family:var(--mono)}
+.gv-clip .clip-dot{width:8px;height:8px;border-radius:50%;background:var(--green-bg)}
+.sms-preview{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin:14px 0 12px;box-shadow:var(--shadow)}
+.sms-from{font-size:11px;color:var(--ink-3);margin-bottom:6px}
+.sms-bubble{background:#e2e8ea;border-radius:14px 14px 14px 3px;padding:10px 13px;font-size:13.5px;line-height:1.5;color:var(--ink)}
+.sms-bubble a{color:var(--forest);font-weight:600}
+.g-pace-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow)}
+.g-pace-label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--ink-3)}
+.g-cur-hole{display:flex;align-items:baseline;gap:8px;margin-top:8px}
+.gch-num{font-size:28px;font-weight:800;font-family:var(--mono)}
+.g-target-row{display:flex;margin-top:14px;gap:10px;padding-top:14px;border-top:1px solid var(--line-2)}
+.g-target-col{flex:1}
+.g-target-val{font-size:22px;font-weight:700;font-family:var(--mono)}
+.g-target-lbl{font-size:11.5px;color:var(--ink-3);margin-top:1px}
+.g-status-card{border-radius:14px;padding:22px 16px;text-align:center;margin-bottom:12px;border:1px solid}
+.g-status-card.on{background:var(--green-bg);border-color:#b0d4bc}
+.g-status-card.watch{background:var(--amber-bg);border-color:#e4c26a}
+.g-status-card.behind{background:var(--red-bg);border-color:#e2a8a4}
+.gs-icon{font-size:40px}
+.gs-head{font-size:22px;font-weight:800;margin-top:6px}
+.gs-msg{font-size:14px;margin-top:8px;line-height:1.5}
+.g-status-card.on .gs-head{color:#1a5c35}
+.g-status-card.watch .gs-head{color:#6e4000}
+.g-status-card.behind .gs-head{color:#7a1a16}
+.g-gap-card{background:var(--forest);color:#daeadc;border-radius:14px;padding:16px 18px;margin-bottom:12px}
+.g-gap-card.warn{background:#7a1a16}
+.g-gap-label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:#7aaa82}
+.g-gap-big{font-size:30px;font-weight:800;font-family:var(--mono);margin-top:4px}
+.g-gap-msg{font-size:13px;margin-top:6px;color:#b8ccba;line-height:1.45}
+.g-gap-card.warn .g-gap-label{color:#f0a8a4}
+.g-gap-card.warn .g-gap-msg{color:#f0c4c2}
+.g-tips{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;box-shadow:var(--shadow);overflow:hidden}
+.g-tips-head{padding:14px 16px;font-size:13.5px;font-weight:600;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.g-tips-body{padding:0 16px 14px;font-size:13px;color:var(--ink-2);line-height:1.7}
+.g-tips-body li{margin-bottom:4px}
+.g-badge-card{background:#fffaee;border:1px solid #e8c96e;border-radius:14px;padding:20px;text-align:center;margin-bottom:12px}
+.g-badge-icon{font-size:44px}
+.g-badge-head{font-size:18px;font-weight:700;margin-top:4px}
+.g-badge-msg{font-size:12.5px;color:var(--ink-2);margin-top:5px}
+.g-return{background:var(--forest);color:#d8e8da;border-radius:12px;padding:14px 16px;margin-bottom:12px;font-size:13px;text-align:center;line-height:1.6}
+.g-footer{text-align:center;font-size:11px;color:var(--ink-3);margin-top:16px;line-height:1.6}
+.g-demo{position:fixed;bottom:0;left:0;right:0;background:#15110a;color:#e8c97a;padding:8px 12px;z-index:55;border-top:2px solid #e8c97a}
+.g-demo-row{max-width:420px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.gdl{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#b89a52;font-weight:700}
+.g-demo-row button{background:rgba(232,201,122,.12);border:1px solid rgba(232,201,122,.3);color:#e8c97a;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:500}
+.g-demo-row button.active{background:#e8c97a;color:#15110a}
+
+/* ── COURSE MAP ── */
+.map-outer{display:grid;grid-template-columns:1fr 260px;gap:16px;align-items:start}
+.map-canvas-wrap{overflow:hidden}
+.map-side{display:flex;flex-direction:column;gap:0}
+.map-tooltip-box{position:absolute;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:12.5px;pointer-events:none;z-index:20;box-shadow:var(--shadow-lg);min-width:190px;display:none}
+.map-tooltip-box .mt-title{font-weight:700;font-size:13.5px;margin-bottom:7px;padding-bottom:6px;border-bottom:1px solid var(--line-2)}
+.map-tooltip-box .mt-row{display:flex;justify-content:space-between;gap:12px;margin-bottom:3px}
+.map-tooltip-box .mt-lbl{color:var(--ink-3)}
+.map-tooltip-box .mt-val{font-weight:600}
+.map-group-card{border:1px solid var(--line);border-radius:6px;padding:9px 11px;background:#fff;cursor:pointer;transition:background .1s}
+.map-group-card:hover{background:#f4faf6}
+.map-group-card.behind{border-left:3px solid var(--red)}
+.map-group-card.watch{border-left:3px solid var(--amber)}
+.map-group-card.on{border-left:3px solid var(--green)}
+.map-group-card.done{border-left:3px solid #4a7a88;opacity:.7}
+.mgc-row{display:flex;justify-content:space-between;align-items:center}
+.mgc-name{font-weight:600;font-size:12.5px}
+.mgc-hole{font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.mgc-status{font-size:11px;margin-top:3px;display:flex;align-items:center;gap:5px}
+@media(max-width:1200px){.map-outer{grid-template-columns:1fr}.map-side{flex-direction:row;gap:12px;margin-top:12px}}
+@media(max-width:1100px){.main-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1313.0" data-gr-ext-installed="">
+
+<!-- ═══ DEMO NAV ═══ -->
+<div class="demo-nav">
+  <span class="dn-tag">Prototype Demo</span>
+  <span class="dn-label">View:</span><span class="dn-cur" id="dn-cur">Pro Shop Dashboard</span>
+  <span class="dn-sep"></span>
+  <button id="dn-pro" class="dn-active" onclick="setMainView(&#39;pro&#39;)">🖥 Pro Shop</button>
+  <button id="dn-golfer" onclick="setMainView(&#39;golfer&#39;)">📱 Golfer Page</button>
+  <select id="dn-group" class="hidden" onchange="golferGroupId=+this.value;renderGolfer()"><option value="1">Henderson — Done</option><option value="2">Park / Lee — On Pace</option><option value="3">Sullivan — On Pace</option><option value="4" selected="">Davis Corp — Behind</option><option value="5">Johnson — Behind</option><option value="6">Park family — On Pace</option><option value="7">Williams — On Pace</option><option value="8">Chen duo — On Pace</option><option value="9">McKee / Russell — On Pace</option></select>
+  <span class="dn-sep"></span>
+  <button onclick="simulate(10)">⏩ +10 min</button>
+  <button onclick="forceGap()">⚠ Gap Alert</button>
+  <button onclick="forceBehind()">🔴 Behind</button>
+  <button onclick="openCheckInDemo()">📋 Check In Demo</button>
+  <button onclick="openCheckOutDemo()">✅ Check Out Demo</button>
+  <span class="dn-spacer"></span>
+  <span class="dn-label" id="dn-time">10:18 AM</span>
+</div>
+
+<!-- ═══ PRO SHOP ═══ -->
+<div id="pro-shop">
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="logo-mark"></div>
+      <div class="brand-text">
+        <h1>Stanford Golf Course · Tee Sheet Pulse</h1>
+        <span>Pro Shop Mission Control</span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-clock" id="clock">10:18 AM</div>
+    </div>
+  </div>
+  <div class="view-tabs">
+    <button class="vtab active" onclick="setTab(&#39;dashboard&#39;)">📋 Live Tee Sheet</button>
+    <button class="vtab" onclick="setTab(&#39;map&#39;)">🗺 Course Board</button>
+    <button class="vtab" onclick="setTab(&#39;history&#39;)">📈 Player History</button>
+  </div>
+
+  <!-- DASHBOARD TAB -->
+  <div id="tab-dashboard">
+    <div class="dashboard">
+      <div class="stats-row" id="stats">
+    <div class="stat-card"><div class="s-label">On Course</div><div class="s-value">8</div><div class="s-sub">groups playing</div></div>
+    <div class="stat-card green"><div class="s-label">On Pace ✅</div><div class="s-value">6</div><div class="s-sub">within target</div></div>
+    <div class="stat-card red"><div class="s-label">Needs Attention</div><div class="s-value">2</div><div class="s-sub">watch / behind</div></div>
+    <div class="stat-card"><div class="s-label">Completed</div><div class="s-value">1</div><div class="s-sub">finished today</div></div>
+    <div class="stat-card amber"><div class="s-label">Trackers Out</div><div class="s-value">8</div><div class="s-sub">of 13 clips</div></div></div>
+      <div class="tracker-panel" id="tracker-panel">
+    <div class="tracker-head" onclick="trackerExpanded=!trackerExpanded;renderTrackers()">
+      <h2>🛰 Tracker Inventory — $9.50 GPS Clips</h2>
+      <span class="th-meta">
+        <span>8 out on course</span><span>3 ready</span>
+        <span style="color:var(--red);font-weight:700">⚠ 1 missing</span>
+        <span>▲</span></span></div>
+    <div class="tracker-grid"><div class="clip assigned">
+      <div class="clip-top"><span class="clip-id">Clip 01</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:78%;background:var(--green)"></span></span>78%</span></div>
+      <span class="clip-status">Assigned</span><span class="clip-sub">Park / Lee</span></div><div class="clip assigned">
+      <div class="clip-top"><span class="clip-id">Clip 02</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:64%;background:var(--green)"></span></span>64%</span></div>
+      <span class="clip-status">Assigned</span><span class="clip-sub">Sullivan</span></div><div class="clip assigned">
+      <div class="clip-top"><span class="clip-id">Clip 03</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:31%;background:var(--amber)"></span></span>31%</span></div>
+      <span class="clip-status">Assigned</span><span class="clip-sub">Davis Corp</span></div><div class="clip assigned">
+      <div class="clip-top"><span class="clip-id">Clip 04</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:88%;background:var(--green)"></span></span>88%</span></div>
+      <span class="clip-status">Assigned</span><span class="clip-sub">Johnson</span></div><div class="clip assigned">
+      <div class="clip-top"><span class="clip-id">Clip 05</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:55%;background:var(--green)"></span></span>55%</span></div>
+      <span class="clip-status">Assigned</span><span class="clip-sub">Park family</span></div><div class="clip assigned">
+      <div class="clip-top"><span class="clip-id">Clip 06</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:90%;background:var(--green)"></span></span>90%</span></div>
+      <span class="clip-status">Assigned</span><span class="clip-sub">Williams</span></div><div class="clip assigned">
+      <div class="clip-top"><span class="clip-id">Clip 07</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:41%;background:var(--amber)"></span></span>41%</span></div>
+      <span class="clip-status">Assigned</span><span class="clip-sub">Chen duo</span></div><div class="clip assigned">
+      <div class="clip-top"><span class="clip-id">Clip 08</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:70%;background:var(--green)"></span></span>70%</span></div>
+      <span class="clip-status">Assigned</span><span class="clip-sub">McKee / Russell</span></div><div class="clip ready">
+      <div class="clip-top"><span class="clip-id">Clip 09</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:96%;background:var(--green)"></span></span>96%</span></div>
+      <span class="clip-status">Ready</span><span class="clip-sub">Available</span></div><div class="clip charging">
+      <div class="clip-top"><span class="clip-id">Clip 10</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:100%;background:var(--green)"></span></span>100%</span></div>
+      <span class="clip-status">Charging</span><span class="clip-sub">Almost ready</span></div><div class="clip returned">
+      <div class="clip-top"><span class="clip-id">Clip 11</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:18%;background:var(--red)"></span></span>18%</span></div>
+      <span class="clip-status">Returned</span><span class="clip-sub">Queue for charge</span></div><div class="clip ready">
+      <div class="clip-top"><span class="clip-id">Clip 12</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:84%;background:var(--green)"></span></span>84%</span></div>
+      <span class="clip-status">Ready</span><span class="clip-sub">Available</span></div><div class="clip missing">
+      <div class="clip-top"><span class="clip-id">Clip 13</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:52%;background:var(--green)"></span></span>52%</span></div>
+      <span class="clip-status">⚠ Missing</span><span class="clip-sub">Last: Hole 14, 43m ago</span></div></div></div>
+      <div class="alerts" id="alerts"><div class="alert gap"><div class="alert-left"><span class="alert-badge">Gap Closing</span>
+        <div><div class="alert-title">Johnson ↔ Park family
+          <span class="src-tag live">📍 GPS Confirmed</span></div>
+          <div class="alert-body">Only <strong>0 min</strong> separation — standard interval is 10 min. Real position confirmed. Marshal to Hole 8.</div></div></div>
+        <button class="dispatch-btn" onclick="openDispatch(5,8,&#39;gap&#39;)">Dispatch Marshal</button></div><div class="alert cascade"><div class="alert-left"><span class="alert-badge">Behind · Cascade</span>
+      <div><div class="alert-title">Davis Corp — 28 min behind pace at Hole 7
+        <span class="src-tag stale">📍 Stale</span></div>
+        <div class="alert-body">At this pace: Johnson, Park family, Williams, Chen duo, McKee / Russell each risk ~22 min delay.</div></div></div>
+      <button class="dispatch-btn" onclick="openDispatch(4,7,&#39;behind&#39;)">Dispatch Marshal</button></div></div>
+      <div class="main-grid">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Live Tee Sheet</h2>
+            <span class="ph-meta" id="refresh-meta">Live · auto-refreshes every 30s</span>
+          </div>
+          <table class="tee">
+            <thead><tr>
+              <th style="width:78px">Time</th>
+              <th>Group</th>
+              <th style="width:62px">Risk</th>
+              <th style="width:120px">Tracker</th>
+              <th style="width:148px">Position</th>
+              <th style="width:116px">Pace</th>
+              <th style="width:160px;text-align:right">Actions</th>
+            </tr></thead>
+            <tbody id="tee-body"><tr class="">
+      <td><div class="tee-time">7:30 AM</div></td>
+      <td><div class="group-name">Henderson</div><div class="group-meta">4p · 18h · cart</div></td>
+      <td><span class="risk-badge low">Low</span></td>
+      <td><div class="tcell"><span class="tnone">Returned ✓</span></div></td><td><div class="status-cell"><strong>Completed</strong><span>🏅 Top 25% pace</span></div></td><td><span class="pace-pill done"><span class="pdot"></span>Completed</span></td>
+      <td><div class="action-btns"><button class="btn ghost" disabled="">Done</button></div></td></tr><tr class="row-on">
+      <td><div class="tee-time">7:40 AM</div></td>
+      <td><div class="group-name">Park / Lee</div><div class="group-meta">2p · 18h · cart</div></td>
+      <td><span class="risk-badge low">Low</span></td>
+      <td><div class="tcell"><span class="tclip">Clip 01</span>
+      <span class="src live"><span class="sdot"></span>📍 Live</span></div></td><td><div class="status-cell"><strong>Hole 12</strong><span>2h 38m elapsed</span></div></td><td><span class="pace-pill on"><span class="pdot"></span>On Pace</span></td>
+      <td><div class="action-btns"><button class="btn success" onclick="openCheckOut(2)">Check Out →</button></div></td></tr><tr class="row-on">
+      <td><div class="tee-time">7:50 AM</div></td>
+      <td><div class="group-name">Sullivan</div><div class="group-meta">4p · 18h · walking</div><div class="flags"><span class="flag ">Large Group</span></div></td>
+      <td><span class="risk-badge low">Low</span></td>
+      <td><div class="tcell"><span class="tclip">Clip 02</span>
+      <span class="src live"><span class="sdot"></span>📍 Live</span></div></td><td><div class="status-cell"><strong>Hole 10</strong><span>2h 28m elapsed</span></div></td><td><span class="pace-pill on"><span class="pdot"></span>On Pace</span></td>
+      <td><div class="action-btns"><button class="btn" onclick="logTurn(3)">Log Turn</button><button class="btn success" onclick="openCheckOut(3)">Check Out →</button></div></td></tr><tr class="row-behind">
+      <td><div class="tee-time">8:00 AM</div></td>
+      <td><div class="group-name">Davis Corp</div><div class="group-meta">4p · 18h · cart</div><div class="flags"><span class="flag ">Large Group</span></div></td>
+      <td><span class="risk-badge low">Low</span></td>
+      <td><div class="tcell"><span class="tclip">Clip 03</span>
+      <span class="src stale"><span class="sdot"></span>📍 Stale</span></div></td><td><div class="status-cell"><strong>Hole 7</strong><span>2h 18m elapsed</span></div></td><td><span class="pace-pill behind"><span class="pdot"></span>Behind</span></td>
+      <td><div class="action-btns"><button class="btn danger" onclick="openDispatch(4,7,&#39;behind&#39;)">Dispatch</button><button class="btn success" onclick="openCheckOut(4)">Check Out →</button></div></td></tr><tr class="cascade-warn"><td colspan="7">⚠ At this pace: Johnson, Park family, Williams, Chen duo, McKee / Russell each risk ~22 min delay.</td></tr><tr class="row-behind">
+      <td><div class="tee-time">8:10 AM</div></td>
+      <td><div class="group-name">Johnson</div><div class="group-meta">4p · 18h · cart</div><div class="flags"><span class="flag warn">First Timer</span><span class="flag warn">Rental Clubs</span><span class="flag ">Large Group</span></div></td>
+      <td><span class="risk-badge high">High</span></td>
+      <td><div class="tcell"><span class="tclip">Clip 04</span>
+      <span class="src live"><span class="sdot"></span>📍 Live</span></div></td><td><div class="status-cell"><strong>Hole 8</strong><span>2h 8m elapsed</span></div></td><td><span class="pace-pill behind"><span class="pdot"></span>Behind</span></td>
+      <td><div class="action-btns"><button class="btn danger" onclick="openDispatch(5,8,&#39;behind&#39;)">Dispatch</button><button class="btn" onclick="logTurn(5)">Log Turn</button><button class="btn success" onclick="openCheckOut(5)">Check Out →</button></div></td></tr><tr class="cascade-warn"><td colspan="7">⚠ At this pace: Park family, Williams, Chen duo, McKee / Russell each risk ~22 min delay.</td></tr><tr class="row-on">
+      <td><div class="tee-time">8:20 AM</div></td>
+      <td><div class="group-name">Park family</div><div class="group-meta">3p · 18h · cart</div></td>
+      <td><span class="risk-badge low">Low</span></td>
+      <td><div class="tcell"><span class="tclip">Clip 05</span>
+      <span class="src live"><span class="sdot"></span>📍 Live</span></div></td><td><div class="status-cell"><strong>Hole 9</strong><span>1h 58m elapsed</span></div></td><td><span class="pace-pill on"><span class="pdot"></span>On Pace</span></td>
+      <td><div class="action-btns"><button class="btn" onclick="logTurn(6)">Log Turn</button><button class="btn success" onclick="openCheckOut(6)">Check Out →</button></div></td></tr><tr class="row-on">
+      <td><div class="tee-time">8:30 AM</div></td>
+      <td><div class="group-name">Williams</div><div class="group-meta">4p · 18h · cart</div><div class="flags"><span class="flag ">Large Group</span></div></td>
+      <td><span class="risk-badge low">Low</span></td>
+      <td><div class="tcell"><span class="tclip">Clip 06</span>
+      <span class="src live"><span class="sdot"></span>📍 Live</span></div></td><td><div class="status-cell"><strong>Hole 8</strong><span>1h 48m elapsed</span></div></td><td><span class="pace-pill on"><span class="pdot"></span>On Pace</span></td>
+      <td><div class="action-btns"><button class="btn" onclick="logTurn(7)">Log Turn</button><button class="btn success" onclick="openCheckOut(7)">Check Out →</button></div></td></tr><tr class="row-on">
+      <td><div class="tee-time">8:40 AM</div></td>
+      <td><div class="group-name">Chen duo</div><div class="group-meta">2p · 9h · cart</div></td>
+      <td><span class="risk-badge low">Low</span></td>
+      <td><div class="tcell"><span class="tclip">Clip 07</span>
+      <span class="src live"><span class="sdot"></span>📍 Live</span></div></td><td><div class="status-cell"><strong>Hole 8</strong><span>1h 38m elapsed</span></div></td><td><span class="pace-pill on"><span class="pdot"></span>On Pace</span></td>
+      <td><div class="action-btns"><button class="btn" onclick="logTurn(8)">Log Turn</button><button class="btn success" onclick="openCheckOut(8)">Check Out →</button></div></td></tr><tr class="row-on">
+      <td><div class="tee-time">8:50 AM</div></td>
+      <td><div class="group-name">McKee / Russell</div><div class="group-meta">4p · 18h · walking</div><div class="flags"><span class="flag ">Large Group</span></div></td>
+      <td><span class="risk-badge low">Low</span></td>
+      <td><div class="tcell"><span class="tclip">Clip 08</span>
+      <span class="src live"><span class="sdot"></span>📍 Live</span></div></td><td><div class="status-cell"><strong>Hole 6</strong><span>1h 28m elapsed</span></div></td><td><span class="pace-pill on"><span class="pdot"></span>On Pace</span></td>
+      <td><div class="action-btns"><button class="btn success" onclick="openCheckOut(9)">Check Out →</button></div></td></tr><tr class="row-risk">
+      <td><div class="tee-time">10:28 AM</div></td>
+      <td><div class="group-name">Martinez</div><div class="group-meta">4p · 18h · cart</div><div class="flags"><span class="flag warn">Rental Clubs</span><span class="flag warn">First Timer</span><span class="flag ">Large Group</span><span class="flag warn">Late Arrival</span></div></td>
+      <td><span class="risk-badge high">High</span></td>
+      <td><div class="tcell"><span class="tnone">—</span></div></td><td><div class="status-cell"><strong>Checked In</strong><span>Tees in 10 min</span></div></td><td><span class="pace-pill idle"><span class="pdot"></span>—</span></td>
+      <td><div class="action-btns"><button class="btn primary" onclick="openCheckIn(10)">Check In</button></div></td></tr><tr class="">
+      <td><div class="tee-time">10:40 AM</div></td>
+      <td><div class="group-name">Tanaka guests</div><div class="group-meta">4p · 18h · cart</div><div class="flags"><span class="flag ">Large Group</span></div></td>
+      <td><span class="risk-badge low">Low</span></td>
+      <td><div class="tcell"><span class="tnone">—</span></div></td><td><div class="status-cell"><strong>Not Arrived</strong><span>—</span></div></td><td><span class="pace-pill idle"><span class="pdot"></span>—</span></td>
+      <td><div class="action-btns"><button class="btn primary" onclick="openCheckIn(11)">Check In</button></div></td></tr><tr class="">
+      <td><div class="tee-time">10:50 AM</div></td>
+      <td><div class="group-name">Kim / Patel</div><div class="group-meta">2p · 18h · walking</div></td>
+      <td><span class="risk-badge low">Low</span></td>
+      <td><div class="tcell"><span class="tnone">—</span></div></td><td><div class="status-cell"><strong>Not Arrived</strong><span>—</span></div></td><td><span class="pace-pill idle"><span class="pdot"></span>—</span></td>
+      <td><div class="action-btns"><button class="btn primary" onclick="openCheckIn(12)">Check In</button></div></td></tr></tbody>
+          </table>
+        </div>
+        <div class="sidebar">
+          <div class="panel">
+            <div class="panel-head"><h2>Teeing Off Soon</h2><span class="ph-meta">Next 15 min</span></div>
+            <div class="upcoming-list" id="upcoming"><div class="up-card high">
+      <div class="up-row"><span class="up-time">10:28 AM · in 10m</span><span class="risk-badge high">High</span></div>
+      <div class="up-name">Martinez · 4p · 18h · cart</div>
+      <div class="flags" style="margin-top:5px"><span class="flag warn">Rental Clubs</span><span class="flag warn">First Timer</span><span class="flag warn">Large Group</span><span class="flag warn">Late Arrival</span></div>
+      <div class="up-detail">Checked in · ready</div>
+      <div class="prompt-box"><span class="plbl">💬 Say at clip handover</span><em>"We'll send a heads-up to your phone if pace gets tight. Here's your tracker clip — clip it to your bag and return it when you're done."</em></div>
+      <div style="margin-top:8px"><button class="btn primary" style="width:100%" onclick="openCheckIn(10)">Edit Check-In</button></div>
+    </div></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h2>Dispatch Log</h2><span class="ph-meta" id="dlog-meta">0 today</span></div>
+            <div class="dlog-list" id="dlog"><div style="font-size:12px;color:var(--ink-3);padding:6px 0">No dispatches yet today.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP TAB -->
+  <div id="tab-map" class="hidden">
+    <div class="dashboard">
+      <div class="map-outer">
+        <div class="map-canvas-wrap panel">
+          <div class="panel-head">
+            <h2>⛳ Stanford Golf Course — Live Position</h2>
+            <span class="ph-meta" id="map-legend-row"></span>
+          </div>
+          <div id="map-svg-wrap" style="background:#0a1e0f;border-radius:0 0 8px 8px;overflow:hidden;min-height:460px"></div>
+        </div>
+        <div class="map-side">
+          <div class="panel">
+            <div class="panel-head"><h2>Active Groups</h2><span class="ph-meta" id="map-group-count"></span></div>
+            <div id="map-groups-list" style="padding:10px 12px;display:flex;flex-direction:column;gap:8px;max-height:520px;overflow-y:auto"></div>
+          </div>
+          <div class="panel" style="margin-top:12px">
+            <div class="panel-head"><h2>Legend</h2></div>
+            <div style="padding:12px 14px;display:flex;flex-direction:column;gap:7px;font-size:12px">
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:#2a7a48;flex-shrink:0;display:inline-block"></span>On Pace</div>
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:#a85f00;flex-shrink:0;display:inline-block"></span>Watch</div>
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:#b0241c;flex-shrink:0;display:inline-block"></span>Behind</div>
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:#3a5f40;flex-shrink:0;display:inline-block"></span>Empty hole</div>
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:#4a7a88;flex-shrink:0;display:inline-block"></span>Completed</div>
+              <div style="margin-top:4px;padding-top:8px;border-top:1px solid var(--line-2);color:var(--ink-3);line-height:1.6">📍 Live = tracker GPS active<br>🕐 Est = time-based projection</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTORY TAB -->
+  <div id="tab-history" class="hidden">
+    <div class="dashboard">
+      <div class="panel">
+        <div class="panel-head"><h2>Player Pace History</h2><span class="ph-meta">Informs pre-round risk score</span></div>
+        <div id="history-board" style="padding:14px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GOLFER PAGE ═══ -->
+<div id="golfer-page" class="golfer-page hidden">
+  <div class="golfer-view-wrap">
+    <div id="golfer-content"></div>
+    <div class="g-footer">Stanford Golf Course · pace tracker · no app needed<br>Questions? Visit the pro shop.</div>
+  </div>
+  <div class="g-demo"><div class="g-demo-row" id="g-demo-inner"></div></div>
+</div>
+
+<div id="modal-root"></div>
+
+<script>
+/* ══════════════════════════════════════════════
+   PACE MATRIX  (spec defaults)
+══════════════════════════════════════════════ */
+const PACE = {
+  '18-cart':{total:255,per:14.2}, '18-walking':{total:285,per:15.8},
+  '9-cart':{total:120,per:13.3},  '9-walking':{total:135,per:15.0},
+};
+
+let NOW = new Date(); NOW.setHours(10,18,0,0);
+
+const fmt  = d => { let h=d.getHours(),m=d.getMinutes(),ap=h<12?'AM':'PM'; h=h%12||12; return `${h}:${String(m).padStart(2,'0')} ${ap}`; };
+const addM = (d,m) => new Date(d.getTime()+m*60000);
+const dMin = (a,b) => Math.round((a-b)/60000);
+const td   = (h,m) => { const d=new Date(NOW); d.setHours(h,m,0,0); return d; };
+
+/* ══════════════════════════════════════════════
+   TRACKER INVENTORY  — $9.50 hardware clips
+   (ESP32-C6 + GPS + e-ink display + buzzer)
+══════════════════════════════════════════════ */
+// source: 'live' = active GPS fix  |  'stale' = no update >5 min  |  null = no tracker
+const TRACKERS = [
+  {id:'01',battery:78, status:'assigned',group:2, source:'live'},
+  {id:'02',battery:64, status:'assigned',group:3, source:'live'},
+  {id:'03',battery:31, status:'assigned',group:4, source:'stale', lastHole:7,  staleMin:9},
+  {id:'04',battery:88, status:'assigned',group:5, source:'live'},
+  {id:'05',battery:55, status:'assigned',group:6, source:'live'},
+  {id:'06',battery:90, status:'assigned',group:7, source:'live'},
+  {id:'07',battery:41, status:'assigned',group:8, source:'live'},
+  {id:'08',battery:70, status:'assigned',group:9, source:'live'},
+  {id:'09',battery:96, status:'ready'},
+  {id:'10',battery:100,status:'charging'},
+  {id:'11',battery:18, status:'returned'},   // Henderson's — needs charge
+  {id:'12',battery:84, status:'ready'},
+  {id:'13',battery:52, status:'missing', lastHole:14, staleMin:43},  // not returned — flagged
+];
+const trackerById  = id  => TRACKERS.find(t=>t.id===id);
+const trackerForGrp= gid => TRACKERS.find(t=>t.group===gid && t.status==='assigned');
+
+/* ══════════════════════════════════════════════
+   GROUPS  — realistic Stanford morning
+══════════════════════════════════════════════ */
+const GROUPS = [
+  {id:1, teeOff:td(7,30), name:'Henderson',      players:4, holes:18, mode:'cart',    flags:[],                                                         status:'completed', actualPer:14.0, finishBadge:'top', checkedInAt:td(7,18)},
+  {id:2, teeOff:td(7,40), name:'Park / Lee',     players:2, holes:18, mode:'cart',    flags:[],                                                         status:'on-course', actualPer:14.2, checkedInAt:td(7,25)},
+  {id:3, teeOff:td(7,50), name:'Sullivan',       players:4, holes:18, mode:'walking', flags:['Large Group'],                                             status:'on-course', actualPer:15.6, checkedInAt:td(7,35)},
+  {id:4, teeOff:td(8, 0), name:'Davis Corp',     players:4, holes:18, mode:'cart',    flags:['Large Group'],                                             status:'on-course', actualPer:18.4, checkedInAt:td(7,40)},
+  {id:5, teeOff:td(8,10), name:'Johnson',        players:4, holes:18, mode:'cart',    flags:['First Timer','Rental Clubs','Large Group'],                status:'on-course', actualPer:16.8, checkedInAt:td(7,50), isFirstTimer:true, hasRental:true},
+  {id:6, teeOff:td(8,20), name:'Park family',    players:3, holes:18, mode:'cart',    flags:[],                                                         status:'on-course', actualPer:14.5, checkedInAt:td(8, 5)},
+  {id:7, teeOff:td(8,30), name:'Williams',       players:4, holes:18, mode:'cart',    flags:['Large Group'],                                             status:'on-course', actualPer:14.3, checkedInAt:td(8,16), repeat:true},
+  {id:8, teeOff:td(8,40), name:'Chen duo',       players:2, holes:9,  mode:'cart',    flags:[],                                                         status:'on-course', actualPer:13.0, checkedInAt:td(8,28)},
+  {id:9, teeOff:td(8,50), name:'McKee / Russell',players:4, holes:18, mode:'walking', flags:['Large Group'],                                             status:'on-course', actualPer:15.8, checkedInAt:td(8,44)},
+  {id:10,teeOff:td(10,28),name:'Martinez',       players:4, holes:18, mode:'cart',    flags:['Rental Clubs','First Timer','Large Group','Late Arrival'], status:'checked-in', isFirstTimer:true, hasRental:true, checkedInAt:td(10,24)},
+  {id:11,teeOff:td(10,40),name:'Tanaka guests',  players:4, holes:18, mode:'cart',    flags:['Large Group'],                                             status:'pending'},
+  {id:12,teeOff:td(10,50),name:'Kim / Patel',    players:2, holes:18, mode:'walking', flags:[],                                                         status:'pending'},
+];
+
+const PLAYERS = [
+  {name:'Henderson, R.',type:'member', rounds:42,avgDelta:-1.2,consistency:92},
+  {name:'Park, J.',     type:'member', rounds:31,avgDelta: 0.4,consistency:88},
+  {name:'Sullivan, T.', type:'member', rounds:18,avgDelta: 1.1,consistency:74},
+  {name:'Davis, K.',    type:'guest',  rounds: 4,avgDelta: 3.4,consistency:62},
+  {name:'Johnson, M.',  type:'student',rounds: 3,avgDelta: 4.2,consistency:44},
+  {name:'Williams, A.', type:'member', rounds:55,avgDelta:-0.8,consistency:95},
+  {name:'Chen, W.',     type:'member', rounds:29,avgDelta: 0.6,consistency:85},
+  {name:'McKee, S.',    type:'member', rounds: 9,avgDelta: 1.4,consistency:70},
+  {name:'Martinez, L.', type:'guest',  rounds: 1,avgDelta: 0.0,consistency: 0},
+];
+
+const dispatchLog = [];
+let demoOverride  = {};   // {groupId: 'on'|'watch'|'behind'}
+let pendingClip   = null;
+let ciStep        = 1;
+let coReturnSel   = null;
+let coBattSel     = null;
+let trackerExpanded = true;
+
+/* ══════════════════════════════════════════════
+   DERIVED
+══════════════════════════════════════════════ */
+const paceProf  = g => PACE[`${g.holes}-${g.mode}`];
+const riskScore = g => {
+  let s=0;
+  if (g.flags.includes('First Timer'))  s+=2;
+  if (g.flags.includes('Rental Clubs')) s+=2;
+  if (g.players===4)                    s+=1;
+  if (g.flags.includes('Late Arrival')) s+=2;
+  if (g.mode==='walking')               s+=1;
+  return s;
+};
+const riskLvl   = g => { const s=riskScore(g); return s>=5?'high':s>=3?'med':'low'; };
+const riskLbl   = l => l==='high'?'High':l==='med'?'Med':'Low';
+
+const projHole  = (g,now=NOW) => { if(now<g.teeOff) return 0; const p=paceProf(g); return Math.max(1,Math.min(g.holes,Math.floor(dMin(now,g.teeOff)/p.per)+1)); };
+const actHole   = (g,now=NOW) => { if(g.status==='completed') return g.holes; if(now<g.teeOff||!g.actualPer) return 0; return Math.max(1,Math.min(g.holes,Math.floor(dMin(now,g.teeOff)/g.actualPer)+1)); };
+const minsBehind= (g,now=NOW) => { if(!g.actualPer||g.status==='pending'||g.status==='checked-in') return 0; const p=paceProf(g); return Math.max(0,(projHole(g,now)-actHole(g,now))*p.per); };
+
+const paceStatus= (g,now=NOW) => {
+  if (demoOverride[g.id]) return demoOverride[g.id];
+  if (g.status==='completed')  return 'done';
+  if (g.status!=='on-course')  return 'idle';
+  const el=dMin(now,g.teeOff); if(el<=0) return 'idle';
+  const pct=minsBehind(g,now)/el;
+  return pct>=0.20?'behind':pct>=0.10?'watch':'on';
+};
+
+// Position: sourced only from hardware tracker (never from phone)
+function trackerSource(g){
+  const t=trackerForGrp(g.id);
+  if (!t) return 'est';
+  return t.source==='live'?'live':t.source==='stale'?'stale':'est';
+}
+function position(g){
+  const t=trackerForGrp(g.id);
+  const src=trackerSource(g);
+  if (src==='live')  return {hole:actHole(g),  src:'live'};
+  if (src==='stale') return {hole:t.lastHole,  src:'stale', staleMin:t.staleMin};
+  return                     {hole:projHole(g), src:'est'};
+}
+
+const gapMin = (a,b,now=NOW) => {
+  if (a.status!=='on-course'||b.status!=='on-course') return null;
+  if (demoOverride.gapPair && demoOverride.gapPair[0]===a.id) return demoOverride.gapPair[1];
+  return Math.max(0,dMin(b.teeOff,a.teeOff)-(minsBehind(a,now)-minsBehind(b,now)));
+};
+// tighter threshold when both have live GPS
+const gapThr = (a,b) => (trackerSource(a)==='live'&&trackerSource(b)==='live') ? 5 : 6;
+
+/* ══════════════════════════════════════════════
+   VIEW ROUTING
+══════════════════════════════════════════════ */
+let currentMainView='pro', currentTab='dashboard', golferGroupId=4;
+
+function setMainView(v){
+  currentMainView=v;
+  document.getElementById('pro-shop').classList.toggle('hidden',v!=='pro');
+  document.getElementById('golfer-page').classList.toggle('hidden',v!=='golfer');
+  document.getElementById('dn-cur').textContent = v==='golfer'?'Golfer Pace Page':'Pro Shop Dashboard';
+  document.getElementById('dn-pro').classList.toggle('dn-active',v==='pro');
+  document.getElementById('dn-golfer').classList.toggle('dn-active',v==='golfer');
+  document.getElementById('dn-group').classList.toggle('hidden',v!=='golfer');
+  if (v==='golfer') renderGolfer(); else renderAll();
+}
+function setTab(t){
+  currentTab=t;
+  ['dashboard','map','history'].forEach(x=>document.getElementById('tab-'+x).classList.toggle('hidden',x!==t));
+  document.querySelectorAll('.vtab').forEach((b,i)=>b.classList.toggle('active',['dashboard','map','history'][i]===t));
+  if(t==='map') renderMap(); if(t==='history') renderHistory(); if(t==='dashboard') renderAll();
+}
+
+/* ══════════════════════════════════════════════
+   RENDER — DASHBOARD
+══════════════════════════════════════════════ */
+function renderAll(){ renderClock(); renderStats(); renderTrackers(); renderAlerts(); renderTeeSheet(); renderUpcoming(); renderDlog(); populateGroupSelect(); }
+function renderClock(){ const t=fmt(NOW); document.getElementById('clock').textContent=t; document.getElementById('dn-time').textContent=t; }
+
+function renderStats(){
+  let onCourse=0,onPace=0,attn=0,done=0;
+  GROUPS.forEach(g=>{
+    if(g.status==='completed') done++;
+    else if(g.status==='on-course'){ onCourse++; const ps=paceStatus(g); if(ps==='on') onPace++; else if(ps==='watch'||ps==='behind') attn++; }
+  });
+  document.getElementById('stats').innerHTML=`
+    <div class="stat-card"><div class="s-label">On Course</div><div class="s-value">${onCourse}</div><div class="s-sub">groups playing</div></div>
+    <div class="stat-card green"><div class="s-label">On Pace ✅</div><div class="s-value">${onPace}</div><div class="s-sub">within target</div></div>
+    <div class="stat-card red"><div class="s-label">Needs Attention</div><div class="s-value">${attn}</div><div class="s-sub">watch / behind</div></div>
+    <div class="stat-card"><div class="s-label">Completed</div><div class="s-value">${done}</div><div class="s-sub">finished today</div></div>
+    <div class="stat-card amber"><div class="s-label">Trackers Out</div><div class="s-value">${TRACKERS.filter(t=>t.status==='assigned').length}</div><div class="s-sub">of ${TRACKERS.length} clips</div></div>`;
+}
+
+function battCol(b){ return b<=20?'var(--red)':b<=45?'var(--amber)':'var(--green)'; }
+function renderTrackers(){
+  const cnt={ready:0,assigned:0,charging:0,returned:0,missing:0};
+  TRACKERS.forEach(t=>cnt[t.status]++);
+  const cells=TRACKERS.map(t=>{
+    const grp=t.group?GROUPS.find(g=>g.id===t.group):null;
+    const stxt=t.status==='assigned'?'Assigned':t.status==='charging'?'Charging':t.status==='ready'?'Ready':t.status==='returned'?'Returned':'⚠ Missing';
+    const sub=t.status==='assigned'&&grp?grp.name:t.status==='missing'?`Last: Hole ${t.lastHole}, ${t.staleMin}m ago`:t.status==='returned'?'Queue for charge':t.status==='charging'?'Almost ready':'Available';
+    return `<div class="clip ${t.status}">
+      <div class="clip-top"><span class="clip-id">Clip ${t.id}</span>
+        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:${t.battery}%;background:${battCol(t.battery)}"></span></span>${t.battery}%</span></div>
+      <span class="clip-status">${stxt}</span><span class="clip-sub">${sub}</span></div>`;
+  }).join('');
+  document.getElementById('tracker-panel').innerHTML=`
+    <div class="tracker-head" onclick="trackerExpanded=!trackerExpanded;renderTrackers()">
+      <h2>🛰 Tracker Inventory — $9.50 GPS Clips</h2>
+      <span class="th-meta">
+        <span>${cnt.assigned} out on course</span><span>${cnt.ready+cnt.charging} ready</span>
+        ${cnt.missing?`<span style="color:var(--red);font-weight:700">⚠ ${cnt.missing} missing</span>`:''}
+        <span>${trackerExpanded?'▲':'▼'}</span></span></div>
+    ${trackerExpanded?`<div class="tracker-grid">${cells}</div>`:''}`;
+}
+
+function renderAlerts(){
+  const items=[];
+  const onC=GROUPS.filter(g=>g.status==='on-course').sort((a,b)=>a.teeOff-b.teeOff);
+  for(let i=0;i<onC.length-1;i++){
+    const a=onC[i],b=onC[i+1],gap=gapMin(a,b);
+    if(gap!==null&&gap<gapThr(a,b)){
+      const pa=position(a),srcA=pa.src,srcB=trackerSource(b);
+      const live=srcA==='live'&&srcB==='live';
+      items.push(`<div class="alert gap"><div class="alert-left"><span class="alert-badge">Gap Closing</span>
+        <div><div class="alert-title">${a.name} ↔ ${b.name}
+          <span class="src-tag ${live?'live':'est'}">${live?'📍 GPS Confirmed':'🕐 Estimated'}</span></div>
+          <div class="alert-body">Only <strong>${gap} min</strong> separation — standard interval is 10 min.${live?' Real position confirmed.':' Send marshal to verify.'} Marshal to Hole ${pa.hole}.</div></div></div>
+        <button class="dispatch-btn" onclick="openDispatch(${a.id},${pa.hole},'gap')">Dispatch Marshal</button></div>`);
+    }
+  }
+  const behind=onC.filter(g=>paceStatus(g)==='behind');
+  if(behind.length){
+    const slow=behind.reduce((p,c)=>minsBehind(c)>minsBehind(p)?c:p);
+    const bMin=Math.round(minsBehind(slow))||22;
+    const idx=onC.findIndex(g=>g.id===slow.id),down=onC.slice(idx+1);
+    const pos=position(slow);
+    items.push(`<div class="alert cascade"><div class="alert-left"><span class="alert-badge">Behind · Cascade</span>
+      <div><div class="alert-title">${slow.name} — ${bMin} min behind pace at Hole ${pos.hole}
+        <span class="src-tag ${pos.src}">${pos.src==='live'?'📍 Live':pos.src==='stale'?'📍 Stale':'🕐 Est'}</span></div>
+        <div class="alert-body">At this pace: ${down.length?down.map(g=>g.name).join(', ')+` each risk ~${Math.round(bMin*.8)} min delay.`:'No downstream groups.'}</div></div></div>
+      <button class="dispatch-btn" onclick="openDispatch(${slow.id},${pos.hole},'behind')">Dispatch Marshal</button></div>`);
+  }
+  document.getElementById('alerts').innerHTML=items.join('');
+}
+
+function renderTeeSheet(){
+  const onC=GROUPS.filter(g=>g.status==='on-course').sort((a,b)=>a.teeOff-b.teeOff);
+  const behindIds=new Set(onC.filter(g=>paceStatus(g)==='behind').map(g=>g.id));
+  const rows=GROUPS.map(g=>{
+    const lvl=riskLvl(g),ps=paceStatus(g),bMin=Math.round(minsBehind(g)),el=g.status==='on-course'?dMin(NOW,g.teeOff):0;
+    const fh=g.flags.map(f=>`<span class="flag ${['Late Arrival','First Timer','Rental Clubs'].includes(f)?'warn':''}">${f}</span>`).join('');
+    // tracker cell
+    const t=trackerForGrp(g.id);
+    let tc='';
+    if(g.status==='completed') tc=`<div class="tcell"><span class="tnone">Returned ✓</span></div>`;
+    else if(g.status==='pending'||g.status==='checked-in') tc=`<div class="tcell"><span class="tnone">—</span></div>`;
+    else { const src=trackerSource(g); tc=`<div class="tcell"><span class="tclip">${t?'Clip '+t.id:'—'}</span>
+      <span class="src ${src}"><span class="sdot"></span>${src==='live'?'📍 Live':src==='stale'?'📍 Stale':'🕐 Est'}</span></div>`; }
+    // position cell
+    let pc='';
+    if(g.status==='pending') pc=`<div class="status-cell"><strong>Not Arrived</strong><span>—</span></div>`;
+    else if(g.status==='checked-in') pc=`<div class="status-cell"><strong>Checked In</strong><span>Tees in ${dMin(g.teeOff,NOW)} min</span></div>`;
+    else if(g.status==='completed') pc=`<div class="status-cell"><strong>Completed</strong><span>${g.finishBadge==='top'?'🏅 Top 25% pace':'Finished'}</span></div>`;
+    else { const pos=position(g); pc=`<div class="status-cell"><strong>Hole ${pos.hole}</strong><span>${Math.floor(el/60)}h ${el%60}m elapsed</span></div>`; }
+    // pace pill
+    let pp='';
+    if(g.status==='completed') pp=`<span class="pace-pill done"><span class="pdot"></span>Completed</span>`;
+    else if(g.status!=='on-course') pp=`<span class="pace-pill idle"><span class="pdot"></span>—</span>`;
+    else if(ps==='behind') pp=`<span class="pace-pill behind"><span class="pdot"></span>Behind</span>`;
+    else if(ps==='watch')  pp=`<span class="pace-pill watch"><span class="pdot"></span>Watch</span>`;
+    else                   pp=`<span class="pace-pill on"><span class="pdot"></span>On Pace</span>`;
+    // actions
+    let ac='';
+    if(g.status==='pending') ac=`<button class="btn primary" onclick="openCheckIn(${g.id})">Check In</button>`;
+    else if(g.status==='checked-in') ac=`<button class="btn primary" onclick="openCheckIn(${g.id})">Check In</button>`;
+    else if(g.status==='completed') ac=`<button class="btn ghost" disabled>Done</button>`;
+    else {
+      const pos=position(g),parts=[];
+      if(ps==='behind'||ps==='watch') parts.push(`<button class="btn danger" onclick="openDispatch(${g.id},${pos.hole},'behind')">Dispatch</button>`);
+      if(pos.hole>=8&&pos.hole<=11&&!g.turnLogged) parts.push(`<button class="btn" onclick="logTurn(${g.id})">Log Turn</button>`);
+      parts.push(`<button class="btn success" onclick="openCheckOut(${g.id})">Check Out →</button>`);
+      ac=parts.join('');
+    }
+    const rc=behindIds.has(g.id)?'row-behind':(ps==='watch'?'row-watch':(g.status==='on-course'&&ps==='on'?'row-on':(lvl==='high'&&g.status!=='on-course'?'row-risk':'')));
+    let html=`<tr class="${rc}">
+      <td><div class="tee-time">${fmt(g.teeOff)}</div></td>
+      <td><div class="group-name">${g.name}</div><div class="group-meta">${g.players}p · ${g.holes}h · ${g.mode}</div>${fh?`<div class="flags">${fh}</div>`:''}</td>
+      <td><span class="risk-badge ${lvl}">${riskLbl(lvl)}</span></td>
+      <td>${tc}</td><td>${pc}</td><td>${pp}</td>
+      <td><div class="action-btns">${ac}</div></td></tr>`;
+    if(behindIds.has(g.id)){const idx=onC.findIndex(x=>x.id===g.id),dn=onC.slice(idx+1);if(dn.length) html+=`<tr class="cascade-warn"><td colspan="7">⚠ At this pace: ${dn.map(x=>x.name).join(', ')} each risk ~${Math.round((bMin||22)*.8)} min delay.</td></tr>`;}
+    return html;
+  }).join('');
+  document.getElementById('tee-body').innerHTML=rows;
+}
+
+function renderUpcoming(){
+  const up=GROUPS.filter(g=>{if(g.status==='completed'||g.status==='on-course') return false; const m=dMin(g.teeOff,NOW); return m>=-2&&m<=15;}).sort((a,b)=>a.teeOff-b.teeOff);
+  const root=document.getElementById('upcoming');
+  if(!up.length){root.innerHTML=`<div style="font-size:12px;color:var(--ink-3);padding:8px 0">No groups teeing off in the next 15 min.</div>`;return;}
+  root.innerHTML=up.map(g=>{
+    const lvl=riskLvl(g),m=dMin(g.teeOff,NOW);
+    const fh=g.flags.map(f=>`<span class="flag warn">${f}</span>`).join('');
+    const showPrompt=lvl!=='low';
+    const script=lvl==='high'
+      ?`"We'll send a heads-up to your phone if pace gets tight. Here's your tracker clip — clip it to your bag and return it when you're done."`
+      :`"Here's your tracker clip. We'll text a pace update at tee-off."`;
+    return `<div class="up-card ${lvl}">
+      <div class="up-row"><span class="up-time">${fmt(g.teeOff)} · in ${m}m</span><span class="risk-badge ${lvl}">${riskLbl(lvl)}</span></div>
+      <div class="up-name">${g.name} · ${g.players}p · ${g.holes}h · ${g.mode}</div>
+      ${fh?`<div class="flags" style="margin-top:5px">${fh}</div>`:''}
+      <div class="up-detail">${g.status==='pending'?'Not arrived yet':'Checked in · ready'}</div>
+      ${showPrompt?`<div class="prompt-box"><span class="plbl">💬 Say at clip handover</span><em>${script}</em></div>`:''}
+      <div style="margin-top:8px"><button class="btn primary" style="width:100%" onclick="openCheckIn(${g.id})">${g.status==='checked-in'?'Edit Check-In':'Check In + Assign Tracker →'}</button></div>
+    </div>`;
+  }).join('');
+}
+
+function renderDlog(){
+  document.getElementById('dlog-meta').textContent=`${dispatchLog.length} today`;
+  const root=document.getElementById('dlog');
+  if(!dispatchLog.length){root.innerHTML=`<div style="font-size:12px;color:var(--ink-3);padding:6px 0">No dispatches yet today.</div>`;return;}
+  root.innerHTML=[...dispatchLog].reverse().map(d=>`<div class="dlog-item"><span class="dl-who">${d.group}</span><span class="dl-time">${fmt(d.at)} · Hole ${d.hole}</span><div class="dl-script">📻 ${d.script}</div></div>`).join('');
+}
+
+function renderMap(){
+  /* ── Stanford Golf Course — holes carefully re-traced from official routing diagram
+     Real scorecard: Par 70, 6,778 yards (Cardinal tees) — fetched from GolfLink
+     Routing: Clubhouse bottom-right → sweeps UP-LEFT into hills (holes 1-9) →
+              back nine weaves right through center → returns bottom-right (18)
+     Holes 3,4,8,14,17 = Par 3 | Holes 1,7,16 = Par 5 | Rest = Par 4        ── */
+  const HOLES=[
+    {h:1,  x:868,y:322,par:5,yds:521,note:'Tee over Serra Blvd'},
+    {h:2,  x:468,y:120,par:4,yds:483,note:'Long par 4 into hills'},
+    {h:3,  x:240,y:72, par:3,yds:215,note:'Par 3'},
+    {h:4,  x:98, y:135,par:3,yds:168,note:'Par 3 — back-to-back'},
+    {h:5,  x:128,y:162,par:4,yds:447,note:''},
+    {h:6,  x:338,y:175,par:4,yds:429,note:''},
+    {h:7,  x:282,y:242,par:5,yds:539,note:'Longest hole'},
+    {h:8,  x:85, y:245,par:3,yds:172,note:'Par 3'},
+    {h:9,  x:192,y:278,par:4,yds:365,note:'Turn'},
+    {h:10, x:418,y:355,par:4,yds:440,note:'Start of back nine'},
+    {h:11, x:582,y:235,par:4,yds:351,note:'Panoramic views'},
+    {h:12, x:748,y:208,par:4,yds:473,note:'Signature — three trees'},
+    {h:13, x:582,y:170,par:4,yds:424,note:''},
+    {h:14, x:388,y:235,par:3,yds:197,note:'Par 3 — steep bank'},
+    {h:15, x:265,y:325,par:4,yds:361,note:''},
+    {h:16, x:148,y:452,par:5,yds:500,note:'Long par 5 sweeping right'},
+    {h:17, x:452,y:468,par:3,yds:185,note:'Par 3'},
+    {h:18, x:638,y:425,par:4,yds:457,note:'Panoramic views — back to clubhouse'},
+  ];
+
+  const onC=GROUPS.filter(g=>g.status==='on-course'||g.status==='completed').sort((a,b)=>a.teeOff-b.teeOff);
+  const occup={};
+  onC.forEach(g=>{ const pos=position(g),h=Math.max(1,Math.min(18,pos.hole)); if(!occup[h]) occup[h]={g,ps:paceStatus(g),pos}; });
+
+  const psCol =ps=>ps==='behind'?'#b0241c':ps==='watch'?'#a85f00':ps==='done'?'#4a7a88':'#2a7a48';
+  const psRing=ps=>ps==='behind'?'rgba(176,36,28,.38)':ps==='watch'?'rgba(168,95,0,.32)':ps==='done'?'rgba(74,122,136,.28)':'rgba(42,122,72,.32)';
+  const psTxt =ps=>ps==='behind'?'Behind':ps==='watch'?'Watch':ps==='done'?'Done':'On Pace';
+
+  // ── Fairway corridors — thick rough layer + thinner fairway, quadratic curve for natural look ──
+  let fw='';
+  for(let i=0;i<HOLES.length-1;i++){
+    const a=HOLES[i],b=HOLES[i+1];
+    const dx=b.x-a.x,dy=b.y-a.y,len=Math.sqrt(dx*dx+dy*dy);
+    // curve control point offset perpendicular to segment (alternates side per hole)
+    const side=(i%2===0?1:-1)*0.12;
+    const cx=(a.x+b.x)/2 + dy*side, cy=(a.y+b.y)/2 - dx*side;
+    const wOuter=len>300?32:len>180?26:20, wInner=len>300?18:len>180?14:10;
+    fw+=`<path d="M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}" fill="none" stroke="#163b1c" stroke-width="${wOuter}" stroke-linecap="round" opacity="0.8"/>`;
+    fw+=`<path d="M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}" fill="none" stroke="#1e5228" stroke-width="${wInner}" stroke-linecap="round" opacity="0.95"/>`;
+    // mowing stripe highlight on longer holes
+    if(len>220) fw+=`<path d="M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}" fill="none" stroke="rgba(255,255,255,.025)" stroke-width="${Math.round(wInner/3)}" stroke-linecap="round"/>`;
+  }
+
+  // ── Routing guide line ──
+  const rpts=HOLES.map(h=>`${h.x},${h.y}`).join(' ');
+
+  // ── Direction arrows (every other segment, midpoint) ──
+  let arrs='';
+  for(let i=0;i<HOLES.length-1;i+=2){
+    const a=HOLES[i],b=HOLES[i+1];
+    const mx=a.x+(b.x-a.x)*.52,my=a.y+(b.y-a.y)*.52;
+    const ang=Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI;
+    arrs+=`<polygon points="-6,-3.5 6,0 -6,3.5" fill="rgba(255,255,255,.22)" transform="translate(${mx},${my}) rotate(${ang})"/>`;
+  }
+
+  // ── Par-3 tee diamond markers ──
+  let p3m='';
+  HOLES.filter(h=>h.par===3).forEach(h=>{
+    p3m+=`<rect x="${h.x-5}" y="${h.y-5}" width="10" height="10" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1" transform="rotate(45,${h.x},${h.y})"/>`;
+  });
+
+  // ── Par-5 outer ring markers ──
+  let p5m='';
+  HOLES.filter(h=>h.par===5).forEach(h=>{
+    p5m+=`<circle cx="${h.x}" cy="${h.y}" r="20" fill="none" stroke="rgba(255,220,100,.18)" stroke-width="1.5" stroke-dasharray="3 3"/>`;
+  });
+
+  // ── Hole markers — empty holes first, occupied on top ──
+  let mEmpty='', mOccup='';
+  HOLES.forEach(hd=>{
+    const occ=occup[hd.h];
+    if(!occ){
+      mEmpty+=`<g style="cursor:pointer" onclick="mapHoleClick(${hd.h},event)">
+        <circle cx="${hd.x}" cy="${hd.y}" r="12" fill="#1c4824" stroke="rgba(255,255,255,.18)" stroke-width="1.2"/>
+        <text x="${hd.x}" y="${hd.y}" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,.5)" font-size="8" font-weight="600" font-family="DM Mono,monospace">${hd.h}</text>
+      </g>`;
+    } else {
+      const col=psCol(occ.ps),ring=psRing(occ.ps);
+      const init=occ.g.name.replace(/[^a-zA-Z0-9\s\/]/g,'').split(/[\s\/]+/).filter(Boolean).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+      const pulse=occ.ps==='behind'?`<circle cx="${hd.x}" cy="${hd.y}" r="23" fill="none" stroke="${col}" stroke-width="1.8" stroke-dasharray="5 3" opacity=".65"><animateTransform attributeName="transform" type="rotate" from="0 ${hd.x} ${hd.y}" to="360 ${hd.x} ${hd.y}" dur="7s" repeatCount="indefinite"/></circle>`:
+                 occ.ps==='watch'?`<circle cx="${hd.x}" cy="${hd.y}" r="21" fill="none" stroke="${col}" stroke-width="1" opacity=".4"/>`:'' ;
+      mOccup+=`<g style="cursor:pointer" onclick="mapHoleClick(${hd.h},event)">
+        <circle cx="${hd.x}" cy="${hd.y}" r="27" fill="${ring}"/>
+        ${pulse}
+        <circle cx="${hd.x}" cy="${hd.y}" r="17" fill="${col}" stroke="rgba(255,255,255,.3)" stroke-width="1.5" filter="url(#mglow)"/>
+        <text x="${hd.x}" y="${hd.y}" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,.6)" font-size="7.5" font-weight="700" font-family="DM Mono,monospace">${hd.h}</text>
+        <circle cx="${hd.x+14}" cy="${hd.y-14}" r="9" fill="white" stroke="${col}" stroke-width="2" filter="url(#mglow)"/>
+        <text x="${hd.x+14}" y="${hd.y-14}" text-anchor="middle" dominant-baseline="central" fill="${col}" font-size="7" font-weight="800" font-family="DM Sans,sans-serif">${init}</text>
+      </g>`;
+    }
+  });
+
+  // ── Signature hole callout (hole 12 — three trees) ──
+  const h12=HOLES[11];
+  const sig=`<g opacity="0.55">
+    <line x1="${h12.x}" y1="${h12.y+18}" x2="${h12.x}" y2="${h12.y+30}" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+    <rect x="${h12.x-36}" y="${h12.y+30}" width="72" height="13" rx="3" fill="rgba(15,40,20,.85)" stroke="rgba(255,255,255,.15)" stroke-width=".8"/>
+    <text x="${h12.x}" y="${h12.y+39}" text-anchor="middle" fill="rgba(200,230,200,.7)" font-size="7.5" font-family="DM Sans,sans-serif">Three trees · H.12</text>
+  </g>`;
+
+  // ── Creek hint (runs across center — Stanford's meandering creek) ──
+  const creek=`<path d="M60,310 C120,290 180,310 240,295 C310,278 360,295 420,310 C480,325 520,305 580,295" fill="none" stroke="rgba(80,140,200,.18)" stroke-width="4" stroke-linecap="round"/>`;
+
+  const H1=HOLES[0],H9=HOLES[8],H18=HOLES[17];
+
+  const svgHtml=`<div style="position:relative">
+  <svg viewBox="0 0 940 510" style="width:100%;display:block" id="map-svg">
+    <defs>
+      <filter id="mglow" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <radialGradient id="bgGrd" cx="52%" cy="48%" r="58%">
+        <stop offset="0%" stop-color="#193f20"/>
+        <stop offset="100%" stop-color="#080f09"/>
+      </radialGradient>
+      <linearGradient id="hillGrd" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1e5228" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#0a1e0c" stop-opacity="0.1"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Sky/background -->
+    <rect width="940" height="510" fill="url(#bgGrd)"/>
+
+    <!-- Hill shading (hills are in upper portion — where holes 2-13 are) -->
+    <ellipse cx="470" cy="200" rx="440" ry="180" fill="url(#hillGrd)" opacity="0.6"/>
+
+    <!-- Course boundary — organic shape traced around outermost holes -->
+    <path d="M60,155 C75,90 170,42 265,35 C350,28 435,55 490,95
+             C560,60 650,55 720,85 C800,120 900,180 918,270
+             C928,330 910,390 875,430 C848,460 800,492 730,500
+             C650,508 500,502 400,498 C310,494 200,492 148,482
+             C90,470 44,438 38,390 C30,335 42,210 60,155Z"
+      fill="#112515" stroke="#1e3d22" stroke-width="1.5" opacity="0.95"/>
+
+    <!-- Fairway corridors -->
+    ${fw}
+
+    <!-- Stanford creek hint -->
+    ${creek}
+
+    <!-- Routing guide line (faint) -->
+    <polyline points="${rpts}" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1" stroke-dasharray="4 4"/>
+
+    <!-- Direction arrows -->
+    ${arrs}
+
+    <!-- Par-3 diamonds, Par-5 rings (behind holes) -->
+    ${p3m}${p5m}
+
+    <!-- Empty holes -->
+    ${mEmpty}
+
+    <!-- Occupied holes (on top) -->
+    ${mOccup}
+
+    <!-- Signature hole 12 label -->
+    ${sig}
+
+    <!-- Clubhouse badge (holes 1 & 18 cluster) -->
+    <rect x="${H1.x-2}" y="${H1.y-2}" width="4" height="4" fill="#7dcb96" rx="1"/>
+    <rect x="${H1.x-38}" y="${H1.y+22}" width="76" height="20" rx="4" fill="rgba(18,48,22,.94)" stroke="#3d6e4d" stroke-width="1"/>
+    <text x="${H1.x}" y="${H1.y+30}" text-anchor="middle" fill="#7dcb96" font-size="7.5" font-weight="700" font-family="DM Sans,sans-serif" letter-spacing="1.2">⛳ CLUBHOUSE</text>
+    <text x="${H1.x}" y="${H1.y+39}" text-anchor="middle" fill="#4a7a54" font-size="6.5" font-family="DM Sans,sans-serif">H.1 start · H.18 finish</text>
+
+    <!-- Turn badge at hole 9 -->
+    <rect x="${H9.x-24}" y="${H9.y+16}" width="48" height="16" rx="4" fill="rgba(110,62,0,.88)" stroke="#c8820a" stroke-width="1"/>
+    <text x="${H9.x}" y="${H9.y+27}" text-anchor="middle" fill="#ffd580" font-size="8" font-weight="700" font-family="DM Sans,sans-serif" letter-spacing=".8">TURN ↩</text>
+
+    <!-- Hole 16 sweep arrow label (par 5 going right) -->
+    <text x="298" y="442" fill="rgba(255,220,100,.35)" font-size="8.5" font-family="DM Sans,sans-serif" font-style="italic">Par 5 ——→</text>
+
+    <!-- Watermark -->
+    <text x="470" y="500" text-anchor="middle" fill="rgba(255,255,255,.06)" font-size="10" font-family="DM Sans,sans-serif" letter-spacing="3.5">STANFORD GOLF COURSE · PAR 70 · 6,778 YDS</text>
+  </svg>
+  <div class="map-tooltip-box" id="map-tt"></div>
+  </div>`;
+
+  document.getElementById('map-svg-wrap').innerHTML=svgHtml;
+
+  // ── Sidebar ──
+  const activeG=GROUPS.filter(g=>g.status==='on-course'||g.status==='completed').sort((a,b)=>a.teeOff-b.teeOff);
+  document.getElementById('map-group-count').textContent=`${activeG.filter(g=>g.status==='on-course').length} on course`;
+  document.getElementById('map-groups-list').innerHTML=activeG.map(g=>{
+    const ps=paceStatus(g),pos=position(g),bMin=Math.round(minsBehind(g));
+    const hd=HOLES.find(h=>h.h===Math.max(1,Math.min(18,pos.hole)))||HOLES[0];
+    return `<div class="map-group-card ${ps}" onclick="highlightHole(${pos.hole})">
+      <div class="mgc-row"><span class="mgc-name">${g.name}</span><span class="mgc-hole">H.${pos.hole} / ${g.holes}</span></div>
+      <div class="mgc-status">
+        <span style="width:8px;height:8px;border-radius:50%;background:${psCol(ps)};flex-shrink:0;display:inline-block"></span>
+        <span style="color:${psCol(ps)};font-weight:600">${psTxt(ps)}</span>
+        ${bMin>0?`<span style="color:var(--ink-3)">· ${bMin}m behind</span>`:''}
+        <span class="src ${pos.src}" style="margin-left:auto"><span class="sdot"></span>${pos.src==='live'?'Live':pos.src==='stale'?'Stale':'Est'}</span>
+      </div>
+      <div style="font-size:10.5px;color:var(--ink-3);margin-top:2px">${hd.par===3?'Par 3':hd.par===5?'Par 5':'Par 4'} · ${hd.yds} yds${hd.note?' · '+hd.note:''}</div>
+      ${(ps==='behind'||ps==='watch')?`<button class="btn danger" style="padding:4px 10px;font-size:11px;width:100%;margin-top:6px" onclick="event.stopPropagation();openDispatch(${g.id},${pos.hole},'behind')">Dispatch Marshal →</button>`:''}
+    </div>`;
+  }).join('');
+}
+
+// ── Hole tooltip on click ──
+const _MAP_HOLES=[
+  {h:1,x:868,y:322,par:5,yds:521,note:'Tee over Serra Blvd'},{h:2,x:468,y:120,par:4,yds:483,note:'Long par 4 into hills'},
+  {h:3,x:240,y:72,par:3,yds:215,note:'Par 3'},{h:4,x:98,y:135,par:3,yds:168,note:'Par 3 — back-to-back'},
+  {h:5,x:128,y:162,par:4,yds:447,note:''},{h:6,x:338,y:175,par:4,yds:429,note:''},
+  {h:7,x:282,y:242,par:5,yds:539,note:'Longest hole'},{h:8,x:85,y:245,par:3,yds:172,note:'Par 3'},
+  {h:9,x:192,y:278,par:4,yds:365,note:'Turn'},{h:10,x:418,y:355,par:4,yds:440,note:'Start of back nine'},
+  {h:11,x:582,y:235,par:4,yds:351,note:'Panoramic views'},{h:12,x:748,y:208,par:4,yds:473,note:'Signature — three trees'},
+  {h:13,x:582,y:170,par:4,yds:424,note:''},{h:14,x:388,y:235,par:3,yds:197,note:'Par 3 — steep bank'},
+  {h:15,x:265,y:325,par:4,yds:361,note:''},{h:16,x:148,y:452,par:5,yds:500,note:'Long par 5 sweeping right'},
+  {h:17,x:452,y:468,par:3,yds:185,note:'Par 3'},{h:18,x:638,y:425,par:4,yds:457,note:'Panoramic views — back to clubhouse'},
+];
+function mapHoleClick(holeNum,evt){
+  const hd=_MAP_HOLES.find(h=>h.h===holeNum); if(!hd) return;
+  const tt=document.getElementById('map-tt'); if(!tt) return;
+  const svg=document.getElementById('map-svg'); if(!svg) return;
+  const rect=svg.getBoundingClientRect();
+  const scX=rect.width/940,scY=rect.height/510;
+  const px=hd.x*scX, py=hd.y*scY;
+  const onC=GROUPS.filter(g=>g.status==='on-course'||g.status==='completed');
+  const grp=onC.find(g=>Math.max(1,Math.min(18,position(g).hole))===holeNum);
+  const pc=ps=>ps==='behind'?'#b0241c':ps==='watch'?'#a85f00':ps==='done'?'#4a7a88':'#2a7a48';
+  const pt=ps=>ps==='behind'?'Behind':ps==='watch'?'Watch':ps==='done'?'Done':'On Pace';
+  tt.innerHTML=`
+    <div class="mt-title">Hole ${holeNum} · ${hd.par===3?'Par 3':hd.par===5?'Par 5':'Par 4'} · ${hd.yds} yds${hd.note?'<br><span style="font-size:10.5px;font-weight:400;color:var(--ink-3)">'+hd.note+'</span>':''}</div>
+    ${grp?`<div class="mt-row"><span class="mt-lbl">Group</span><span class="mt-val">${grp.name}</span></div>
+    <div class="mt-row"><span class="mt-lbl">Pace</span><span class="mt-val" style="color:${pc(paceStatus(grp))}">${pt(paceStatus(grp))}</span></div>
+    <div class="mt-row"><span class="mt-lbl">Elapsed</span><span class="mt-val">${Math.floor(dMin(NOW,grp.teeOff)/60)}h ${dMin(NOW,grp.teeOff)%60}m</span></div>
+    <div class="mt-row"><span class="mt-lbl">Tracker</span><span class="mt-val">${position(grp).src==='live'?'📍 Live GPS':position(grp).src==='stale'?'📍 Stale':'🕐 Estimated'}</span></div>`
+    :`<div style="color:var(--ink-3);font-size:11.5px;margin-top:2px">No group on this hole</div>`}`;
+  tt.style.display='block';
+  tt.style.left=Math.min(px+20,rect.width-215)+'px';
+  tt.style.top=Math.max(py-90,4)+'px';
+  setTimeout(()=>document.addEventListener('click',()=>{tt.style.display='none';},{once:true}),60);
+}
+function highlightHole(h){ mapHoleClick(h,null); }
+
+function renderHistory(){
+  document.getElementById('history-board').innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px">${PLAYERS.map(p=>{
+    const g=p.avgDelta<=0.5,b=p.avgDelta>=3,c=g?'var(--green)':b?'var(--red)':'var(--amber)';
+    return `<div class="up-card"><div class="up-row"><span class="group-name">${p.name}</span><span class="flag ${p.type==='member'?'':'warn'}">${p.type}</span></div>
+      <div class="up-detail" style="margin-top:6px">Rounds: ${p.rounds||'first'} · Consistency: ${p.consistency||'—'}%</div>
+      <div style="margin-top:4px;font-weight:700;color:${c};font-size:13px">${p.rounds?(p.avgDelta>0?'+':'')+p.avgDelta.toFixed(1)+' min/hole · '+(g?'fast':b?'slow':'avg'):'unknown'}</div></div>`;
+  }).join('')}</div>`;
+}
+
+function populateGroupSelect(){
+  const sel=document.getElementById('dn-group');
+  const opts=GROUPS.filter(g=>g.status==='on-course'||g.status==='completed').map(g=>`<option value="${g.id}"${g.id===golferGroupId?' selected':''}>${g.name} — ${g.status==='completed'?'Done':paceStatus(g)==='on'?'On Pace':paceStatus(g)==='watch'?'Watch':'Behind'}</option>`).join('');
+  if(sel.innerHTML!==opts) sel.innerHTML=opts; sel.value=golferGroupId;
+}
+
+/* ══════════════════════════════════════════════
+   RENDER — GOLFER PAGE
+   Position sourced from hardware tracker only.
+   Golfer never reports their own location.
+══════════════════════════════════════════════ */
+function renderGolfer(){
+  const g=GROUPS.find(x=>x.id===golferGroupId);
+  document.getElementById('dn-group').value=golferGroupId;
+  const p=paceProf(g),turnTime=fmt(addM(g.teeOff,p.per*9)),finTime=fmt(addM(g.teeOff,p.total));
+  const ps=paceStatus(g),bMin=Math.round(minsBehind(g))||8;
+  const t=trackerForGrp(g.id);
+  const clipId=t?t.id:(g.id===1?'11':'—');
+  const pos=position(g);
+
+  let html=`
+    <div class="gv-topbar">
+      <div class="gv-course">Stanford Golf Course</div>
+      <div class="gv-group">Welcome, ${g.name}!</div>
+      <div class="gv-date">${NOW.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'})} · Tee ${fmt(g.teeOff)}</div>
+      <div class="gv-clip"><span class="clip-dot"></span>Tracker: Clip ${clipId}</div>
+    </div>
+    <div class="sms-preview">
+      <div class="sms-from">📱 SMS · Stanford Golf · ${fmt(g.teeOff)}</div>
+      <div class="sms-bubble">Welcome to Stanford Golf Course! Your round starts now. Tap for your pace target:<br><a>stanfordgolf.app/pace/${g.id}-x9k2</a></div>
+    </div>`;
+
+  if(g.status==='completed'){
+    html+=`<div class="g-status-card on"><div class="gs-icon">🏁</div><div class="gs-head">Round Complete</div><div class="gs-msg">Thanks for playing today.</div></div>`;
+    if(g.finishBadge)
+      html+=`<div class="g-badge-card"><div class="g-badge-icon">${g.finishBadge==='top'?'🏅':'👍'}</div><div class="g-badge-head">${g.finishBadge==='top'?'Top 25% pace today':'On-pace round'}</div><div class="g-badge-msg">${g.finishBadge==='top'?'Great pace — thank you for helping keep the course moving.':'Solid round. See you next time.'}</div></div>`;
+    else
+      html+=`<div class="g-badge-card" style="background:#f4f5f2;border-color:var(--line)"><div class="g-badge-icon">⛳</div><div class="g-badge-head">Thanks for playing</div><div class="g-badge-msg">See you next time.</div></div>`;
+    html+=`<div class="g-return">📍 Please return <strong>Clip ${clipId}</strong> to the pro shop — thank you!</div>`;
+    document.getElementById('golfer-content').innerHTML=html;
+    renderGolferDemo(g); return;
+  }
+
+  // pace target card
+  html+=`<div class="g-pace-card">
+    <div class="g-pace-label">Currently on</div>
+    <div class="g-cur-hole"><span class="gch-num">Hole ${pos.hole}</span>
+      <span class="src ${pos.src}"><span class="sdot"></span>${pos.src==='live'?'📍 Tracker Live':'🕐 Estimated'}</span></div>
+    <div class="g-target-row">
+      <div class="g-target-col"><div class="g-target-val">${turnTime}</div><div class="g-target-lbl">Hole 9 by</div></div>
+      <div class="g-target-col"><div class="g-target-val">${finTime}</div><div class="g-target-lbl">Finish by</div></div>
+    </div></div>`;
+
+  // status card
+  if(ps==='on')     html+=`<div class="g-status-card on"><div class="gs-icon">✅</div><div class="gs-head">On Pace</div><div class="gs-msg">You're doing great. Keep it up.</div></div>`;
+  else if(ps==='watch') html+=`<div class="g-status-card watch"><div class="gs-icon">⚠️</div><div class="gs-head">Watch Your Pace</div><div class="gs-msg">You're ${bMin} min behind your target.<br>Ready golf from here helps everyone.</div></div>`;
+  else if(ps==='behind') html+=`<div class="g-status-card behind"><div class="gs-icon">🔴</div><div class="gs-head">Behind Pace</div><div class="gs-msg">The group behind you is getting close.<br>Wave them through if you're searching for a ball.</div></div>`;
+
+  // gap indicator (only when <12 min)
+  if(g.status==='on-course'){
+    const onC=GROUPS.filter(x=>x.status==='on-course').sort((a,b)=>a.teeOff-b.teeOff);
+    const idx=onC.findIndex(x=>x.id===g.id),behind=onC[idx+1];
+    if(behind){const gap=gapMin(g,behind);if(gap!==null&&gap<12){const warn=gap<gapThr(g,behind);
+      html+=`<div class="g-gap-card${warn?' warn':''}"><div class="g-gap-label">Group behind you</div><div class="g-gap-big">&#8776; ${gap} min away</div><div class="g-gap-msg">${warn?'They\'re catching up — ready golf helps everyone.':'Comfortable gap. Enjoy your round.'}</div></div>`;
+    }}
+  }
+
+  // pace tips
+  html+=`<div class="g-tips"><div class="g-tips-head" onclick="this.nextElementSibling.classList.toggle('hidden')">Ready golf tips <span>+</span></div>
+    <ul class="g-tips-body hidden"><li>Play your shot when ready — no need to wait for honors.</li><li>Pick up if you're running high on a hole.</li><li>Wave the group through if you're searching for a ball.</li><li>Line up your putt while others are putting.</li></ul></div>`;
+
+  document.getElementById('golfer-content').innerHTML=html;
+  renderGolferDemo(g);
+}
+
+function renderGolferDemo(g){
+  const ps=paceStatus(g);
+  document.getElementById('g-demo-inner').innerHTML=`
+    <span class="gdl">Demo controls</span>
+    <button class="${ps==='on'?'active':''}" onclick="setGolferStatus(${g.id},'on')">On Pace</button>
+    <button class="${ps==='watch'?'active':''}" onclick="setGolferStatus(${g.id},'watch')">Watch</button>
+    <button class="${ps==='behind'?'active':''}" onclick="setGolferStatus(${g.id},'behind')">Behind</button>
+    <button onclick="completeRound(${g.id})">Round complete</button>`;
+}
+function setGolferStatus(id,s){ demoOverride[id]=s; renderGolfer(); }
+function completeRound(id){ const g=GROUPS.find(x=>x.id===id); g.status='completed'; if(!g.finishBadge) g.finishBadge='ontime'; renderGolfer(); }
+
+/* ══════════════════════════════════════════════
+   CHECK-IN MODAL  — 3-step wizard
+   Step 1: Confirm group details
+   Step 2: Assign GPS tracker clip
+   Step 3: Risk summary + verbal script
+══════════════════════════════════════════════ */
+function openCheckIn(id){
+  const g=GROUPS.find(x=>x.id===id); pendingClip=null; ciStep=1;
+  const isLate=dMin(g.teeOff,NOW)<10;
+  const avail=TRACKERS.filter(t=>t.status==='ready'||t.status==='charging');
+  document.getElementById('modal-root').innerHTML=`
+  <div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal">
+    <div class="modal-head">
+      <div><h3>Check In · ${g.name}</h3><div class="mh-sub">${fmt(g.teeOff)} · ${g.players} players · ${g.holes} holes · ${g.mode}</div></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="ci-steps">
+      <div class="ci-step active" id="ci-step-1" onclick="goCiStep(1)"><span class="ci-step-num">1</span>Group</div>
+      <div class="ci-step" id="ci-step-2" onclick="goCiStep(2)"><span class="ci-step-num">2</span>Tracker</div>
+      <div class="ci-step" id="ci-step-3" onclick="goCiStep(3)"><span class="ci-step-num">3</span>Confirm</div>
+    </div>
+
+    <!-- STEP 1: Group details -->
+    <div class="ci-panel active" id="ci-panel-1">
+      <div class="modal-grid-2">
+        <div class="modal-row"><label>Players</label><input type="number" id="ci-players" min="1" max="4" value="${g.players}" oninput="updateRisk()"></div>
+        <div class="modal-row"><label>Mode</label><select id="ci-mode" onchange="updateRisk()"><option value="cart"${g.mode==='cart'?' selected':''}>Cart</option><option value="walking"${g.mode==='walking'?' selected':''}>Walking</option></select></div>
+      </div>
+      <div class="modal-row"><label>Risk Flags</label>
+        <div class="modal-check-row">
+          <label class="modal-check"><input type="checkbox" id="ci-rental"${g.hasRental?' checked':''} onchange="updateRisk()"> Rental clubs (+2)</label>
+          <label class="modal-check"><input type="checkbox" id="ci-first"${g.isFirstTimer?' checked':''} onchange="updateRisk()"> First-time golfer (+2)</label>
+        </div></div>
+      ${isLate?`<div class="modal-row"><div style="background:var(--amber-bg);border:1px solid #e8c96e;border-radius:6px;padding:8px 11px;font-size:12.5px;color:var(--amber);font-weight:600">⚠ Late arrival — auto-flagged (+2 risk)</div></div>`:''}
+      <div class="modal-row"><label>Phone number — for SMS pace link</label>
+        <input type="tel" id="ci-phone" placeholder="(650) 555-0123" value="(650) 555-0${100+id}">
+        <div class="modal-help">We'll text them a welcome message and pace tracker link at tee-off.</div></div>
+      <div id="risk-preview-1"></div>
+    </div>
+
+    <!-- STEP 2: Assign tracker -->
+    <div class="ci-panel" id="ci-panel-2">
+      <div class="modal-row"><label>Select a tracker clip to hand out</label>
+        <div class="clip-pick" id="clip-pick-grid">
+          ${avail.map(t=>`<div class="clip-opt" data-id="${t.id}" onclick="pickClip('${t.id}')">
+            <div class="co-id">${t.id}</div>
+            <div class="co-batt">${t.battery}%</div>
+            <div class="co-status" style="color:${battCol(t.battery)}">${t.status==='charging'?'charging':'ready'}</div></div>`).join('')}
+        </div>
+        <div id="clip-confirm"></div></div>
+      <div style="background:#f0f2ee;border-radius:8px;padding:12px 14px;font-size:12px;color:var(--ink-2);line-height:1.6;margin-top:4px">
+        <strong>Handover script:</strong> <em>"Here's your tracker clip — clip it to your bag. It tracks your pace and buzzes softly if you fall behind. Return it here at the end of your round."</em>
+      </div>
+    </div>
+
+    <!-- STEP 3: Confirm -->
+    <div class="ci-panel" id="ci-panel-3">
+      <div id="risk-preview-3" style="margin-bottom:14px"></div>
+      <div id="script-preview-3"></div>
+      <div class="modal-note">Clicking Confirm starts the timer, assigns the tracker, and schedules the SMS pace link.</div>
+    </div>
+
+    <div class="modal-foot">
+      <div>
+        <button class="btn" id="ci-back" onclick="goCiStep(ciStep-1)" style="display:none">← Back</button>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn" onclick="closeModal()">Cancel</button>
+        <button class="btn primary" id="ci-next" onclick="ciNext(${g.id},${isLate})">Next →</button>
+      </div>
+    </div>
+  </div></div>`;
+  updateRisk();
+}
+
+function goCiStep(n){
+  if(n<1||n>3) return; ciStep=n;
+  [1,2,3].forEach(i=>{
+    document.getElementById('ci-step-'+i).className='ci-step'+(i===n?' active':i<n?' done':'');
+    document.getElementById('ci-panel-'+i).className='ci-panel'+(i===n?' active':'');
+  });
+  document.getElementById('ci-back').style.display=n>1?'':'none';
+  document.getElementById('ci-next').textContent=n===3?'✓ Confirm Check-In':'Next →';
+  if(n===3) buildConfirmStep();
+}
+
+function ciNext(id,isLate){
+  if(ciStep===1){ goCiStep(2); return; }
+  if(ciStep===2){ if(!pendingClip){ alert('Please select a tracker clip to assign.'); return; } goCiStep(3); return; }
+  if(ciStep===3){ confirmCheckIn(id,isLate); }
+}
+
+function pickClip(id){
+  pendingClip=id;
+  document.querySelectorAll('.clip-opt').forEach(e=>e.classList.toggle('sel',e.dataset.id===id));
+  const t=trackerById(id);
+  document.getElementById('clip-confirm').innerHTML=`<div class="clip-assigned-ok">✓ Clip ${id} selected · ${t.battery}% battery</div>`;
+}
+
+function buildConfirmStep(){
+  const g=GROUPS.find(x=>x.id===golferGroupId)||GROUPS.find(x=>x.status==='pending')||GROUPS[0];
+  const sim={flags:[]};
+  sim.players=+document.getElementById('ci-players').value;
+  sim.mode=document.getElementById('ci-mode').value;
+  if(document.getElementById('ci-rental').checked) sim.flags.push('Rental Clubs');
+  if(document.getElementById('ci-first').checked) sim.flags.push('First Timer');
+  const lvl=riskLvl(sim),score=riskScore(sim);
+  const t=trackerById(pendingClip);
+  document.getElementById('risk-preview-3').innerHTML=`
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px">
+      <div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--ink-3);margin-bottom:3px">Risk Score</div>
+        <span class="risk-badge ${lvl}">${riskLbl(lvl)} (${score} pts)</span></div>
+      <div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--ink-3);margin-bottom:3px">Tracker Assigned</div>
+        <span style="font-family:var(--mono);font-weight:700;font-size:14px">Clip ${pendingClip||'—'}</span> ${t?`· ${t.battery}% battery`:''}</div>
+      <div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--ink-3);margin-bottom:3px">Players</div>
+        <span style="font-weight:600">${sim.players} · ${sim.mode}</span></div>
+    </div>`;
+  if(lvl!=='low')
+    document.getElementById('script-preview-3').innerHTML=`<div class="prompt-box" style="border-radius:7px"><span class="plbl">💬 Say at handover</span><em>${lvl==='high'?'"Welcome! We\'ll send a heads-up if the pace gets tight — it keeps things moving for everyone. Clip this tracker to your bag and return it when you finish."':'"Here\'s your tracker. We\'ll text a pace update at tee-off."'}</em></div>`;
+}
+
+function updateRisk(){
+  const sim={flags:[],players:+document.getElementById('ci-players').value,mode:document.getElementById('ci-mode').value};
+  if(document.getElementById('ci-rental').checked) sim.flags.push('Rental Clubs');
+  if(document.getElementById('ci-first').checked) sim.flags.push('First Timer');
+  const lvl=riskLvl(sim),s=riskScore(sim);
+  const el=document.getElementById('risk-preview-1');
+  if(el) el.innerHTML=`<div class="risk-preview">Risk score: <span class="risk-badge ${lvl}">${riskLbl(lvl)} · ${s} pts</span></div>`;
+}
+
+function confirmCheckIn(id,isLate){
+  const g=GROUPS.find(x=>x.id===id);
+  g.players=+document.getElementById('ci-players').value;
+  g.mode=document.getElementById('ci-mode').value;
+  const sf=(f,on)=>{if(on&&!g.flags.includes(f)) g.flags.push(f); if(!on) g.flags=g.flags.filter(x=>x!==f);};
+  sf('Rental Clubs',document.getElementById('ci-rental').checked);
+  sf('First Timer',document.getElementById('ci-first').checked);
+  if(isLate) sf('Late Arrival',true);
+  if(pendingClip){ const t=trackerById(pendingClip); t.status='assigned'; t.group=g.id; t.source='live'; }
+  g.status='checked-in'; g.checkedInAt=new Date(NOW);
+  closeModal(); renderAll();
+}
+
+/* ══════════════════════════════════════════════
+   CHECK-OUT MODAL  — explicit 3-part flow
+   Part 1: Confirm tracker returned or missing
+   Part 2: Battery level on return
+   Part 3: Summary + pace badge preview
+══════════════════════════════════════════════ */
+function openCheckOut(id){
+  const g=GROUPS.find(x=>x.id===id);
+  const t=trackerForGrp(g.id);
+  const ps=paceStatus(g),bMin=Math.round(minsBehind(g))||0;
+  const badge=g.actualPer&&g.actualPer<=(paceProf(g).per*1.05)?'top':bMin<10?'ontime':null;
+  coReturnSel=null; coBattSel=null;
+  document.getElementById('modal-root').innerHTML=`
+  <div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal">
+    <div class="modal-head">
+      <div><h3>Check Out · ${g.name}</h3><div class="mh-sub">Confirm tracker return and close the round</div></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" style="padding:18px 20px">
+
+      <!-- Part 1: tracker return -->
+      <div style="margin-bottom:18px">
+        <div class="modal-row" style="margin-bottom:8px"><label>1 · Tracker returned?</label>
+          <div class="co-choice">
+            <div class="co-btn" id="co-yes" onclick="selReturn('yes')">
+              <span class="co-btn-icon">✅</span>
+              <div class="co-btn-label">Yes — returned</div>
+              <div class="co-btn-sub">Clip ${t?t.id:'—'} is back</div></div>
+            <div class="co-btn" id="co-no" onclick="selReturn('no')">
+              <span class="co-btn-icon">⚠️</span>
+              <div class="co-btn-label">Not returned yet</div>
+              <div class="co-btn-sub">Flag as missing</div></div>
+          </div></div>
+        <div id="co-missing-warn"></div>
+      </div>
+
+      <!-- Part 2: battery level -->
+      <div style="margin-bottom:18px">
+        <div class="modal-row" style="margin-bottom:6px"><label>2 · Battery on return</label>
+          <div class="batt-choice">
+            <div class="batt-opt" id="batt-full" onclick="selBatt('full')">🔋 Full<br><span style="font-size:10px;color:var(--ink-3)">80–100%</span></div>
+            <div class="batt-opt" id="batt-med" onclick="selBatt('med')">🔋 Medium<br><span style="font-size:10px;color:var(--ink-3)">30–79%</span></div>
+            <div class="batt-opt" id="batt-low" onclick="selBatt('low')">🪫 Low<br><span style="font-size:10px;color:var(--ink-3)">&lt;30% · charge now</span></div>
+          </div></div>
+      </div>
+
+      <!-- Part 3: pace summary -->
+      <div>
+        <div class="modal-row" style="margin-bottom:6px"><label>3 · Round summary</label>
+          <div class="checkout-summary">
+            <span class="cs-lbl">Auto-generated pace badge for golfer page</span>
+            ${badge==='top'?'🏅 Top 25% pace today — "Great pace. Thank you for helping keep the course moving."':badge==='ontime'?'👍 On-pace round — "Solid round. See you next time."':'No badge — slow round. No message sent to golfer.'}
+          </div>
+          <div class="modal-note">Badge appears on their SMS link page. Slow groups receive no message — no shaming.</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <div style="font-size:12px;color:var(--ink-3)">Clip ${t?t.id:'—'} · Tee ${fmt(g.teeOff)}</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn" onclick="closeModal()">Cancel</button>
+        <button class="btn success" onclick="confirmCheckOut(${id})">✓ Complete Check-Out</button>
+      </div>
+    </div>
+  </div></div>`;
+}
+
+function selReturn(v){
+  coReturnSel=v;
+  document.getElementById('co-yes').className='co-btn'+(v==='yes'?' sel-yes':'');
+  document.getElementById('co-no').className='co-btn'+(v==='no'?' sel-no':'');
+  const warn=document.getElementById('co-missing-warn');
+  if(v==='no') warn.innerHTML=`<div class="missing-warn">⚠ Clip will be flagged <strong>Missing</strong> with last known GPS position. A follow-up SMS will be sent to the golfer's phone number.</div>`;
+  else warn.innerHTML='';
+}
+function selBatt(v){
+  coBattSel=v;
+  ['full','med','low'].forEach(b=>document.getElementById('batt-'+b).className='batt-opt'+(b===v?' sel':''));
+}
+
+function confirmCheckOut(id){
+  if(!coReturnSel){alert('Please confirm whether the tracker was returned.');return;}
+  const g=GROUPS.find(x=>x.id===id),t=trackerForGrp(g.id);
+  g.status='completed';
+  g.finishBadge=(g.actualPer&&g.actualPer<=(paceProf(g).per*1.05))?'top':Math.round(minsBehind(g))<10?'ontime':null;
+  if(t){
+    if(coReturnSel==='yes'){ t.status='returned'; t.group=null; t.source=null; t.battery=coBattSel==='full'?92:coBattSel==='med'?55:18; }
+    else { t.status='missing'; t.staleMin=0; const pos=position(g); t.lastHole=pos.hole; }
+  }
+  closeModal(); renderAll();
+}
+
+/* ══════════════════════════════════════════════
+   DISPATCH MODAL
+══════════════════════════════════════════════ */
+function openDispatch(id,hole,reason){
+  const g=GROUPS.find(x=>x.id===id),bMin=Math.round(minsBehind(g))||22,src=trackerSource(g);
+  const srcNote=src==='live'?' (GPS confirmed)':src==='stale'?' (last GPS — verify)':' (estimated — verify)';
+  const script=reason==='gap'
+    ?`Marshal to Hole ${hole} — gap closing on ${g.name} (${g.players}p)${srcNote}. Encourage ready golf.`
+    :g.flags.includes('First Timer')
+    ?`Marshal to Hole ${hole} — ${g.name}, ${g.players}p, first-timers, ${bMin} min behind${srcNote}. Friendly tips. Suggest picking up from rough.`
+    :g.repeat
+    ?`Marshal to Hole ${hole} — ${g.name}, flagged before, ${bMin} min behind${srcNote}. Firm but courteous.`
+    :`Marshal to Hole ${hole} — ${g.name}, ${g.players}p, ${bMin} min behind${srcNote}. Standard pace check.`;
+  document.getElementById('modal-root').innerHTML=`
+  <div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal">
+    <div class="modal-head"><div><h3>Dispatch Marshal · ${g.name}</h3><div class="mh-sub">Hole ${hole} · ${src==='live'?'📍 GPS confirmed':'🕐 Estimated position'}</div></div><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="modal-body" style="padding:18px 20px">
+      <div class="modal-row"><label>Send marshal to</label><div class="modal-hole-big">Hole ${hole}</div></div>
+      <div class="modal-row"><label>Radio script</label><div class="radio-script" id="rs-text"><span class="rs-label">📻 Read on radio</span>${script}</div></div>
+      <div class="modal-note">Logged with timestamp. Marshal arrives with a plan, not just a location.</div>
+    </div>
+    <div class="modal-foot"><div></div><div style="display:flex;gap:8px">
+      <button class="btn" onclick="copyScript()">Copy Script</button>
+      <button class="btn primary" onclick='confirmDispatch(${id},${hole},${JSON.stringify(script)})'>Log Dispatch ✓</button>
+    </div></div>
+  </div></div>`;
+}
+function copyScript(){ const txt=document.getElementById('rs-text').textContent.replace('📻 Read on radio','').trim(); navigator.clipboard?.writeText(txt); event.target.textContent='Copied ✓'; setTimeout(()=>event.target.textContent='Copy Script',1400); }
+function confirmDispatch(id,hole,script){ const g=GROUPS.find(x=>x.id===id); dispatchLog.push({at:new Date(NOW),group:g.name,hole,script}); closeModal(); renderAll(); }
+function logTurn(id){ GROUPS.find(x=>x.id===id).turnLogged=true; renderAll(); }
+const closeModal = () => document.getElementById('modal-root').innerHTML='';
+
+/* ══════════════════════════════════════════════
+   DEMO HELPERS
+══════════════════════════════════════════════ */
+function simulate(m){ NOW.setTime(NOW.getTime()+m*60000); TRACKERS.forEach(t=>{if(t.staleMin!=null)t.staleMin+=m;}); if(currentMainView==='pro'){if(currentTab==='dashboard')renderAll();else if(currentTab==='map')renderMap();}else renderGolfer(); }
+function forceGap(){ demoOverride.gapPair=[4,4]; setTab('dashboard'); setMainView('pro'); }
+function forceBehind(){ demoOverride[4]='behind'; setTab('dashboard'); setMainView('pro'); }
+function openCheckInDemo(){ setMainView('pro'); setTab('dashboard'); setTimeout(()=>openCheckIn(11),100); }
+function openCheckOutDemo(){ setMainView('pro'); setTab('dashboard'); setTimeout(()=>openCheckOut(2),100); }
+
+/* ══════════════════════════════════════════════
+   BOOT
+══════════════════════════════════════════════ */
+setInterval(()=>{
+  NOW.setTime(NOW.getTime()+30000);
+  TRACKERS.forEach(t=>{if(t.staleMin!=null)t.staleMin+=.5;});
+  document.getElementById('refresh-meta').textContent=`Live · last refreshed ${fmt(new Date())}`;
+  if(currentMainView==='pro'){if(currentTab==='dashboard')renderAll();else if(currentTab==='map')renderMap();}else renderGolfer();
+},30000);
+
+setMainView('pro');
+</script>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true" style="visibility: visible !important;"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
