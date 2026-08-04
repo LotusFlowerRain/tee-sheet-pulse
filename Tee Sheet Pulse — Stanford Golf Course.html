@@ -24,35 +24,28 @@ body{font-family:var(--font);font-size:14px;color:var(--ink);line-height:1.45}
 button{font-family:var(--font);cursor:pointer}
 .hidden{display:none!important}
 
-/* ── DEMO NAV ── */
-.demo-nav{background:#15110a;color:#e8c97a;padding:6px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:2px solid #e8c97a;font-size:12px;position:sticky;top:0;z-index:50}
-.dn-tag{font-size:9.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;background:#e8c97a;color:#15110a;padding:3px 8px;border-radius:3px;white-space:nowrap}
-.dn-label{color:#b89a52;font-size:11px}
-.dn-cur{color:#fff;font-weight:600}
-.dn-sep{width:1px;height:18px;background:#3a3220;flex-shrink:0}
-.demo-nav button{background:rgba(232,201,122,.12);border:1px solid rgba(232,201,122,.3);color:#e8c97a;padding:4px 10px;border-radius:5px;font-size:11.5px;font-weight:500;transition:background .12s;white-space:nowrap}
-.demo-nav button:hover{background:rgba(232,201,122,.24)}
-.demo-nav button.dn-active{background:#e8c97a;color:#15110a;border-color:#e8c97a}
-.demo-nav select{background:#221b0f;border:1px solid rgba(232,201,122,.3);color:#e8c97a;padding:4px 8px;border-radius:5px;font-size:11.5px;font-family:var(--font)}
-.dn-spacer{margin-left:auto}
-
 /* ── TOPBAR ── */
-.topbar{background:var(--forest);color:#e8ede9;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #0d1e12;position:sticky;top:33px;z-index:40}
-.topbar-left{display:flex;align-items:center;gap:14px}
-.logo-mark{width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7dcb96,#2a7a48 55%,#163821);box-shadow:0 0 0 2px #0d1e12,0 0 0 3px #3d6e4d;flex-shrink:0}
-.brand-text h1{margin:0;font-size:15px;font-weight:600;color:#e8ede9}
-.brand-text span{font-size:11.5px;color:#8aaa90;letter-spacing:.3px}
+.topbar{background:var(--forest);color:#e8ede9;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #0d1e12;position:sticky;top:0;z-index:40}
+.topbar-left{display:flex;align-items:center;gap:13px}
+.logo-mark{width:32px;height:32px;flex-shrink:0;display:block;object-fit:contain;filter:drop-shadow(0 1px 2px rgba(0,0,0,.45))}
+.brand-text h1{margin:0;font-size:15px;font-weight:600;color:#e8ede9;letter-spacing:.1px}
+.brand-sub{display:flex;align-items:center;gap:8px;margin-top:1px}
+.brand-sub .bs-role{font-size:11.5px;color:#8aaa90;letter-spacing:.3px}
+.brand-sub .bs-div{width:1px;height:10px;background:#3d6e4d;flex-shrink:0}
+/* "powered by" — deliberately a different family (serif) + size from the sans UI */
+.powered{font-family:Georgia,'Iowan Old Style','Times New Roman',serif;font-size:11px;font-style:italic;color:#7a9a80;letter-spacing:.2px;white-space:nowrap}
+.powered b{font-style:normal;font-weight:600;font-size:11.5px;color:#a8cbb0;letter-spacing:.5px}
 .topbar-right{display:flex;align-items:center;gap:12px}
 .topbar-clock{font-family:var(--mono);font-size:17px;font-weight:500;color:#c5d8c8;background:rgba(255,255,255,.06);padding:5px 12px;border-radius:6px}
 
 /* ── TABS ── */
-.view-tabs{display:flex;padding:0 24px;background:var(--forest-2);border-bottom:1px solid #183020;position:sticky;top:89px;z-index:39}
+.view-tabs{display:flex;padding:0 24px;background:var(--forest-2);border-bottom:1px solid #183020;position:sticky;top:56px;z-index:39}
 .vtab{padding:10px 18px;font-size:12.5px;font-weight:500;color:#8aaa90;background:none;border:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;letter-spacing:.3px}
 .vtab:hover{color:#c5d8c8}
 .vtab.active{color:#e8ede9;border-bottom-color:#7dcb96}
 
 /* ── LAYOUT ── */
-.dashboard{padding:20px 24px 64px;max-width:1560px;margin:0 auto}
+.dashboard{padding:20px 24px 26px;max-width:1560px;margin:0 auto}
 .main-grid{display:grid;grid-template-columns:1fr 340px;gap:16px}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .panel-head{padding:12px 16px;border-bottom:1px solid var(--line-2);display:flex;align-items:center;justify-content:space-between;background:#fcfcfb}
@@ -70,29 +63,49 @@ button{font-family:var(--font);cursor:pointer}
 .stat-card.red .s-value{color:var(--red)}
 
 /* ── TRACKER PANEL ── */
-.tracker-panel{margin-bottom:16px}
-.tracker-head{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:12px 16px;background:#fcfcfb;border:1px solid var(--line);border-radius:var(--radius) var(--radius) 0 0}
-.tracker-head h2{margin:0;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.9px;color:var(--ink-2)}
-.th-meta{font-size:11.5px;color:var(--ink-3);display:flex;gap:14px;align-items:center}
-.tracker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;padding:12px;background:var(--panel);border:1px solid var(--line);border-top:none;border-radius:0 0 var(--radius) var(--radius)}
-.clip{border:1px solid var(--line);border-radius:7px;padding:9px 11px;background:#fff;display:flex;flex-direction:column;gap:5px}
-.clip.assigned{border-left:3px solid var(--green)}
-.clip.charging{border-left:3px solid var(--blue);background:#fafbfc}
-.clip.ready{border-left:3px solid #b8bdb4}
-.clip.returned{border-left:3px solid var(--amber);background:#fffdf8}
-.clip.missing{border-left:3px solid var(--red);background:#fdf5f4;animation:ppulse 2s infinite}
-.clip-top{display:flex;align-items:center;justify-content:space-between}
-.clip-id{font-family:var(--mono);font-weight:600;font-size:12.5px}
-.clip-batt{display:flex;align-items:center;gap:4px;font-size:10.5px;color:var(--ink-3);font-family:var(--mono)}
-.batt-bar{width:22px;height:8px;border:1px solid var(--ink-3);border-radius:2px;position:relative;padding:1px}
-.batt-fill{height:100%;border-radius:1px}
-.clip-status{font-size:11px;font-weight:600}
+.tracker-panel{margin-bottom:16px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.tracker-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;cursor:pointer;padding:11px 16px;background:#fcfcfb;border-bottom:1px solid var(--line-2);transition:background .12s}
+.tracker-head:hover{background:#f7f8f5}
+.tracker-head h2{margin:0;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.9px;color:var(--ink-2);white-space:nowrap}
+.th-meta{margin-left:auto;font-size:11.5px;color:var(--ink-3);display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.th-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:600;background:#f0f2ee;color:var(--ink-2);border:1px solid var(--line)}
+.th-pill .thp-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.th-pill.out{background:var(--green-bg);color:#1a5c35;border-color:#b0d4bc}
+.th-pill.ready{background:#eef0ec;color:#4a5147}
+.th-pill.charge{background:var(--blue-bg);color:var(--blue);border-color:#aecae4}
+.th-pill.alert{background:var(--red-bg);color:var(--red);border-color:#e2a8a4;font-weight:700}
+.th-chev{color:var(--ink-3);font-size:10px;margin-left:2px}
+/* fleet utilisation bar */
+.fleet-bar{display:flex;height:4px;background:var(--line-2)}
+.fleet-seg{height:100%}
+.tracker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:9px;padding:13px}
+.clip{position:relative;border:1px solid var(--line);border-radius:9px;padding:11px 12px 10px;background:#fff;display:flex;flex-direction:column;gap:6px;transition:box-shadow .14s,transform .14s,border-color .14s}
+.clip:hover{box-shadow:0 2px 10px rgba(0,0,0,.07);transform:translateY(-1px)}
+.clip::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:9px 0 0 9px}
+.clip.assigned::before{background:var(--green)}
+.clip.charging::before{background:var(--blue)}
+.clip.ready::before{background:#b8bdb4}
+.clip.returned::before{background:var(--amber)}
+.clip.missing::before{background:var(--red)}
+.clip.assigned{border-color:#cfe4d6}
+.clip.charging{border-color:#cfdcea;background:#fbfcfd}
+.clip.returned{border-color:#eddfc2;background:#fffdf8}
+.clip.missing{border-color:#e6bab6;background:#fdf6f5;animation:ppulse 2s infinite}
+.clip-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.clip-id{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:-.2px}
+.clip-batt{display:flex;align-items:center;gap:5px;font-size:10.5px;color:var(--ink-2);font-family:var(--mono);font-weight:600}
+.batt-bar{width:26px;height:11px;border:1.5px solid var(--ink-3);border-radius:3px;position:relative;padding:1.5px;flex-shrink:0}
+.batt-bar::after{content:'';position:absolute;right:-3.5px;top:50%;transform:translateY(-50%);width:2px;height:5px;background:var(--ink-3);border-radius:0 1px 1px 0}
+.batt-fill{height:100%;border-radius:1px;transition:width .3s}
+.clip-status{font-size:11px;font-weight:700;display:inline-flex;align-items:center;gap:5px;letter-spacing:.2px}
+.clip-status .cs-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .clip.assigned .clip-status{color:var(--green)}
 .clip.charging .clip-status{color:var(--blue)}
 .clip.ready .clip-status{color:#5a6157}
 .clip.returned .clip-status{color:var(--amber)}
 .clip.missing .clip-status{color:var(--red)}
-.clip-sub{font-size:10.5px;color:var(--ink-3)}
+.clip-sub{font-size:11px;color:var(--ink-2);font-weight:600;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.clip-sub.muted{color:var(--ink-3);font-weight:400}
 
 /* ── ALERTS ── */
 .alerts{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
@@ -111,6 +124,25 @@ button{font-family:var(--font);cursor:pointer}
 .src-tag.stale{background:var(--amber-bg);color:var(--amber)}
 .dispatch-btn{background:var(--ink);color:#fff;border:none;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:600;white-space:nowrap;transition:background .15s}
 .dispatch-btn:hover{background:#000}
+
+/* ── PACE LEGEND ── */
+.legend-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:16px;overflow:hidden}
+.legend-head{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-bottom:1px solid var(--line-2);background:#fcfcfb}
+.legend-head h2{margin:0;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.9px;color:var(--ink-2)}
+.legend-head .ph-meta{font-size:11.5px;color:var(--ink-3)}
+.legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0}
+.lg-item{padding:12px 16px;border-right:1px solid var(--line-2);display:flex;flex-direction:column;gap:5px}
+.lg-item:last-child{border-right:none}
+.lg-top{display:flex;align-items:center;gap:8px}
+.lg-key{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.lg-key.ring{background:transparent;border:2.5px solid var(--amber)}
+.lg-name{font-size:12.5px;font-weight:700;letter-spacing:.2px}
+.lg-count{margin-left:auto;font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ink)}
+.lg-count.zero{color:var(--ink-3);font-weight:500}
+.lg-def{font-size:11.5px;color:var(--ink-3);line-height:1.45}
+.lg-who{font-size:11.5px;color:var(--ink-2);font-weight:600;line-height:1.4}
+.lg-who.none{color:var(--ink-3);font-weight:400;font-style:italic}
+.legend-foot{padding:9px 16px;border-top:1px solid var(--line-2);background:#fcfcfb;font-size:11.5px;color:var(--ink-3);display:flex;gap:18px;flex-wrap:wrap;align-items:center}
 
 /* ── TEE SHEET ── */
 table.tee{width:100%;border-collapse:collapse;font-size:13px}
@@ -242,64 +274,100 @@ table.tee tbody tr.row-risk{background:#fffaf5}
 .checkout-summary .cs-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.9px;color:#7aaa82;display:block;margin-bottom:4px}
 .missing-warn{background:var(--red-bg);border:1px solid #e2a8a4;border-radius:8px;padding:12px 14px;margin-top:10px;font-size:12.5px;color:var(--red);line-height:1.6}
 
-/* ── GOLFER PAGE ── */
-.golfer-page{background:linear-gradient(180deg,#eef3ee 0%,#f0f2ee 240px);min-height:100vh}
-.golfer-view-wrap{max-width:420px;margin:0 auto;padding:0 18px 80px}
-.gv-topbar{text-align:center;padding:24px 8px 12px}
-.gv-course{font-size:11px;letter-spacing:2.5px;color:var(--forest-3);text-transform:uppercase;font-weight:600}
-.gv-group{font-size:24px;font-weight:700;margin-top:6px}
-.gv-date{font-size:12.5px;color:var(--ink-3);margin-top:3px}
-.gv-clip{display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:var(--forest);color:#c5d8c8;padding:6px 14px;border-radius:20px;font-size:12.5px;font-weight:600;font-family:var(--mono)}
-.gv-clip .clip-dot{width:8px;height:8px;border-radius:50%;background:var(--green-bg)}
-.sms-preview{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin:14px 0 12px;box-shadow:var(--shadow)}
-.sms-from{font-size:11px;color:var(--ink-3);margin-bottom:6px}
-.sms-bubble{background:#e2e8ea;border-radius:14px 14px 14px 3px;padding:10px 13px;font-size:13.5px;line-height:1.5;color:var(--ink)}
-.sms-bubble a{color:var(--forest);font-weight:600}
-.g-pace-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow)}
-.g-pace-label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--ink-3)}
-.g-cur-hole{display:flex;align-items:baseline;gap:8px;margin-top:8px}
-.gch-num{font-size:28px;font-weight:800;font-family:var(--mono)}
-.g-target-row{display:flex;margin-top:14px;gap:10px;padding-top:14px;border-top:1px solid var(--line-2)}
-.g-target-col{flex:1}
-.g-target-val{font-size:22px;font-weight:700;font-family:var(--mono)}
-.g-target-lbl{font-size:11.5px;color:var(--ink-3);margin-top:1px}
-.g-status-card{border-radius:14px;padding:22px 16px;text-align:center;margin-bottom:12px;border:1px solid}
-.g-status-card.on{background:var(--green-bg);border-color:#b0d4bc}
-.g-status-card.watch{background:var(--amber-bg);border-color:#e4c26a}
-.g-status-card.behind{background:var(--red-bg);border-color:#e2a8a4}
-.gs-icon{font-size:40px}
-.gs-head{font-size:22px;font-weight:800;margin-top:6px}
-.gs-msg{font-size:14px;margin-top:8px;line-height:1.5}
-.g-status-card.on .gs-head{color:#1a5c35}
-.g-status-card.watch .gs-head{color:#6e4000}
-.g-status-card.behind .gs-head{color:#7a1a16}
-.g-gap-card{background:var(--forest);color:#daeadc;border-radius:14px;padding:16px 18px;margin-bottom:12px}
-.g-gap-card.warn{background:#7a1a16}
-.g-gap-label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:#7aaa82}
-.g-gap-big{font-size:30px;font-weight:800;font-family:var(--mono);margin-top:4px}
-.g-gap-msg{font-size:13px;margin-top:6px;color:#b8ccba;line-height:1.45}
-.g-gap-card.warn .g-gap-label{color:#f0a8a4}
-.g-gap-card.warn .g-gap-msg{color:#f0c4c2}
-.g-tips{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;box-shadow:var(--shadow);overflow:hidden}
-.g-tips-head{padding:14px 16px;font-size:13.5px;font-weight:600;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-.g-tips-body{padding:0 16px 14px;font-size:13px;color:var(--ink-2);line-height:1.7}
-.g-tips-body li{margin-bottom:4px}
-.g-badge-card{background:#fffaee;border:1px solid #e8c96e;border-radius:14px;padding:20px;text-align:center;margin-bottom:12px}
-.g-badge-icon{font-size:44px}
-.g-badge-head{font-size:18px;font-weight:700;margin-top:4px}
-.g-badge-msg{font-size:12.5px;color:var(--ink-2);margin-top:5px}
-.g-return{background:var(--forest);color:#d8e8da;border-radius:12px;padding:14px 16px;margin-bottom:12px;font-size:13px;text-align:center;line-height:1.6}
-.g-footer{text-align:center;font-size:11px;color:var(--ink-3);margin-top:16px;line-height:1.6}
-.g-demo{position:fixed;bottom:0;left:0;right:0;background:#15110a;color:#e8c97a;padding:8px 12px;z-index:55;border-top:2px solid #e8c97a}
-.g-demo-row{max-width:420px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.gdl{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#b89a52;font-weight:700}
-.g-demo-row button{background:rgba(232,201,122,.12);border:1px solid rgba(232,201,122,.3);color:#e8c97a;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:500}
-.g-demo-row button.active{background:#e8c97a;color:#15110a}
+/* ── PLAYER DATABASE ── */
+.pdb-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:11px 14px;border-bottom:1px solid var(--line-2);background:#fcfcfb}
+.pdb-search{flex:1;min-width:190px;font-family:var(--font);font-size:12.5px;padding:7px 11px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.pdb-search:focus{outline:none;border-color:var(--forest-3);box-shadow:0 0 0 2px rgba(61,110,77,.12)}
+.pdb-chips{display:flex;gap:5px;flex-wrap:wrap}
+.pdb-chip{background:#fff;border:1px solid var(--line);color:var(--ink-2);padding:5px 11px;border-radius:20px;font-size:11.5px;font-weight:600;transition:all .12s}
+.pdb-chip:hover{border-color:var(--forest-3);color:var(--ink)}
+.pdb-chip.on{background:var(--forest);border-color:var(--forest);color:#e8ede9}
+.pdb-sort{font-family:var(--font);font-size:12px;padding:6px 9px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink-2)}
+.pdb-wrap{overflow-x:auto}
+table.pdb{width:100%;border-collapse:collapse;font-size:12.5px}
+table.pdb th{text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--ink-3);padding:9px 10px;background:#fafbf8;border-bottom:1px solid var(--line);white-space:nowrap;position:sticky;top:94px;z-index:2}
+table.pdb td{padding:8px 10px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+.pdb-row{cursor:pointer;transition:background .1s}
+.pdb-row:hover{background:#f6f8f4}
+.pdb-row.high{border-left:3px solid var(--red)}
+.pdb-row.elevated{border-left:3px solid var(--amber)}
+.pdb-row.watch{border-left:3px solid #c8b46a}
+.pdb-row.low{border-left:3px solid var(--green)}
+.pdb-row.new{border-left:3px solid var(--blue)}
+.pdb-name{font-weight:600;font-size:12.5px}
+.pdb-last{font-size:10.5px;color:var(--ink-3);margin-top:1px}
+.pdb-num{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.pdb-delta{font-family:var(--mono);font-weight:700;font-size:13px}
+.pdb-unit{display:block;font-size:9.5px;color:var(--ink-3)}
+.pdb-type{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 6px;border-radius:3px;background:#eef0ec;color:#4a5147}
+.pdb-type.member{background:var(--green-bg);color:#1a5c35}
+.pdb-type.guest{background:var(--amber-bg);color:var(--amber)}
+.pdb-type.student{background:var(--blue-bg);color:var(--blue)}
+.pdb-type.junior{background:#f0e6f5;color:#6a3a86}
+.pdb-tags{display:flex;gap:4px;flex-wrap:wrap}
+.pdb-tag{font-size:10px;padding:2px 6px;border-radius:3px;background:#f0f2ee;color:var(--ink-2);white-space:nowrap;border:1px solid var(--line)}
+.pdb-tag.slow{background:#fdf0ee;color:#8f2d24;border-color:#f0cdc8}
+.pdb-tag.fast{background:var(--green-bg);color:#1a5c35;border-color:#c0dcca}
+.pdb-flags{display:flex;gap:4px;flex-wrap:wrap}
+.pdb-flag{font-family:var(--mono);font-size:10.5px;font-weight:700;padding:2px 5px;border-radius:3px}
+.pdb-flag.red{background:var(--red-bg);color:var(--red)}
+.pdb-flag.amber{background:var(--amber-bg);color:var(--amber)}
+.pdb-flag.grey{background:#ececec;color:#5a6157}
+.pdb-none{color:var(--ink-3);font-size:11px}
+.pdb-next{font-size:11.5px;color:var(--ink-2);font-weight:600}
+.pdb-next.soon{color:var(--red);font-weight:700}
+.pdb-foot{padding:9px 14px;border-top:1px solid var(--line-2);font-size:11.5px;color:var(--ink-3);background:#fcfcfb}
+.pdb-empty{padding:22px 14px;text-align:center;color:var(--ink-3);font-size:12.5px}
+/* action queue */
+.pdb-queue{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:9px;padding:13px}
+.pdb-q-card{border:1px solid var(--line);border-radius:8px;padding:11px 12px;background:#fff;cursor:pointer;transition:box-shadow .14s,transform .14s}
+.pdb-q-card:hover{box-shadow:0 2px 10px rgba(0,0,0,.07);transform:translateY(-1px)}
+.pdb-q-card.high{border-left:3px solid var(--red);background:#fdf6f5}
+.pdb-q-card.elevated{border-left:3px solid var(--amber);background:#fffdf8}
+.pdb-q-card.new{border-left:3px solid var(--blue);background:#fbfcfd}
+.pdb-q-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pdb-q-name{font-weight:700;font-size:13px}
+.pdb-q-in{font-family:var(--mono);font-size:11.5px;font-weight:700;padding:2px 7px;border-radius:12px;white-space:nowrap}
+.pdb-q-in.urgent{color:var(--red);background:var(--red-bg)}
+.pdb-q-in.soon{color:var(--amber);background:var(--amber-bg)}
+.pdb-q-more{padding:0 13px 13px;font-size:11.5px;color:var(--ink-3)}
+.pdb-link{background:none;border:none;padding:0;font-size:11.5px;font-weight:600;color:var(--forest-3);text-decoration:underline;font-family:var(--font)}
+.pdb-q-mid{display:flex;align-items:center;gap:8px;margin-top:6px}
+.pdb-q-delta{font-family:var(--mono);font-size:11.5px;font-weight:700}
+.pdb-q-act{font-size:11.5px;color:var(--ink-2);margin-top:7px;padding-top:7px;border-top:1px solid var(--line-2);line-height:1.45}
+/* player detail modal */
+.pp-hero{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:13px 14px;border-radius:8px;margin-bottom:14px;border:1px solid}
+.pp-hero.high{background:var(--red-bg);border-color:#e2a8a4}
+.pp-hero.elevated{background:var(--amber-bg);border-color:#e4c26a}
+.pp-hero.watch{background:#fdf8e8;border-color:#e0d29a}
+.pp-hero.low{background:var(--green-bg);border-color:#b0d4bc}
+.pp-hero.new{background:var(--blue-bg);border-color:#aecae4}
+.pp-hero-lbl{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--ink-3)}
+.pp-hero-val{font-size:17px;font-weight:800;margin-top:2px;font-family:var(--mono)}
+.pp-trend{display:flex;gap:8px;align-items:flex-end;padding:10px 4px 2px}
+.pp-bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
+.pp-bar-wrap{width:100%;height:66px;display:flex;align-items:flex-end;background:#f4f5f2;border-radius:3px;overflow:hidden}
+.pp-bar{width:100%;border-radius:3px 3px 0 0;transition:height .3s}
+.pp-bar-v{font-family:var(--mono);font-size:10.5px;font-weight:700}
+.pp-bar-i{font-size:9.5px;color:var(--ink-3)}
+.pp-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin-top:2px}
+.pp-row{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:4px 0;border-bottom:1px solid var(--line-2)}
+.pp-lbl{color:var(--ink-3)}
+.pp-val{font-weight:600;text-align:right}
 
 /* ── COURSE MAP ── */
-.map-outer{display:grid;grid-template-columns:1fr 260px;gap:16px;align-items:start}
-.map-canvas-wrap{overflow:hidden}
-.map-side{display:flex;flex-direction:column;gap:0}
+.map-outer{display:grid;grid-template-columns:1fr 296px;gap:16px;align-items:stretch;height:calc(100vh - 144px);min-height:540px}
+.map-canvas-wrap{overflow:hidden;display:flex;flex-direction:column}
+.map-canvas-wrap #map-svg-wrap{flex:1;min-height:0}
+.map-side{display:flex;flex-direction:column;gap:12px;min-height:0}
+.map-side .panel.groups-panel{flex:1;display:flex;flex-direction:column;min-height:0}
+.map-side .panel.groups-panel #map-groups-list{flex:1;min-height:0;overflow-y:auto}
+/* compact legend — 2-up key grid so it stays short beside the group list */
+.lg2{display:grid;grid-template-columns:1fr 1fr;gap:5px 10px;padding:10px 12px}
+.lg2-item{display:flex;align-items:center;gap:6px;font-size:11px;line-height:1.3}
+.lg2-key{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.lg2-key.ring{background:transparent;border:2px solid var(--red)}
+.lg2-foot{padding:8px 12px;border-top:1px solid var(--line-2);font-size:10.5px;color:var(--ink-3);line-height:1.6;background:#fcfcfb}
 .map-tooltip-box{position:absolute;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:12.5px;pointer-events:none;z-index:20;box-shadow:var(--shadow-lg);min-width:190px;display:none}
 .map-tooltip-box .mt-title{font-weight:700;font-size:13.5px;margin-bottom:7px;padding-bottom:6px;border-bottom:1px solid var(--line-2)}
 .map-tooltip-box .mt-row{display:flex;justify-content:space-between;gap:12px;margin-bottom:3px}
@@ -315,38 +383,24 @@ table.tee tbody tr.row-risk{background:#fffaf5}
 .mgc-name{font-weight:600;font-size:12.5px}
 .mgc-hole{font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
 .mgc-status{font-size:11px;margin-top:3px;display:flex;align-items:center;gap:5px}
-@media(max-width:1200px){.map-outer{grid-template-columns:1fr}.map-side{flex-direction:row;gap:12px;margin-top:12px}}
+@media(max-width:1200px){.map-outer{grid-template-columns:1fr}.map-side{flex-direction:row;gap:12px;margin-top:12px}.map-side .panel.groups-panel{flex:2}.map-canvas-wrap #map-svg-wrap{min-height:420px}}
 @media(max-width:1100px){.main-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body data-new-gr-c-s-check-loaded="14.1313.0" data-gr-ext-installed="">
 
-<!-- ═══ DEMO NAV ═══ -->
-<div class="demo-nav">
-  <span class="dn-tag">Prototype Demo</span>
-  <span class="dn-label">View:</span><span class="dn-cur" id="dn-cur">Pro Shop Dashboard</span>
-  <span class="dn-sep"></span>
-  <button id="dn-pro" class="dn-active" onclick="setMainView(&#39;pro&#39;)">🖥 Pro Shop</button>
-  <button id="dn-golfer" onclick="setMainView(&#39;golfer&#39;)">📱 Golfer Page</button>
-  <select id="dn-group" class="hidden" onchange="golferGroupId=+this.value;renderGolfer()"><option value="1">Henderson — Done</option><option value="2">Park / Lee — On Pace</option><option value="3">Sullivan — On Pace</option><option value="4" selected="">Davis Corp — Behind</option><option value="5">Johnson — Behind</option><option value="6">Park family — On Pace</option><option value="7">Williams — On Pace</option><option value="8">Chen duo — On Pace</option><option value="9">McKee / Russell — On Pace</option></select>
-  <span class="dn-sep"></span>
-  <button onclick="simulate(10)">⏩ +10 min</button>
-  <button onclick="forceGap()">⚠ Gap Alert</button>
-  <button onclick="forceBehind()">🔴 Behind</button>
-  <button onclick="openCheckInDemo()">📋 Check In Demo</button>
-  <button onclick="openCheckOutDemo()">✅ Check Out Demo</button>
-  <span class="dn-spacer"></span>
-  <span class="dn-label" id="dn-time">10:18 AM</span>
-</div>
-
 <!-- ═══ PRO SHOP ═══ -->
 <div id="pro-shop">
   <div class="topbar">
     <div class="topbar-left">
-      <div class="logo-mark"></div>
+      <img class="logo-mark" alt="Stanford University" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAkeUlEQVR42u2dd3hVVdbGf/ucc/tNclMgdESKICoIoqKCgNJBmnRFAWdARwcR8LOMSrMNKqiMYkfpRVroRZAmItJ7kx4I6eXWc87+/rg3iMgIJIHgzNznuU/yJLecs9692rvXWltwjR5SSk0IoUspq59at27RkXXrKyoWCwIExfQQQqAHAmbJatWUKh3aTxRCPCqlFOF/CfNaXIN2jYV/y7Ely+Yt7PfXG04dPWJqoEiK/aEoYHb8eNwjUkoT6COEMKWUyrUAQbuGwr/9l4WLFs/v07uk1+szuk2dqsbXqIE0DBDFoARSIhSFQFYW373wojL5yf7GI4bZq8bfnnRLKbsJIULXAgRxjYR/58E5cxbO7/tEfMA0je5z5qgV7m/I2d27EYpSKBMipSzwe41AgISbbyaQlc20du3Yv25tqOuodyy1Bg+aDzwshAhcbRDENRD+ffumTps3v99fY6XNbnSfO0ctW78+Sb37sG3iBCwOB9I0CybAUAhFK5gSC0VBDwQoWfMWus1Pwup2M6N9B3au/E7vPHyEVveVfywBOgghfFJKVQhh/GkAOE/4zfZ8M2HmvP79oqxx8UaP+fPVxNq1mN2tB7tmTsdZogRcofAlIBCYpoE9xkPIm4dp6IgrvBUJKKqKPzOT2Bsr031+Eq5Siczo0Intixfp7V58Sbv7jddXRkDIulogKEUu/JUr84XfbucXX86Z/UTfKEdiKfPRpUvVxNq1mNGhI7u+nYErMRFpGEgpr+gZjlz8RJcuTZ9V3xN7QyV0nw8i5uhyn0iJqevYPbFkHjnMpGbNyT52gq5z53J723banDff0Nc8N7gxsEhKmSCEMKSU6nUNgFwpNdG4sS6l7Lp93Ccz5/zlCUdMpRvNXsuXKXFVqzC1VWv2zU/CVbIkZihUYNNhBAIk3l6H/YkeYqpUwdR1hFow2ZihELboGLKTTzGpRQvSDhyg85zZ3Nm5i7Zg9Lv6yqefqQ8skVKWuRogKEW68hsLXUr52Kb3Rk+Z82R/tcQtt5q9VixXXKVLM7lVKw4tX4a7EMKPmDdCfj+xt9dmzNpllL37bqTPjx4IIAoSTQkwdR1bVBTe1LNMadmSM9u20nH6NO7p1Utb8q+x+tI+fetgmkullBUiIGjXDQBSSrHytdfyV36/n956e3zSoOcoc8cd8tHlyxSLy82kZs05tno1rhIlMAohfIBQKETdZi3R69dj6pJ5bKhSlmYTJxFVqjR6MFgwEAiDYHW58WdlMqV1a46vW8dDX39Nw379te+++lJf0PPRmgRDy6WUlSMmVi12AKSUYtXQVWrjYcN0KeWAjSNGjkt68QWzYv17eGTJUkUCk5o359Smn3AkJBRK+Iqq4svK4rbWbSkzYyJ9ln1LIC+P97auQ9xaAyUUDNv3QuQUpqFjcToJ+XxM79CBIyu+o9W4j2n8zN+1tVMnG3O7dq1qev0rpJTVi0oTCq0BjYc11qWUz294beiYpFdfMao0aiweWbxYhHw+JjdtTsrO7Tji4wtldgBM08QeE8OBVSvJnT6L+6rdDH4frWvWodyW3eiKimazXXFU9XsQDDS7HVPXmdm5MwcXLqL5B+/zwHOD1R/nzDZmPdypopmXt0JKWSuiCUqxABD5YiGlfHXtkOffTho+zKjRoqXSY+FC4ctIZ1LTpqQe3I/dE1to4efH/aYeIuvYUUpn5FAxIRHsdr5avYy/uwO0XLwQu9WGaRoFNkPn7s0wUG02pIBZ3buzb84cHnx3FM1e/oe6ZdFCY1qbtmUCqalLpZR35tMW1xSASKhpAu02DRs+bMk7o/TaD3dWuiXNE1nHjjKxaVMyjx3FHhODqeuFF76iEPL5iIlNoNOcuYy7vRJvzJ2K6orCb+rUiYpj/6h3yMvNQVG1AmfHvwPBYkGxaMx59FF2T51Go5EjaP3GG+qeVSuNOV26lvRnZc2VUsaH16MsEOqFtWFxx35Yb8aVKSs6TpooUnfvYVq7duSlnsUWHV00whcCPRQkKi6OBxbN58lt37M8KQkRXxJpSiyqRsMylUjeuIm8rEw8iaUwjaLJl6RpomgaQgjm9emD7g9wz4svkrJjp7L725nSm5LitsfE2IQQBQagsD5AV2w2xWK3o1qtbPn8czKP/ILd48HUQ0UjBEBVVHTDZO/kybwVV4VlL47CIgQoglAwSM/5kyj51Sfc16MX3qzMAucEfwQCqmD9u+8gpcQRH49msQjFYjEil1hsTlggZZjLkRLVZke1WMIMZxGxHAIwDINgZiaxOT4CThvzd23BiGTR2Gz8knKaBp//k/TXhlCreSt8WZmFIvkulnsIRcHqckV8kZ6fURf6JouOjhYC8tP8IvtIgWEY2CwW7h83jk88Gp/O/RIzLw+crvAKkhJFwAM1apN45CSHT55As9lBFvFOQ/5Cy7/X65ULKlqiRCGYnU3jN99ifJVExn+3AFM3UKOif8eK1ixfiZpWJ2Z6ejjqUq7vW/tzACAlFrudkzt20PznvWxt+SgNqt+CkZeLGhGwYZoIp5vRC2bQaNsKqkwaT/lbbiWYl1ekZui/EwAhkJrGhjGjOfnyUCypGQSkmY/NeY46DEJ2ZgajM45Tb+wHWFUN0zSvewC061b2ioI/O5uyFStRa8RIMu+8nef2bWHj7u0IhwszAoQiBGYwSPnSZVlWvzUn16zhUNomsITDxyL3Bf8NAAhFIej1csNddxE99GX+tn8z678eDRYLqBakoZ+z8VKGX5/ry+OsESJ3wWK2rVuNabPi8sQiIlHM/0zQlZqeYJC6zw5kZ7SD8g43wzv3Jqn1o4xo2BJFUc4FuRIJmkZ6Rga9flpG8piRtJs/n3s7dsHMzcXQ9UJTE/91AEjTRHO5WPnSS9zxwRc8tWYH1f7xFs43R9OsYtWwA5byVxCkRNjsHD55nH6fvkPTbSvY2L8nDcaMwWK1RnyB+B8AVxL9aFYrWSdPsOKrL/l5ymRK1q6NfP0V+nw3m5Dfj1CU36Sg0jSw2u3UveNeypYszchlc1jfqB71ej6KNzMDRVOvy1vVrkfzo6gqeRkZuBwO2g15gdDDDzEx7ThfJn2D7vUibI5zTjg/F5ChIN/2HsAtm/dwcNcOHDXuQX73I7uWLsHujopk5/8D4JLO1zRNclLOUOuBZtwwZBATyGXsvPEE0tPBHYVygfA5Z1wEn21YxYBSlbEJwYnRH7Bny89YXS6cMTEYoVCBfYEQIvzeq+BLrhsAFFUl4PNiQeGht0axu0l9Oq5M4vCh/Qh3DBZPLLph/k74AKaUYLUyb+uPLPLso1HNW3isw/t02rqXDW++RfLxozijowucFwhFwQiFimRf47oEQCgK/rw8SiSWouHHHzFGz+Djbz4E1YLFE08oL5eQoYKq/ftVKCWK00XI52fZD6tZ9uNa2t7TiJenTqTiO++zY91q7DZ7hKUVF6rPJa5PRbVYzlHs0pRFpg3FD4AQ6KEQMXFx1PrkY9rvXsueH9eCJx7MICE9SPM772NQvUY8Nu0zkrMyUDRLeNVfLHpSVURUDKaUJK1ezpq92/nopWcZWP4jAqrAER0TJtXElZkgJEgR/l212RBFlFsUOwCKouLNSuO+v/RjXryNai4PHXsP4ExeFiVsTmq5Yym3cRtlf9xGpQqVSP75DGhWLkbDS9NE93lBmmC1o0V7yMrNo8cXo8l54lkedyey+v0PcXg8siDlkKYZduRntm6VqsOBaRjyTw+ANA1sbje7ly2lTbUqtNh9kpwF67AlxKNnZXNs82Z2ZmURnD6R7SvWImx25IVOWAikHqJCbAKvNm3H/GMHWH1gl5melSUJBQWmQb8PRopQpz4ibtFCuWvDD8JR4MJegWa3CafHA4Zh+fMDICWqzUb6oYOsfOopQqaBUDWEIsj1+igR46HdnNn0PrSZ3IwMFJf7d85UIJC6Tnx8Au3zJJXX7+bVpg8qp20qpzSBV1E4nn6WXQkx5l/79lXKNG3qr96xgzeYm6coqioj1yEQl7e7Zeq6VISiRJcvn0Mhd8SujyhIynBJicOBXdUIBf34M7O4q8mDVB8xlKcPbWHNzxtQozwYpnGRKMhEsTvYun8Ps2vWMxN/3qIsHf3e/Hp33XOypMt5ly06WtaM8ZQrVeu2Ej9+OzOt1N13tUysXftEJBG9mAAv1z5J4GxEC+WfF4CIJigIctLOUqJEIs1GvcL+BnfSZmUSh345+G+Ff74kEPB/q+ax6OP3ZeMXXqv2RtLsMaugf+Qlrqehtg8OfrFu7Rneffd/idiFeUBeRjp1WrWmxAtDeP34HmZ88wEIBTUq5g+Ffw5Aq430tHSl/eyv5NQ3Xqn2ZsUKyw/v2rmm/vChofgKFUKqw+XTvbm2t71e+/ksjFCF1AMBpWT16l4slkFCiL1SSgtwybKOgq786woARVXxZmZQp+1DBIe/RIvpn5Nx5gxKdAzAJYX/a5RiojgcJKeeFU0mfChf6tRJPNL8wQYHR71H0rrVaKoa3kz/faCPHgpyU7PmNPv885pSymZCiP35fQ7/2RogBKFQiNi4BOKfG8CD078gNz0DzROHboTvXRUKEnnR2P9iIAibDcM0xYjp45l5863GP/4xiEbrG3N09w4sdsdvyxelRGgauaeSWTdtqpmXnV2x44wZS6WUzYUQ+642CNdBHqDgzcyg3kPtmZ6bQu6Z09jjEgjpIVQhMEwTw5cLmgaa5ZIZqBCRXhkhUDyx7Dm4X+25bzevduvDsAHP/OF7E16tri4ZMdwQXbpU7DB92pLzNOGqtSgVfxgqBIopiapbh3UnfgEp8Wemg6qCoqA4HHRq2JRHqt7K3+ZP5URGKkKzXDyGF+FwVOohFLsjXKvkcCCkZPiEcVS2Oqnw2UT2bPwhzJCaZrhXLC+Pe194kfuHD0Oaprr09ZEGXbtWbD9t2tKrDUKxA2AaBg6ni2CZUmzduoJyFSvR444GlFU0HKpGWakQt3wN5crUAJvl3EaMvMjKl6EQMTEeSpUoyb6D+yDgB7sDq82OZrXzxd7NvF2xIqc/+wSXx4PU9TBopsm8Pr0BSaORIwDCIHTpWrHD9Gnnm6MiB+E6AEDH4/Fw2mXn7uq3MLZUdc5+PYHUQ4fISUnhREYmpfv1Y0zmCU4cP4rqcGNchI6WhoHT7WZmkw7EHk/mQOcGzD51mCV7tpGVcgb0INuOH8Gs1ZjYuHgMq+Ucn5PPds7r0wcQFwFh+lUzR9cFF5Sbm0ttzc77paqz7tHHOHbyONFOJ3U6dyX2ke5MII/R82eA1Y5xMQ4oogGGrqOpGpsHDsJ0u3ju0V48fUcTdrgsJJ36hcU7NpEcF0VsiRIknzmNxWo9V/GmqCqa0xnWBHmhJnSp2D6sCS0iIWqRgVD8AAhBUJpsfuopgl4vGakpVK1Vm1qj3ma64ufT9fNJP7gPV+VqmLqOz+e7aNWboqoEcrJ5dc9Gvpo0kVX9+zNn6KvEu93cWLcer7drx6A2vXAmn2VTZibqBf3F+SBYnE7m9e0LQKORI1AUoS4eMeJ8TWghhNhTVCAUKQBCUa6YJ5dSolksZKakIAFPfAL1v/yCvod+Yt33y/GUKkefLo/zdEJFNman0X/xdBRV/V1IapgmqjuKNdt/ppeh88qUb7h94xZ2fvopP3+/kj0b1pNYthzevDwCwQCKxfK7miFpmghVRXM6zoHQcPhwQKiLRww3ZJfOFTpOn7E44hOKRBMKD0BE4NI0CXm9YSdZIBCsYbpXVUnfsoVXYmKhbW88uknushWc2f4FUSNfAtO8OJUvBEYwAEJh/Y4ttDywl9a338mA8Z9SY8osVn40lrSMdFQ1vLny75jQX82Rg3l9+0RAGIaESIjauUJEE/JBKNQog8ICIM1QyBRCIBSF8vfdw8+fjAv37Qrld7TxH4MQDgn93jxWP/00LncUVpebjUd/wWGz02b2LF7duRFM8/cREAJp6JSPTaBMQkl+PnUUPS2NBUuTWPDDKp5/uBet3S5++Oc/UazWS45G+I1PiGjC/cOHISCsCQ93rtBh+vTFUspWQojdUkpRXGScFl++vLJ50aLQj++NVu96biD+jEyWDHwWe0z0lQ/TkDJshxPiycnNJXD0F+o91J4Kr7zIgN0b+Gnn1ovS0aoi0PN8tL2/HqPK38L8Q7vZ43GimyaVrQ6SzRAx7dviHjcOb8CPoqqXLFn8jSY80Rcpw5ogFEVdOmyoofboUbHN1ClJUsq6QFZBQSgYAI0aGZHmhIW3v/jippQDB+6YN+g5XZqmdvfgQYBkycCB2GJirggEIcKEfM7pM5SvUo26b/6TzXfU5C9Lp5GcfBLFHX1uV+pC+y8cDib/tJb2rgTKTJ6FPHOK6FKlyTl2jFs8HrZmZ+L1eS9q+y8FgsXhIOkvfZHSpMHQ10jZtVvZO3e22fDUqVLxVau6hBCZ17RHLL8nSgiRLKVs0Wby5EWyZ896SUMG60i0u4cMAgRLBj572SCIfNrB66XZ8/9Hdse2vLBvMwu/GQuaBdUd/W9JOQkIVSMzO4vHNizmgxf+TtnJs/h+zHv4pMQZ5UYVCpr9yhs3zrUoCVj/1lvU7N4Nd+lSqFarolgsoSvYOyhaExQBQRVCpEkpW7adNGkJPXvWTXp+sA5Su3vIYIDLBsGUEoJBOoz7hAmVEnhz6seYgSBWdzSGNC+LjhZ2O8lnU+g8ZRwDWnWkT5uWnBr7MduWLAKbBUVRCtTAl9+ipDkd4RalUCh/4EehSyMKVZqYP7xCCJHmKFWqRZuJkzbXatJES3p+iL5h1DvUfbI/zUePIZCVdS5ZuujnqCqBrCzqP/N3/lnSxuvjx2KGgoAkmJ2BEQxeVngrTRNhtSI0C+/PmkS7zcs5OOQpWn8zgfiSifhyc8L2v2A7RuFylPMiv+siEYuAoAghUqWUzduENaFO0vNDdISI+ARYOvBZrBfTBCEwDZ2oGA9xPbpyc+YZpnTpT47Dzt7cTEwkK/fsYNvJIygW6yUpaRnhimyx8Rw5dZJnJnxEg7vuY+ykb9jUqw8pJ45hLeCQqOuWDY10i6v5ILSdNGmx6NmzbtKQwTpwDoSLmiMpESgEDZ29Q4dTwxcgZe9e4suU4f74eG5t2AhnzdvZdngvitV2WXsCUkoC2ZkIpwubswRrflhD71CICaP+ycJu3a6rfoEiy4TPM0epUsoWbSZNXix79qibNGSwLhRFu+u5gWEQnn0WW0x0uJf3PEEIxcK+BQuQikCxWDl8+AA+U1K22k0cquCGyyhZEJF8IsbmoMM9jRn/4/f408+Cy8XmdauY2ec2GnToxJqpE4mKiy+yhu7rh4r4LQgt206ctJhHetaZN+g5HYl216BfQfi1gU6eE59isWCYBlYEtz3UgfJdu7C+XDzzFkxDOF2YprwEr6Rg+H3cWrUmH95QiwdjSjIt/STJWRnkZmXy8cZVNG3aBMfMaZelSX86AC4A4ayUskXbSZMW0aNn3XmDn9OFqmh3PjuAio3uJ5CVHQ7vIoKQUhLKy8NtsZJshFiqBHht71Y2zV4AihreoLmU/Sdcs5muBzi8YzuO9z/kuQcfQCtZAkdidbbcVBFhceL2xJIb9KMoarH3kF0VNvQCEFq2nRwGIWngs7ru82mVW7RAtYS3FwUCQw+hqCoVGzdi3LYNjFq+hMNHDkMgAC43wqJdFq1hSolid7B7/x4+bFiePiNeJW/WXPZ8+QUnz6ZQt0Urzng85Pi84e+/DrTgqtHRvwdh8iLRvXvdpJde1C0vvaiY58XBOogWzwwQb50+wPvTvgSHC9wu6tW5E5/fx879e8FmuyyBmZF2pc+/X8zskqVo274JPfr15q7v1rNi5HC8udlEF+FAj+t6P+ACEFq1HP/1ghrLlt4R3ogRYXkqCgenz0Tv1U3/bPkM9cba9USd8pVoV6EK1XYcJKZUJZ5xRLFsywaU89pTL/lQNdKOH2P88aNMjo2j570PMGjRQjb060fqiRNY7PbrIhQtFAAR/kO99MukVQiRIqVsdcsTfevnswcRBQjtnDbt1epHT965pE5T1LR02LGfAyM/ZPH2bXT+ekK4OVue77AvwScFg9S+sRpVypRj0c7N5J1O5qvJn7O1SXO+eO01lj72ONJu//NrQIT9u5yaGSPy+rPAvIv8f/2YZcv7GaZRO4B8yGqzO8rcdpvsMXeeeEfNY/XiDSjuqEt2uChCYPr9VK9SjSmV63Jm2Qr+3rkLi70ZrEs+yp4jB9h5b1Nq3N+IHatX4oiKLnYt0Aq68oUQUvp8VbDbGwAXtJ38YaiuXIQOyZ3YsqUan1CiUcl2D9nT4qI5YreIR3b9xI/bN1+Ugv73pJxKelYmGQ4beyZPIvvjf9GgQ0fa3XUXVK2P3L6fnWdT0LQ/txNWAR27vcmBcZ9+cmDdOmzOAs6AVhQCXi/lnFFk/2MIbWaNJ9XvR89MD+cGl7Hyz8+AFauVlJTTPL1nA58vmEfmR5+yf9lSds6ciS8UxGqzIRyOsA/40wKwalX+b4Eds2cZW5YuMaITElSpG0jzysbR51czeMqW455TqUr1+ESxaucWLO4oDNO84sY60zRRnC42791Jk7On6d21FXUf60p1U+DYvJ0fRr9HKOC/buiIwkZBQnM61NJVq/L4uvWqLToa1Wo9z8de1roFIfB5vdh1k9n31KfSiGfJDAYQooDjiCMgZGZnM3ruFHA4sWoKTz7UlW6P92HZm6+HJ/jq+p8eAEwjvEqdJRI4vmYtJ3/4Ac3lujxzJEHRNHzZWbicLm7/y1/ZlnyEYCh/Grr8nZMVQmBeZF/4YiAITUONjkEgCGZlEBc0yT1+HHFeBv4fkQdIIzwzbtfUqaz96F847fbL6qlVVA1vMEDVmrdSbeQw/jZ/El9tWovPMBDab8dPKoqCGfCDroPNflkTsfIn6eq5OTSqfz9dD51m8tdfEVu2bHiP4T8qERMCi9uNy27HWaLEJdVbKAr+3Fxq39eAUmNH8+jS6Rw6sBecbhTNghC/7hELQM/O5IZKVXmreUfeWDaX7SeOXBY9LaUETSUlPRX9pircdFttDu7ZhTsu7rpIxIp2fL1hYur6ZT2NUAiLlFR9fjDdl0zj0L492DzxqKqKGfBj5GSjZ2eFf3pzaXRvIybVuIf7tx/khnIVIPTbQd2KuPgRDqaUCLuD3b8c4PFfNpMw4XMaP/k3fJlZ18VIs2IpTRSKgjc7m1oNG7PKpXDi4D7scQn4c7JASspXqkzdipVJsDmJVzVqRcdxa3I6y/s8gb9HT2h4629tuBCYgQBoGqpmwZS/Ld4Kd8442bR3F80P7OH9x5/kfouFVR++jysurlh5oWIDgGCQ0g804cPjB0GCPyuDWjffRv/a9al7Mo3gpi2YWdn4UlNJO3SIhfv2kJubizvWAxdu0Os6NSreyOH0FAKpZ8HmCJse0wyHxFZrZFPdhREKMmDCRyzs+QzlFy0i+dRxrFZbsYWlxQKArutEe2Lx3VyN739YgDMqhmFtu9LidBYHX3ubVevW4g/4kYpAKCqazYojJgar3x9ZreKc2TH0EKVLJJJ0X1sO+XIYm3yAXckn0TSNaJsdXyjEnlPHMNLTwOnGZrcTzEhj0on9PN2mDUffHYWtpDPcK/BfAUBkE97piiYn2k25xFJ8cW8rlLGfkjRpAoam4oiKxh0THa5ECNsQpGlefJUaBnGxcZxZu44TH47llSefxIyvBIaO9HoRDg/ZTe5koZ7NJ6uX4svIRHW4WX5gF8/UvxuXw3nRYq8/EQBXqLpSYtEsZKSnUnH1OmY1a8W+vw9m17o1xJQuBWa4Xv/33fB/rFGq28XJwwdJfvlFNEUhbIHCo+xjSyTSpXMXOnV/jNcPbGHxD99z5thRDt35IIk33sjxo79gsxUPNVEsYYA0TYTdzvZ332NVqzYc3LYFT+nShKmMgp0phmlitdlxliyJxePBGuvBHh+PLS6ObL+XpR+MZm+PXrxjRPHRY0+TEBPDQUKUqFQZPRAsntP8KMYGDSEEWCyEpInd5SoSWkBKGW7SuyCqURWF6MRE0tJSmfNEX+7s1IU5vR9BSCu7D+zDZrcVW2ZcvB0yUoZLy69BQmTqOharFYvdzoZZM4hZvhTNZiM3LxetGKOgojvG6ryGt6sdwpryUl7hDzTEMHDHxREUkOf3oVmtlyX8c3PjIgvnegFA5k85DFe7meGjpNSrNyJSKgrB/MMhCigH0zDCO0OR0QWXBbpuoPv9YaFZLPmAyOIGQDP8AenLycGXmsrdAwdSpk5dfKmpBT5k849WryIUpNVKXiDcqCcL/6GXFr6qovv9qFYrjYYPAyD7xAn0UEgaoZBKISfCFgyARo3yrzy9etuHRHbKGTm1XXtpcTrosWQxibVq40tPDzdDFKXD0jTU0qU4nZMFispvx24UfRQjVBUjEC7g6jR1GtXatWP5oMFsmz3LrNGylYguW9YLBApzkkaBAMiviAbm1nz6qZc7vTda+2X9OnNCs2bSDIXouWQx5e6uH9aEIgBBCIGuh3BFReG/oTzHziQj8hvthEJOIICIiUbVLgSlECtTVdF9PlSrjc4zv+XG5s1Y/LenWfHeu0bd9h3UDtOnn7U4ne2FEGnhSyyYOVIKIRRz6NChCCHeqDXw2cFdx32invz5Z3Nis+YykJVNj8WLqHh/I7xnU8JVaIUQvhQCX2oaDwz5P6blpBDKyEDRtDAVrWmkZKaTE+/BGRWNaRQ+olI0jWBeHjZ3FN2SkqjQqCFJvfvy/Uf/Mu7t0VPtMHvWaayWFkKIHwrbJVkoHzB06FAZOVPs3Zr9/vpM1y++VFN27pDfNG0qc0+epPuCBVRu1oK8lJQCaUJ+Gbs/M4NO741h9j238tGyeSiR/WIAVdMIpaeyy6FxQ526+LKzUTRL4YSfk4MjNo7uixZSpl495vTsybrxXxqNn3hCbTNp4gmgqRBic2SUjXntfcCvApI0amREQBhbo0/vv3b5+hsl4+ABJjRtZmYcPEi3+Unc9FA7vGfOoFi0K/0CAtk5tB/9ARPrVuPlyZ+i2OycXyQtpUSoGuM2r6XKswNwqhp+X96VBwGR7dFAdjbuxFL0XLKEEjffzMxOD7Nh8mS92VNPq80+++ww8IAQYmek4q/Q2aNSBPZZRk5S1YQQn1Xv9ehjnSdMJPvkCTGheTPzzNZtPPztTG7u2o28MymXLRhF08hNTeWBgc8xo3Zl3p78GVqUhwtnpZhSIhxO9uzbzRt5yXT6ZgKxrihy0lKvqB1JsVjwZ2USU6EiPZcswVOpEtPbd2DTrG/11oMGa03+9eHeiPCLdGBHkYYO5x1l3vXgzG8nzuz1qKZFRZnd58xVyta/m6Q+fdn29XhciYl/SD0oqoo3N4fKNW7B/dmHtB3/PprVhvEHjX6KomDm5tDm7oa8clNdcv/1KesnT8QZFxdmU/8g5FQsFvzp6cRXu4lu8+dj93iY0bEjO5Yv09u9/A+t/sgR24HWQogTRT0tpchjt/NAaPfLggVTZnbv4ZCaZnabPVupcH9DFvZ/ks2ffYYrsWT4SPOLRR96CJnrpf2c2XQ88CO79+9FcTrD/cB/wMmqioqRm02Ux8M/Oz3GnfNXMf/Vl3EmJKBqGtIwfxslSYlqseBNS6PkrbfSfcECVIuV6e3asWfNar3T629od7z04kbgISHEmasxL+iqUIDngdDs2OIl3858pKc7GAyZXb/9VqnU9EGWDniWjf8aiyMuLrIyI1vvUhLyelFMkw5jP+atUna+WjQbNdpz2YP7VEXFCAXBl8dbj/Sn7frtLB4+DJ/Pi8XpDGexkW9UVBVfRgZl695Bt/lJmIbJ1DZtOLjxR73be2O02wYOWA20F0JkXK2JWVeNgz0PhAYnVqycN+uRHp7crGyj68yZauVWLVnx/Ats+vgjLE7nOfOg2qwkVKtGrWf+zocih88WzkJERotdSZ0XioKQJtLvp3+L9vR2liDt2zkcXbMGb0pKmIpQFPRAgDJ33EHXuXMJ5uYwpVVrjmzdovf86GPt5if7L09JSemQmJiYezVnxl1VElxKaRFChKSUd59as3bB7J494zLOnDa6TJuuVmvfDm/K2XCXTMS2W9wuLA4HQeDnlJPEutyF6uUSQpCak0XVUhUoFfmbLy0dMxgEJdxwHVWuHFlHjjC1bTuO7dyuP/7lV1rV3o8vAjoKIfyFjfOLFYALNKHumY0/LZrdo3uJ1KNHjWaj3lETqlf/zckW0jTRA0E0AS6741ysX5iHqqj4gwH8oSCq1XquNQopEaqKPzOTNa+P5OSuXUbfKVPVG7p1nQd0FkIEr7bwrwkAF4BwW9r2HfPm9OhR8ciunaYGyr9b32YR36TyB+Sp1WIxu0+ZqlTq1HHSqlWrHm8cDquvuvCvGQAXgFAza/+BhUfWrC2v2KyI4jxfSijofr9Zolo1pWyDe6cKIXpE/JG4FsIH+H8ZKHCNeFoKtgAAAABJRU5ErkJggg==">
       <div class="brand-text">
-        <h1>Stanford Golf Course · Tee Sheet Pulse</h1>
-        <span>Pro Shop Mission Control</span>
+        <h1>Stanford Golf Course</h1>
+        <div class="brand-sub">
+          <span class="bs-role">Pro Shop Mission Control</span>
+          <span class="bs-div"></span>
+          <span class="powered">powered by <b>Tee Sheet Pulse</b></span>
+        </div>
       </div>
     </div>
     <div class="topbar-right">
@@ -368,62 +422,9 @@ table.tee tbody tr.row-risk{background:#fffaf5}
     <div class="stat-card red"><div class="s-label">Needs Attention</div><div class="s-value">2</div><div class="s-sub">watch / behind</div></div>
     <div class="stat-card"><div class="s-label">Completed</div><div class="s-value">1</div><div class="s-sub">finished today</div></div>
     <div class="stat-card amber"><div class="s-label">Trackers Out</div><div class="s-value">8</div><div class="s-sub">of 13 clips</div></div></div>
-      <div class="tracker-panel" id="tracker-panel">
-    <div class="tracker-head" onclick="trackerExpanded=!trackerExpanded;renderTrackers()">
-      <h2>🛰 Tracker Inventory — $9.50 GPS Clips</h2>
-      <span class="th-meta">
-        <span>8 out on course</span><span>3 ready</span>
-        <span style="color:var(--red);font-weight:700">⚠ 1 missing</span>
-        <span>▲</span></span></div>
-    <div class="tracker-grid"><div class="clip assigned">
-      <div class="clip-top"><span class="clip-id">Clip 01</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:78%;background:var(--green)"></span></span>78%</span></div>
-      <span class="clip-status">Assigned</span><span class="clip-sub">Park / Lee</span></div><div class="clip assigned">
-      <div class="clip-top"><span class="clip-id">Clip 02</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:64%;background:var(--green)"></span></span>64%</span></div>
-      <span class="clip-status">Assigned</span><span class="clip-sub">Sullivan</span></div><div class="clip assigned">
-      <div class="clip-top"><span class="clip-id">Clip 03</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:31%;background:var(--amber)"></span></span>31%</span></div>
-      <span class="clip-status">Assigned</span><span class="clip-sub">Davis Corp</span></div><div class="clip assigned">
-      <div class="clip-top"><span class="clip-id">Clip 04</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:88%;background:var(--green)"></span></span>88%</span></div>
-      <span class="clip-status">Assigned</span><span class="clip-sub">Johnson</span></div><div class="clip assigned">
-      <div class="clip-top"><span class="clip-id">Clip 05</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:55%;background:var(--green)"></span></span>55%</span></div>
-      <span class="clip-status">Assigned</span><span class="clip-sub">Park family</span></div><div class="clip assigned">
-      <div class="clip-top"><span class="clip-id">Clip 06</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:90%;background:var(--green)"></span></span>90%</span></div>
-      <span class="clip-status">Assigned</span><span class="clip-sub">Williams</span></div><div class="clip assigned">
-      <div class="clip-top"><span class="clip-id">Clip 07</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:41%;background:var(--amber)"></span></span>41%</span></div>
-      <span class="clip-status">Assigned</span><span class="clip-sub">Chen duo</span></div><div class="clip assigned">
-      <div class="clip-top"><span class="clip-id">Clip 08</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:70%;background:var(--green)"></span></span>70%</span></div>
-      <span class="clip-status">Assigned</span><span class="clip-sub">McKee / Russell</span></div><div class="clip ready">
-      <div class="clip-top"><span class="clip-id">Clip 09</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:96%;background:var(--green)"></span></span>96%</span></div>
-      <span class="clip-status">Ready</span><span class="clip-sub">Available</span></div><div class="clip charging">
-      <div class="clip-top"><span class="clip-id">Clip 10</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:100%;background:var(--green)"></span></span>100%</span></div>
-      <span class="clip-status">Charging</span><span class="clip-sub">Almost ready</span></div><div class="clip returned">
-      <div class="clip-top"><span class="clip-id">Clip 11</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:18%;background:var(--red)"></span></span>18%</span></div>
-      <span class="clip-status">Returned</span><span class="clip-sub">Queue for charge</span></div><div class="clip ready">
-      <div class="clip-top"><span class="clip-id">Clip 12</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:84%;background:var(--green)"></span></span>84%</span></div>
-      <span class="clip-status">Ready</span><span class="clip-sub">Available</span></div><div class="clip missing">
-      <div class="clip-top"><span class="clip-id">Clip 13</span>
-        <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:52%;background:var(--green)"></span></span>52%</span></div>
-      <span class="clip-status">⚠ Missing</span><span class="clip-sub">Last: Hole 14, 43m ago</span></div></div></div>
-      <div class="alerts" id="alerts"><div class="alert gap"><div class="alert-left"><span class="alert-badge">Gap Closing</span>
-        <div><div class="alert-title">Johnson ↔ Park family
-          <span class="src-tag live">📍 GPS Confirmed</span></div>
-          <div class="alert-body">Only <strong>0 min</strong> separation — standard interval is 10 min. Real position confirmed. Marshal to Hole 8.</div></div></div>
-        <button class="dispatch-btn" onclick="openDispatch(5,8,&#39;gap&#39;)">Dispatch Marshal</button></div><div class="alert cascade"><div class="alert-left"><span class="alert-badge">Behind · Cascade</span>
-      <div><div class="alert-title">Davis Corp — 28 min behind pace at Hole 7
-        <span class="src-tag stale">📍 Stale</span></div>
-        <div class="alert-body">At this pace: Johnson, Park family, Williams, Chen duo, McKee / Russell each risk ~22 min delay.</div></div></div>
-      <button class="dispatch-btn" onclick="openDispatch(4,7,&#39;behind&#39;)">Dispatch Marshal</button></div></div>
+      <div class="tracker-panel" id="tracker-panel"></div>
+      <div class="alerts" id="alerts"></div>
+      <div class="legend-panel" id="pace-legend"></div>
       <div class="main-grid">
         <div class="panel">
           <div class="panel-head">
@@ -538,26 +539,27 @@ table.tee tbody tr.row-risk{background:#fffaf5}
       <div class="map-outer">
         <div class="map-canvas-wrap panel">
           <div class="panel-head">
-            <h2>⛳ Stanford Golf Course — Live Position</h2>
+            <h2>⛳ Course Board</h2>
             <span class="ph-meta" id="map-legend-row"></span>
           </div>
           <div id="map-svg-wrap" style="background:#0a1e0f;border-radius:0 0 8px 8px;overflow:hidden;min-height:460px"></div>
         </div>
         <div class="map-side">
-          <div class="panel">
+          <div class="panel groups-panel">
             <div class="panel-head"><h2>Active Groups</h2><span class="ph-meta" id="map-group-count"></span></div>
-            <div id="map-groups-list" style="padding:10px 12px;display:flex;flex-direction:column;gap:8px;max-height:520px;overflow-y:auto"></div>
+            <div id="map-groups-list" style="padding:10px 12px;display:flex;flex-direction:column;gap:8px"></div>
           </div>
-          <div class="panel" style="margin-top:12px">
-            <div class="panel-head"><h2>Legend</h2></div>
-            <div style="padding:12px 14px;display:flex;flex-direction:column;gap:7px;font-size:12px">
-              <div style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:#2a7a48;flex-shrink:0;display:inline-block"></span>On Pace</div>
-              <div style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:#a85f00;flex-shrink:0;display:inline-block"></span>Watch</div>
-              <div style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:#b0241c;flex-shrink:0;display:inline-block"></span>Behind</div>
-              <div style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:#3a5f40;flex-shrink:0;display:inline-block"></span>Empty hole</div>
-              <div style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:14px;border-radius:50%;background:#4a7a88;flex-shrink:0;display:inline-block"></span>Completed</div>
-              <div style="margin-top:4px;padding-top:8px;border-top:1px solid var(--line-2);color:var(--ink-3);line-height:1.6">📍 Live = tracker GPS active<br>🕐 Est = time-based projection</div>
+          <div class="panel" style="flex-shrink:0">
+            <div class="panel-head"><h2>Legend</h2><span class="ph-meta">Marker colour = pace</span></div>
+            <div class="lg2">
+              <div class="lg2-item"><span class="lg2-key" style="background:#2a7a48"></span>On Pace</div>
+              <div class="lg2-item"><span class="lg2-key" style="background:#a85f00"></span>Watch</div>
+              <div class="lg2-item"><span class="lg2-key" style="background:#b0241c"></span>Behind</div>
+              <div class="lg2-item"><span class="lg2-key ring"></span>Ring = behind</div>
+              <div class="lg2-item"><span class="lg2-key" style="background:#4a7a88"></span>Completed</div>
+              <div class="lg2-item"><span class="lg2-key" style="background:#1c4824;border:1px solid rgba(255,255,255,.35)"></span>Empty hole</div>
             </div>
+            <div class="lg2-foot">📍 <strong style="color:var(--ink-2)">Live</strong> tracker GPS · 📍 <strong style="color:var(--ink-2)">Stale</strong> no update 5 min+ · 🕐 <strong style="color:var(--ink-2)">Est</strong> projected</div>
           </div>
         </div>
       </div>
@@ -566,22 +568,8 @@ table.tee tbody tr.row-risk{background:#fffaf5}
 
   <!-- HISTORY TAB -->
   <div id="tab-history" class="hidden">
-    <div class="dashboard">
-      <div class="panel">
-        <div class="panel-head"><h2>Player Pace History</h2><span class="ph-meta">Informs pre-round risk score</span></div>
-        <div id="history-board" style="padding:14px"></div>
-      </div>
-    </div>
+    <div class="dashboard"><div id="history-board"></div></div>
   </div>
-</div>
-
-<!-- ═══ GOLFER PAGE ═══ -->
-<div id="golfer-page" class="golfer-page hidden">
-  <div class="golfer-view-wrap">
-    <div id="golfer-content"></div>
-    <div class="g-footer">Stanford Golf Course · pace tracker · no app needed<br>Questions? Visit the pro shop.</div>
-  </div>
-  <div class="g-demo"><div class="g-demo-row" id="g-demo-inner"></div></div>
 </div>
 
 <div id="modal-root"></div>
@@ -603,7 +591,7 @@ const dMin = (a,b) => Math.round((a-b)/60000);
 const td   = (h,m) => { const d=new Date(NOW); d.setHours(h,m,0,0); return d; };
 
 /* ══════════════════════════════════════════════
-   TRACKER INVENTORY  — $9.50 hardware clips
+   TRACKER INVENTORY  — GPS clip fleet
    (ESP32-C6 + GPS + e-ink display + buzzer)
 ══════════════════════════════════════════════ */
 // source: 'live' = active GPS fix  |  'stale' = no update >5 min  |  null = no tracker
@@ -644,19 +632,121 @@ const GROUPS = [
 ];
 
 const PLAYERS = [
-  {name:'Henderson, R.',type:'member', rounds:42,avgDelta:-1.2,consistency:92},
-  {name:'Park, J.',     type:'member', rounds:31,avgDelta: 0.4,consistency:88},
-  {name:'Sullivan, T.', type:'member', rounds:18,avgDelta: 1.1,consistency:74},
-  {name:'Davis, K.',    type:'guest',  rounds: 4,avgDelta: 3.4,consistency:62},
-  {name:'Johnson, M.',  type:'student',rounds: 3,avgDelta: 4.2,consistency:44},
-  {name:'Williams, A.', type:'member', rounds:55,avgDelta:-0.8,consistency:95},
-  {name:'Chen, W.',     type:'member', rounds:29,avgDelta: 0.6,consistency:85},
-  {name:'McKee, S.',    type:'member', rounds: 9,avgDelta: 1.4,consistency:70},
-  {name:'Martinez, L.', type:'guest',  rounds: 1,avgDelta: 0.0,consistency: 0},
+  {n:'Henderson, R.',t:'member',r:42,d:-1.2,c:92,late:0,ns:0,mar:1,last:11,nx:0,tr:[-1.0,-2.0,-2.2,-1.7,-1.5],tags:['Walks 18','Cart share']},
+  {n:'Park, J.',t:'student',r:31,d:0.4,c:88,late:1,ns:0,mar:0,last:96,nx:0,tr:[-0.6,-0.2,0.6,0.1,0.1],tags:['Beverage stops']},
+  {n:'Sullivan, T.',t:'faculty',r:18,d:1.1,c:74,late:1,ns:0,mar:3,last:120,nx:2,tr:[0.7,1.9,0.7,3.3,2.1],tags:['Beverage stops','Late arrival']},
+  {n:'Davis, K.',t:'member',r:4,d:3.4,c:62,late:0,ns:0,mar:1,last:14,nx:12,tr:[2.2,4.3,3.7,2.1,4.1],tags:['Practice swings','Ball hunting','Late arrival']},
+  {n:'Johnson, M.',t:'guest',r:3,d:4.2,c:44,late:0,ns:0,mar:1,last:120,nx:0,tr:[4.8,3.5,4.5,4.8,4.8],tags:['Lost balls']},
+  {n:'Williams, A.',t:'guest',r:55,d:-0.8,c:95,late:0,ns:0,mar:0,last:96,nx:18,tr:[-0.4,-0.6,-1.2,-0.7,-1.1],tags:['Waves through','Plays fast','Cart share']},
+  {n:'Chen, W.',t:'student',r:29,d:0.6,c:85,late:0,ns:0,mar:1,last:3,nx:2,tr:[0.9,1.4,1.5,-1.2,0.4],tags:['Practice swings']},
+  {n:'Kim, W.',t:'member',r:53,d:-1.8,c:97,late:3,ns:1,mar:0,last:5,nx:0,tr:[-2.0,-1.6,-1.7,-1.4,0.4],tags:['Ready golf']},
+  {n:'McKee, S.',t:'student',r:12,d:1.4,c:71,late:0,ns:0,mar:2,last:5,nx:9,tr:[1.8,2.1,1.1,0.6,1.6],tags:['Beverage stops','Slow tee box','Slow greens']},
+  {n:'Russell, L.',t:'guest',r:6,d:4.2,c:52,late:0,ns:0,mar:2,last:2,nx:5,tr:[3.6,4.6,4.4,4.3,4.2],tags:['Ball hunting','Beverage stops','Rental clubs']},
+  {n:'Martinez, L.',t:'member',r:1,d:0.0,c:0,late:3,ns:0,mar:0,last:14,nx:1,tr:[],tags:['Waves through','Ready golf']},
+  {n:'Tanaka, P.',t:'alumni',r:6,d:2.7,c:69,late:0,ns:0,mar:2,last:3,nx:1,tr:[3.6,2.8,4.0,2.2,2.7],tags:['Late arrival','Beverage stops','Ball hunting']},
+  {n:'Patel, R.',t:'faculty',r:29,d:0.5,c:84,late:1,ns:0,mar:2,last:96,nx:1,tr:[0.7,0.3,0.5,1.8,1.2],tags:['Cart share','Large group']},
+  {n:'Okafor, S.',t:'member',r:39,d:0.3,c:87,late:1,ns:0,mar:0,last:9,nx:0,tr:[-0.7,0.8,-0.4,-0.3,1.7],tags:['Ready golf','Large group']},
+  {n:'Nguyen, M.',t:'guest',r:2,d:2.0,c:66,late:1,ns:1,mar:0,last:3,nx:9,tr:[2.7,2.6,2.1,1.3,0.9],tags:['Lost balls']},
+  {n:'Rossi, K.',t:'member',r:58,d:-1.8,c:82,late:2,ns:0,mar:0,last:21,nx:4,tr:[-2.1,-2.2,-2.2,-1.3,-1.4],tags:['Keeps pace','Waves through']},
+  {n:'Andersson, L.',t:'student',r:9,d:3.4,c:56,late:0,ns:1,mar:3,last:2,nx:0,tr:[2.9,3.0,3.3,2.9,3.7],tags:['Beverage stops','Practice swings','Walks 18']},
+  {n:'Brennan, A.',t:'guest',r:2,d:0.3,c:86,late:0,ns:0,mar:0,last:8,nx:0,tr:[1.8,0.4,1.8,-1.4,-0.2],tags:['Cart share']},
+  {n:'Castillo, B.',t:'student',r:17,d:3.0,c:61,late:0,ns:0,mar:1,last:21,nx:0,tr:[3.5,2.2,3.0,3.2,3.2],tags:['Chatty group','Range finder','Large group']},
+  {n:'Delgado, B.',t:'faculty',r:9,d:2.3,c:69,late:0,ns:0,mar:0,last:17,nx:9,tr:[1.2,2.7,2.4,2.2,2.0],tags:['Photos','Lost balls','Practice swings']},
+  {n:'Ellsworth, V.',t:'junior',r:15,d:0.9,c:92,late:3,ns:0,mar:0,last:41,nx:0,tr:[-0.5,0.6,0.5,-2.2,0.9],tags:['Slow tee box','Late arrival','Cart share']},
+  {n:'Fitzgerald, B.',t:'junior',r:13,d:3.5,c:67,late:0,ns:2,mar:0,last:17,nx:0,tr:[4.1,3.5,2.7,3.2,4.6],tags:['Practice swings','Chatty group','Lost balls']},
+  {n:'Gallagher, B.',t:'junior',r:12,d:3.3,c:67,late:0,ns:0,mar:0,last:17,nx:0,tr:[3.3,1.9,3.1,2.6,2.7],tags:['Lost balls','Practice swings','Range finder']},
+  {n:'Hoffman, L.',t:'alumni',r:27,d:-0.2,c:81,late:0,ns:0,mar:0,last:2,nx:1,tr:[-1.1,-0.3,-0.4,-1.0,-1.5],tags:['Waves through']},
+  {n:'Iqbal, L.',t:'member',r:24,d:0.6,c:85,late:0,ns:0,mar:1,last:5,nx:9,tr:[1.2,0.5,0.8,0.6,1.1],tags:['Ready golf']},
+  {n:'Jensen, V.',t:'faculty',r:28,d:0.6,c:87,late:0,ns:1,mar:0,last:17,nx:2,tr:[0.6,0.2,0.7,-0.6,-0.4],tags:['Keeps pace','Large group']},
+  {n:'Kowalski, A.',t:'guest',r:3,d:4.6,c:46,late:0,ns:0,mar:1,last:11,nx:6,tr:[4.3,4.3,4.2,4.7,3.3],tags:['Ball hunting','Lost balls','Range finder']},
+  {n:'Lindqvist, R.',t:'alumni',r:30,d:1.0,c:81,late:0,ns:0,mar:0,last:120,nx:0,tr:[-0.0,1.5,0.8,1.0,1.9],tags:['Slow tee box','Practice swings']},
+  {n:'Moreau, C.',t:'guest',r:3,d:0.7,c:90,late:0,ns:0,mar:0,last:2,nx:0,tr:[2.9,1.2,1.1,0.4,1.4],tags:['Ready golf','Rental clubs']},
+  {n:'Novak, D.',t:'guest',r:1,d:3.6,c:0,late:1,ns:0,mar:1,last:8,nx:0,tr:[],tags:['Photos','Practice swings','Beverage stops']},
+  {n:'Oyelaran, R.',t:'alumni',r:28,d:-0.4,c:93,late:1,ns:0,mar:0,last:6,nx:15,tr:[1.2,-0.1,-1.2,-1.2,-0.9],tags:['Ready golf']},
+  {n:'Pereira, D.',t:'guest',r:6,d:0.9,c:72,late:0,ns:0,mar:1,last:58,nx:15,tr:[0.2,1.3,0.7,1.6,1.0],tags:['Slow tee box','Late arrival','Large group']},
+  {n:'Quinn, G.',t:'member',r:64,d:-0.5,c:87,late:0,ns:0,mar:1,last:120,nx:1,tr:[-0.5,0.1,-1.0,0.6,-1.2],tags:['Waves through','Plays fast']},
+  {n:'Ramirez, R.',t:'member',r:36,d:-0.2,c:97,late:0,ns:0,mar:0,last:6,nx:3,tr:[-1.4,-0.9,0.9,-0.9,-0.9],tags:['Keeps pace']},
+  {n:'Schneider, P.',t:'guest',r:7,d:3.7,c:72,late:2,ns:0,mar:1,last:2,nx:1,tr:[4.2,4.9,3.1,3.8,4.8],tags:['Range finder','Photos','Slow greens']},
+  {n:'Thornton, D.',t:'guest',r:4,d:2.2,c:80,late:1,ns:0,mar:2,last:120,nx:4,tr:[1.9,1.0,1.4,2.0,2.4],tags:['Ball hunting','Beverage stops','Photos']},
+  {n:'Ueda, W.',t:'alumni',r:15,d:1.0,c:74,late:0,ns:0,mar:0,last:33,nx:0,tr:[1.6,-0.4,-0.7,1.3,0.5],tags:['Ball hunting','Lost balls']},
+  {n:'Vasquez, P.',t:'junior',r:20,d:1.6,c:82,late:0,ns:0,mar:3,last:58,nx:4,tr:[2.3,1.0,3.3,2.1,1.8],tags:['Late arrival','Slow tee box','Rental clubs']},
+  {n:'Whitfield, K.',t:'student',r:20,d:3.5,c:71,late:0,ns:0,mar:1,last:3,nx:0,tr:[4.3,5.1,2.6,2.8,2.3],tags:['Beverage stops','Chatty group','Slow greens']},
+  {n:'Xu, L.',t:'faculty',r:29,d:0.8,c:97,late:0,ns:0,mar:1,last:96,nx:0,tr:[0.3,1.7,1.2,1.2,0.4],tags:['Lost balls','Ball hunting']},
+  {n:'Yamamoto, L.',t:'member',r:29,d:1.5,c:75,late:0,ns:0,mar:3,last:14,nx:5,tr:[2.5,0.0,-0.4,-0.1,2.5],tags:['Late arrival']},
+  {n:'Zhang, K.',t:'student',r:14,d:1.1,c:88,late:2,ns:0,mar:0,last:3,nx:3,tr:[1.9,1.5,1.5,1.3,0.1],tags:['Photos']},
+  {n:'Abbott, L.',t:'junior',r:23,d:0.4,c:82,late:0,ns:0,mar:0,last:120,nx:0,tr:[0.9,0.4,-0.8,1.6,-1.0],tags:['Cart share','Large group','Junior clinic']},
+  {n:'Bianchi, B.',t:'alumni',r:9,d:5.6,c:48,late:1,ns:0,mar:0,last:58,nx:0,tr:[6.2,5.2,5.4,5.8,6.2],tags:['Lost balls','Photos','Slow greens']},
+  {n:'Cavanaugh, P.',t:'member',r:60,d:0.6,c:85,late:0,ns:0,mar:0,last:2,nx:1,tr:[2.3,0.3,-0.2,0.4,0.3],tags:['Rental clubs']},
+  {n:'Dubois, B.',t:'guest',r:9,d:3.7,c:72,late:0,ns:0,mar:2,last:8,nx:7,tr:[3.8,5.2,4.1,3.6,3.0],tags:['Late arrival','Chatty group']},
+  {n:'Eriksen, G.',t:'guest',r:1,d:3.5,c:0,late:1,ns:0,mar:2,last:96,nx:0,tr:[],tags:['Beverage stops','Slow tee box','Ball hunting']},
+  {n:'Farrell, N.',t:'student',r:11,d:1.3,c:79,late:0,ns:0,mar:3,last:33,nx:9,tr:[0.1,1.2,1.5,-0.7,1.3],tags:['Photos','Walks 18']},
+  {n:'Grigoryan, L.',t:'alumni',r:10,d:2.8,c:70,late:0,ns:0,mar:0,last:21,nx:0,tr:[3.7,3.3,4.4,1.7,2.3],tags:['Photos','Beverage stops','Practice swings']},
+  {n:'Hashimoto, H.',t:'member',r:49,d:-0.4,c:97,late:0,ns:0,mar:0,last:14,nx:0,tr:[-0.1,0.0,0.9,-0.3,-0.4],tags:['Keeps pace','Ready golf','Large group']},
+  {n:'Ibrahim, V.',t:'member',r:61,d:0.4,c:89,late:0,ns:0,mar:0,last:17,nx:12,tr:[1.5,1.7,-0.5,0.8,-0.0],tags:['Plays fast']},
+  {n:'Jankowski, C.',t:'member',r:74,d:-1.8,c:84,late:0,ns:0,mar:0,last:96,nx:0,tr:[-2.2,-1.1,-2.0,-1.3,-2.2],tags:['Ready golf']},
+  {n:'Kaufman, A.',t:'student',r:9,d:1.9,c:82,late:0,ns:0,mar:2,last:14,nx:6,tr:[2.4,1.7,3.4,2.5,3.4],tags:['Beverage stops','Chatty group']},
+  {n:'Lombardi, K.',t:'member',r:51,d:-1.8,c:82,late:0,ns:0,mar:0,last:2,nx:1,tr:[-1.4,-0.7,-1.6,-0.5,-2.2],tags:['Ready golf','Keeps pace','Cart share']},
+  {n:'Mahoney, L.',t:'member',r:74,d:-1.8,c:73,late:1,ns:0,mar:0,last:26,nx:6,tr:[-2.2,-1.5,-1.7,-1.7,-1.4],tags:['Plays fast']},
+  {n:'Nakamura, J.',t:'alumni',r:9,d:3.5,c:64,late:0,ns:0,mar:2,last:26,nx:0,tr:[2.7,3.0,4.4,3.3,4.6],tags:['Ball hunting','Slow greens']},
+  {n:'Ortega, S.',t:'guest',r:5,d:2.9,c:63,late:0,ns:0,mar:1,last:5,nx:9,tr:[3.3,2.2,3.0,3.5,4.2],tags:['Beverage stops','Lost balls','Rental clubs']},
+  {n:'Petrov, K.',t:'member',r:74,d:-0.7,c:97,late:0,ns:0,mar:0,last:120,nx:0,tr:[0.1,-1.6,-1.0,-1.4,-0.2],tags:['Waves through']},
+  {n:'Radcliffe, L.',t:'faculty',r:31,d:2.0,c:74,late:1,ns:0,mar:3,last:5,nx:0,tr:[3.6,0.8,1.3,0.6,2.1],tags:['Ball hunting','Large group']},
+  {n:'Sorensen, R.',t:'guest',r:9,d:1.3,c:75,late:0,ns:0,mar:1,last:33,nx:0,tr:[2.1,0.6,0.7,3.0,2.0],tags:['Slow greens']},
+  {n:'Takahashi, R.',t:'faculty',r:35,d:1.0,c:92,late:0,ns:0,mar:0,last:41,nx:15,tr:[1.7,-0.5,1.5,1.5,2.7],tags:['Slow tee box']},
+  {n:'Ulrich, B.',t:'alumni',r:14,d:2.0,c:76,late:0,ns:0,mar:2,last:74,nx:0,tr:[3.5,1.2,1.0,2.1,0.7],tags:['Slow tee box','Walks 18']},
+  {n:'Vogel, H.',t:'alumni',r:13,d:3.9,c:55,late:0,ns:0,mar:4,last:9,nx:0,tr:[4.2,4.2,3.5,3.2,3.5],tags:['Slow greens','Photos','Ball hunting']},
+  {n:'Wesley, F.',t:'student',r:8,d:3.3,c:68,late:0,ns:0,mar:3,last:41,nx:0,tr:[3.1,2.5,3.0,3.8,3.4],tags:['Lost balls','Late arrival','Slow tee box']},
+  {n:'Yildiz, W.',t:'member',r:59,d:-0.8,c:97,late:0,ns:0,mar:0,last:11,nx:0,tr:[0.1,-0.8,-1.6,-2.2,-0.3],tags:['Keeps pace','Waves through']},
+  {n:'Zimmerman, F.',t:'alumni',r:6,d:2.3,c:77,late:0,ns:1,mar:1,last:8,nx:0,tr:[1.9,3.0,2.3,2.3,2.2],tags:['Slow greens','Practice swings','Late arrival']},
+  {n:'Aldridge, H.',t:'junior',r:3,d:3.1,c:75,late:0,ns:0,mar:1,last:8,nx:0,tr:[3.3,3.2,4.2,3.6,1.5],tags:['Late arrival','Photos','Chatty group']},
+  {n:'Bhatt, S.',t:'member',r:48,d:0.9,c:94,late:3,ns:0,mar:0,last:2,nx:0,tr:[-0.2,0.8,0.4,-0.2,0.0],tags:['Chatty group']},
+  {n:'Colton, W.',t:'member',r:34,d:-1.8,c:79,late:3,ns:0,mar:0,last:9,nx:7,tr:[-2.2,-1.3,-1.7,-1.8,-1.0],tags:['Waves through']},
+  {n:'Duarte, L.',t:'guest',r:8,d:4.0,c:64,late:0,ns:0,mar:3,last:120,nx:0,tr:[4.5,4.1,3.7,4.0,3.7],tags:['Ball hunting','Late arrival']},
+  {n:'Espinoza, L.',t:'guest',r:6,d:3.5,c:67,late:0,ns:0,mar:2,last:41,nx:6,tr:[2.6,3.5,4.2,3.5,3.6],tags:['Lost balls','Slow greens','Practice swings']},
+  {n:'Forsythe, D.',t:'member',r:50,d:-0.7,c:97,late:0,ns:0,mar:0,last:5,nx:0,tr:[-0.3,-2.2,-1.0,0.3,-0.9],tags:['Plays fast']},
+  {n:'Goldberg, E.',t:'alumni',r:18,d:-0.0,c:88,late:0,ns:0,mar:0,last:58,nx:7,tr:[-0.9,0.6,1.0,0.8,-0.4],tags:['Ready golf','Rental clubs']},
+  {n:'Halvorsen, L.',t:'junior',r:16,d:1.0,c:73,late:0,ns:0,mar:2,last:3,nx:0,tr:[-0.2,0.5,0.8,0.6,1.0],tags:['Ball hunting','Junior clinic']},
+  {n:'Ishikawa, K.',t:'junior',r:3,d:1.0,c:84,late:0,ns:0,mar:0,last:41,nx:2,tr:[0.7,1.5,0.5,0.9,1.0],tags:['Photos','Range finder','Junior clinic']},
+  {n:'Jimenez, L.',t:'member',r:56,d:-1.6,c:94,late:0,ns:0,mar:0,last:26,nx:0,tr:[-1.5,-1.1,-2.2,-0.6,-0.3],tags:['Ready golf']},
+  {n:'Kensington, D.',t:'student',r:4,d:3.3,c:66,late:0,ns:0,mar:2,last:26,nx:7,tr:[4.1,1.7,3.5,2.3,2.2],tags:['Chatty group','Beverage stops','Rental clubs']},
+  {n:'Larsson, T.',t:'member',r:54,d:-1.0,c:93,late:1,ns:0,mar:0,last:3,nx:1,tr:[-1.2,-1.4,-0.7,0.0,0.6],tags:['Waves through']},
+  {n:'Mbeki, V.',t:'faculty',r:39,d:0.5,c:97,late:0,ns:0,mar:1,last:21,nx:5,tr:[0.2,1.1,1.2,-0.9,0.8],tags:['Rental clubs']},
+  {n:'Nystrom, F.',t:'member',r:39,d:1.1,c:87,late:0,ns:0,mar:0,last:96,nx:0,tr:[2.4,1.5,2.4,1.2,1.5],tags:['Lost balls']},
+  {n:'Olsen, R.',t:'member',r:12,d:2.4,c:83,late:0,ns:0,mar:0,last:5,nx:0,tr:[3.5,2.5,0.7,2.3,4.0],tags:['Lost balls','Range finder','Beverage stops']},
+  {n:'Prasad, D.',t:'member',r:63,d:-1.1,c:84,late:0,ns:0,mar:0,last:120,nx:0,tr:[-0.1,-1.2,-0.4,-0.9,-1.6],tags:['Plays fast','Waves through']},
+  {n:'Reyes, F.',t:'member',r:69,d:0.4,c:85,late:0,ns:0,mar:1,last:3,nx:5,tr:[1.2,0.7,0.8,1.8,0.1],tags:['Rental clubs']},
+  {n:'Sandoval, H.',t:'alumni',r:10,d:1.7,c:66,late:0,ns:2,mar:3,last:17,nx:6,tr:[2.4,1.7,0.4,2.0,1.6],tags:['Range finder']},
+  {n:'Tremblay, T.',t:'member',r:45,d:0.9,c:86,late:0,ns:0,mar:1,last:5,nx:12,tr:[1.4,-0.0,0.9,2.2,1.7],tags:['Practice swings','Beverage stops','Rental clubs']},
+  {n:'Underwood, C.',t:'guest',r:6,d:0.7,c:84,late:0,ns:0,mar:0,last:5,nx:0,tr:[1.1,0.2,-0.0,2.4,1.5],tags:['Keeps pace','Rental clubs']},
+  {n:'Villanueva, A.',t:'guest',r:9,d:1.2,c:64,late:0,ns:0,mar:1,last:2,nx:4,tr:[0.7,1.1,2.0,2.2,1.5],tags:['Ball hunting','Rental clubs']},
+  {n:'Wong, H.',t:'student',r:14,d:-0.3,c:86,late:3,ns:0,mar:0,last:74,nx:0,tr:[-1.8,-1.0,0.5,0.2,-0.1],tags:['Waves through','Keeps pace','Rental clubs']},
+  {n:'Yoon, V.',t:'student',r:8,d:2.0,c:86,late:0,ns:0,mar:2,last:21,nx:12,tr:[2.9,3.1,2.9,1.2,2.9],tags:['Slow tee box','Lost balls']},
+  {n:'Zeller, S.',t:'guest',r:4,d:1.6,c:91,late:2,ns:0,mar:0,last:8,nx:0,tr:[0.5,1.7,2.0,2.3,1.5],tags:['Slow tee box']},
+  {n:'Ashford, T.',t:'member',r:34,d:1.3,c:79,late:0,ns:0,mar:2,last:33,nx:5,tr:[3.3,1.9,1.3,1.4,1.5],tags:['Chatty group']},
+  {n:'Barnes, F.',t:'student',r:22,d:2.2,c:94,late:0,ns:0,mar:3,last:74,nx:0,tr:[2.7,2.1,3.5,1.8,1.3],tags:['Late arrival','Practice swings']},
+  {n:'Cortez, N.',t:'guest',r:1,d:3.9,c:0,late:1,ns:0,mar:3,last:3,nx:2,tr:[],tags:['Slow greens','Beverage stops','Large group']},
+  {n:'Draper, S.',t:'student',r:21,d:1.8,c:89,late:0,ns:0,mar:1,last:41,nx:0,tr:[1.9,1.1,1.8,2.7,3.4],tags:['Slow greens']},
+  {n:'Everett, H.',t:'guest',r:9,d:2.8,c:66,late:0,ns:0,mar:0,last:120,nx:4,tr:[3.1,1.2,2.0,3.6,2.1],tags:['Ball hunting','Range finder','Chatty group']},
+  {n:'Fontaine, H.',t:'member',r:53,d:-0.7,c:71,late:1,ns:0,mar:0,last:11,nx:2,tr:[-0.5,-1.0,-1.4,-1.4,-0.8],tags:['Keeps pace','Waves through']},
+  {n:'Guzman, G.',t:'member',r:51,d:-0.7,c:85,late:0,ns:0,mar:0,last:21,nx:1,tr:[-0.6,-1.0,-0.8,0.5,-0.7],tags:['Plays fast','Waves through']},
+  {n:'Hollingsworth, M.',t:'guest',r:6,d:2.6,c:61,late:3,ns:0,mar:1,last:120,nx:0,tr:[1.7,1.9,1.9,2.0,2.9],tags:['Lost balls','Beverage stops','Ball hunting']},
+  {n:'Imai, C.',t:'member',r:15,d:1.0,c:73,late:0,ns:0,mar:0,last:6,nx:7,tr:[-0.3,0.6,1.3,-0.7,1.1],tags:['Photos','Range finder']},
+  {n:'Kaplan, A.',t:'guest',r:7,d:4.1,c:71,late:0,ns:0,mar:4,last:41,nx:1,tr:[3.2,3.0,3.6,3.9,5.0],tags:['Slow tee box','Chatty group','Large group']},
+  {n:'Leclerc, K.',t:'faculty',r:34,d:1.1,c:97,late:0,ns:0,mar:0,last:96,nx:1,tr:[-0.5,0.3,1.4,-0.7,1.4],tags:['Slow greens','Rental clubs']},
+  {n:'Montoya, A.',t:'student',r:15,d:2.1,c:74,late:0,ns:0,mar:2,last:21,nx:0,tr:[2.7,2.8,1.6,2.0,1.4],tags:['Slow greens','Beverage stops']},
+  {n:'Nilsson, B.',t:'student',r:10,d:1.0,c:96,late:0,ns:0,mar:0,last:6,nx:0,tr:[1.8,1.4,0.5,1.5,1.3],tags:['Lost balls']},
+  {n:'Oakley, G.',t:'alumni',r:34,d:-0.8,c:94,late:1,ns:0,mar:1,last:11,nx:0,tr:[-0.7,-1.1,-0.7,-1.3,-0.9],tags:['Ready golf','Rental clubs']},
+  {n:'Pemberton, H.',t:'student',r:22,d:2.0,c:82,late:1,ns:0,mar:2,last:5,nx:0,tr:[1.3,1.5,1.6,3.0,3.0],tags:['Range finder']},
+  {n:'Rahman, V.',t:'student',r:19,d:2.6,c:62,late:0,ns:0,mar:4,last:8,nx:0,tr:[4.2,1.7,2.8,2.7,2.6],tags:['Beverage stops','Slow tee box','Lost balls']},
+  {n:'Stavros, S.',t:'guest',r:1,d:1.6,c:0,late:0,ns:0,mar:4,last:74,nx:0,tr:[],tags:['Lost balls','Slow tee box']},
+  {n:'Thibault, A.',t:'guest',r:3,d:2.9,c:61,late:0,ns:0,mar:1,last:26,nx:0,tr:[3.3,3.2,1.9,2.3,3.5],tags:['Ball hunting','Slow greens']},
+  {n:'Voss, B.',t:'alumni',r:4,d:2.3,c:75,late:0,ns:0,mar:3,last:5,nx:0,tr:[2.6,1.1,2.3,1.5,3.0],tags:['Ball hunting','Photos','Practice swings']},
+  {n:'Wexler, M.',t:'student',r:6,d:3.5,c:70,late:1,ns:0,mar:4,last:17,nx:0,tr:[4.0,4.2,3.4,4.0,3.5],tags:['Practice swings','Beverage stops','Slow tee box']},
+  {n:'Yates, D.',t:'guest',r:6,d:1.9,c:73,late:0,ns:0,mar:0,last:33,nx:0,tr:[2.6,2.1,2.1,1.7,2.7],tags:['Practice swings','Rental clubs']},
+  {n:'Zakharov, E.',t:'member',r:50,d:-1.0,c:97,late:0,ns:0,mar:1,last:74,nx:0,tr:[-0.4,-1.7,0.7,-2.1,-0.8],tags:['Keeps pace','Cart share']},
 ];
 
 const dispatchLog = [];
-let demoOverride  = {};   // {groupId: 'on'|'watch'|'behind'}
 let pendingClip   = null;
 let ciStep        = 1;
 let coReturnSel   = null;
@@ -684,7 +774,6 @@ const actHole   = (g,now=NOW) => { if(g.status==='completed') return g.holes; if
 const minsBehind= (g,now=NOW) => { if(!g.actualPer||g.status==='pending'||g.status==='checked-in') return 0; const p=paceProf(g); return Math.max(0,(projHole(g,now)-actHole(g,now))*p.per); };
 
 const paceStatus= (g,now=NOW) => {
-  if (demoOverride[g.id]) return demoOverride[g.id];
   if (g.status==='completed')  return 'done';
   if (g.status!=='on-course')  return 'idle';
   const el=dMin(now,g.teeOff); if(el<=0) return 'idle';
@@ -708,7 +797,6 @@ function position(g){
 
 const gapMin = (a,b,now=NOW) => {
   if (a.status!=='on-course'||b.status!=='on-course') return null;
-  if (demoOverride.gapPair && demoOverride.gapPair[0]===a.id) return demoOverride.gapPair[1];
   return Math.max(0,dMin(b.teeOff,a.teeOff)-(minsBehind(a,now)-minsBehind(b,now)));
 };
 // tighter threshold when both have live GPS
@@ -717,18 +805,7 @@ const gapThr = (a,b) => (trackerSource(a)==='live'&&trackerSource(b)==='live') ?
 /* ══════════════════════════════════════════════
    VIEW ROUTING
 ══════════════════════════════════════════════ */
-let currentMainView='pro', currentTab='dashboard', golferGroupId=4;
-
-function setMainView(v){
-  currentMainView=v;
-  document.getElementById('pro-shop').classList.toggle('hidden',v!=='pro');
-  document.getElementById('golfer-page').classList.toggle('hidden',v!=='golfer');
-  document.getElementById('dn-cur').textContent = v==='golfer'?'Golfer Pace Page':'Pro Shop Dashboard';
-  document.getElementById('dn-pro').classList.toggle('dn-active',v==='pro');
-  document.getElementById('dn-golfer').classList.toggle('dn-active',v==='golfer');
-  document.getElementById('dn-group').classList.toggle('hidden',v!=='golfer');
-  if (v==='golfer') renderGolfer(); else renderAll();
-}
+let currentTab='dashboard';
 function setTab(t){
   currentTab=t;
   ['dashboard','map','history'].forEach(x=>document.getElementById('tab-'+x).classList.toggle('hidden',x!==t));
@@ -739,8 +816,8 @@ function setTab(t){
 /* ══════════════════════════════════════════════
    RENDER — DASHBOARD
 ══════════════════════════════════════════════ */
-function renderAll(){ renderClock(); renderStats(); renderTrackers(); renderAlerts(); renderTeeSheet(); renderUpcoming(); renderDlog(); populateGroupSelect(); }
-function renderClock(){ const t=fmt(NOW); document.getElementById('clock').textContent=t; document.getElementById('dn-time').textContent=t; }
+function renderAll(){ renderClock(); renderStats(); renderTrackers(); renderAlerts(); renderTeeSheet(); renderUpcoming(); renderDlog(); renderPaceLegend(); }
+function renderClock(){ document.getElementById('clock').textContent=fmt(NOW); }
 
 function renderStats(){
   let onCourse=0,onPace=0,attn=0,done=0;
@@ -760,22 +837,37 @@ function battCol(b){ return b<=20?'var(--red)':b<=45?'var(--amber)':'var(--green
 function renderTrackers(){
   const cnt={ready:0,assigned:0,charging:0,returned:0,missing:0};
   TRACKERS.forEach(t=>cnt[t.status]++);
+  const dotCol={assigned:'var(--green)',charging:'var(--blue)',ready:'#8a9088',returned:'var(--amber)',missing:'var(--red)'};
   const cells=TRACKERS.map(t=>{
     const grp=t.group?GROUPS.find(g=>g.id===t.group):null;
-    const stxt=t.status==='assigned'?'Assigned':t.status==='charging'?'Charging':t.status==='ready'?'Ready':t.status==='returned'?'Returned':'⚠ Missing';
-    const sub=t.status==='assigned'&&grp?grp.name:t.status==='missing'?`Last: Hole ${t.lastHole}, ${t.staleMin}m ago`:t.status==='returned'?'Queue for charge':t.status==='charging'?'Almost ready':'Available';
-    return `<div class="clip ${t.status}">
+    const stxt=t.status==='assigned'?'Assigned':t.status==='charging'?'Charging':t.status==='ready'?'Ready':t.status==='returned'?'Returned':'Missing';
+    const sub=t.status==='assigned'&&grp?grp.name:t.status==='missing'?`Last seen Hole ${t.lastHole} · ${Math.round(t.staleMin)}m ago`:t.status==='returned'?'Queued for charge':t.status==='charging'?'Almost ready':'Available to assign';
+    const named=t.status==='assigned'&&grp;
+    return `<div class="clip ${t.status}" title="Clip ${t.id} — ${stxt} · ${t.battery}% battery">
       <div class="clip-top"><span class="clip-id">Clip ${t.id}</span>
         <span class="clip-batt"><span class="batt-bar"><span class="batt-fill" style="width:${t.battery}%;background:${battCol(t.battery)}"></span></span>${t.battery}%</span></div>
-      <span class="clip-status">${stxt}</span><span class="clip-sub">${sub}</span></div>`;
+      <span class="clip-status"><span class="cs-dot" style="background:${dotCol[t.status]}"></span>${t.status==='missing'?'⚠ ':''}${stxt}</span>
+      <span class="clip-sub${named?'':' muted'}">${sub}</span></div>`;
   }).join('');
+
+  // fleet utilisation bar — proportional segments across the whole fleet
+  const segs=[['assigned','var(--green)'],['ready','#c3c8bf'],['charging','var(--blue)'],['returned','var(--amber)'],['missing','var(--red)']]
+    .filter(([k])=>cnt[k])
+    .map(([k,c])=>`<span class="fleet-seg" style="width:${cnt[k]/TRACKERS.length*100}%;background:${c}"></span>`).join('');
+
+  const pill=(cls,col,label)=>`<span class="th-pill ${cls}"><span class="thp-dot" style="background:${col}"></span>${label}</span>`;
+
   document.getElementById('tracker-panel').innerHTML=`
     <div class="tracker-head" onclick="trackerExpanded=!trackerExpanded;renderTrackers()">
-      <h2>🛰 Tracker Inventory — $9.50 GPS Clips</h2>
+      <h2>🛰 Tracker Inventory</h2>
       <span class="th-meta">
-        <span>${cnt.assigned} out on course</span><span>${cnt.ready+cnt.charging} ready</span>
-        ${cnt.missing?`<span style="color:var(--red);font-weight:700">⚠ ${cnt.missing} missing</span>`:''}
-        <span>${trackerExpanded?'▲':'▼'}</span></span></div>
+        ${pill('out','var(--green)',`${cnt.assigned} on course`)}
+        ${cnt.ready?pill('ready','#8a9088',`${cnt.ready} ready`):''}
+        ${cnt.charging?pill('charge','var(--blue)',`${cnt.charging} charging`):''}
+        ${cnt.returned?pill('','var(--amber)',`${cnt.returned} returned`):''}
+        ${cnt.missing?pill('alert','var(--red)',`⚠ ${cnt.missing} missing`):''}
+        <span class="th-chev">${trackerExpanded?'▲':'▼'}</span></span></div>
+    <div class="fleet-bar">${segs}</div>
     ${trackerExpanded?`<div class="tracker-grid">${cells}</div>`:''}`;
 }
 
@@ -807,6 +899,77 @@ function renderAlerts(){
       <button class="dispatch-btn" onclick="openDispatch(${slow.id},${pos.hole},'behind')">Dispatch Marshal</button></div>`);
   }
   document.getElementById('alerts').innerHTML=items.join('');
+}
+
+/* ══════════════════════════════════════════════
+   PACE LEGEND
+   Explains every pace state the board can show and
+   names the groups currently sitting in each one.
+══════════════════════════════════════════════ */
+const TEE_INTERVAL = 10;   // minutes — standard separation between groups
+
+function renderPaceLegend(){
+  const onC   = GROUPS.filter(g=>g.status==='on-course').sort((a,b)=>a.teeOff-b.teeOff);
+  const inState = ps => onC.filter(g=>paceStatus(g)===ps);
+
+  // pairs that have closed to inside the standard tee interval
+  const closing=[];
+  for(let i=0;i<onC.length-1;i++){
+    const a=onC[i], b=onC[i+1], gap=gapMin(a,b);
+    if(gap!==null && gap<TEE_INTERVAL) closing.push({a,b,gap,urgent:gap<gapThr(a,b)});
+  }
+  // alerts on the board = urgent gaps + one cascade alert when anyone is behind
+  const alertCount = closing.filter(c=>c.urgent).length + (inState('behind').length?1:0);
+
+  const who = arr => arr.length
+    ? `<span class="lg-who">${arr.join(' · ')}</span>`
+    : `<span class="lg-who none">None right now</span>`;
+  const num = n => `<span class="lg-count${n?'':' zero'}">${n}</span>`;
+
+  const on=inState('on'), watch=inState('watch'), behind=inState('behind');
+
+  document.getElementById('pace-legend').innerHTML=`
+    <div class="legend-head">
+      <h2>Legend — How to read this board</h2>
+      <span class="ph-meta">${onC.length} group${onC.length===1?'':'s'} on course · standard interval ${TEE_INTERVAL} min</span>
+    </div>
+    <div class="legend-grid">
+      <div class="lg-item">
+        <div class="lg-top"><span class="lg-key" style="background:var(--green)"></span>
+          <span class="lg-name">On Pace</span>${num(on.length)}</div>
+        <span class="lg-def">Holding their target time for the round.</span>
+        ${who(on.map(g=>g.name))}
+      </div>
+      <div class="lg-item">
+        <div class="lg-top"><span class="lg-key" style="background:var(--amber)"></span>
+          <span class="lg-name">Watch</span>${num(watch.length)}</div>
+        <span class="lg-def">Beginning to slip behind target. Monitor — no action needed yet.</span>
+        ${who(watch.map(g=>`${g.name} · ${Math.round(minsBehind(g))}m`))}
+      </div>
+      <div class="lg-item">
+        <div class="lg-top"><span class="lg-key" style="background:var(--red)"></span>
+          <span class="lg-name">Behind</span>${num(behind.length)}</div>
+        <span class="lg-def">Well off target pace. Every group behind them is at risk.</span>
+        ${who(behind.map(g=>`${g.name} · ${Math.round(minsBehind(g))}m behind`))}
+      </div>
+      <div class="lg-item">
+        <div class="lg-top"><span class="lg-key ring"></span>
+          <span class="lg-name">Within ${TEE_INTERVAL} min</span>${num(closing.length)}</div>
+        <span class="lg-def">The following group has closed to under the ${TEE_INTERVAL}-minute tee interval.</span>
+        ${who(closing.map(c=>`${c.a.name} ↔ ${c.b.name} · ${c.gap}m apart`))}
+      </div>
+      <div class="lg-item">
+        <div class="lg-top"><span class="lg-key" style="background:var(--ink)"></span>
+          <span class="lg-name">Alert</span>${num(alertCount)}</div>
+        <span class="lg-def">Shown at the top of the board. Marshal dispatch recommended.</span>
+        ${who(alertCount?['Action required']:[])}
+      </div>
+    </div>
+    <div class="legend-foot">
+      <span><span class="src-tag live">📍 Live</span> position confirmed by tracker GPS</span>
+      <span><span class="src-tag stale">📍 Stale</span> no tracker update in over 5 min</span>
+      <span><span class="src-tag est">🕐 Est</span> projected from tee time and target pace</span>
+    </div>`;
 }
 
 function renderTeeSheet(){
@@ -895,26 +1058,7 @@ function renderMap(){
      Routing: Clubhouse bottom-right → sweeps UP-LEFT into hills (holes 1-9) →
               back nine weaves right through center → returns bottom-right (18)
      Holes 3,4,8,14,17 = Par 3 | Holes 1,7,16 = Par 5 | Rest = Par 4        ── */
-  const HOLES=[
-    {h:1,  x:868,y:322,par:5,yds:521,note:'Tee over Serra Blvd'},
-    {h:2,  x:468,y:120,par:4,yds:483,note:'Long par 4 into hills'},
-    {h:3,  x:240,y:72, par:3,yds:215,note:'Par 3'},
-    {h:4,  x:98, y:135,par:3,yds:168,note:'Par 3 — back-to-back'},
-    {h:5,  x:128,y:162,par:4,yds:447,note:''},
-    {h:6,  x:338,y:175,par:4,yds:429,note:''},
-    {h:7,  x:282,y:242,par:5,yds:539,note:'Longest hole'},
-    {h:8,  x:85, y:245,par:3,yds:172,note:'Par 3'},
-    {h:9,  x:192,y:278,par:4,yds:365,note:'Turn'},
-    {h:10, x:418,y:355,par:4,yds:440,note:'Start of back nine'},
-    {h:11, x:582,y:235,par:4,yds:351,note:'Panoramic views'},
-    {h:12, x:748,y:208,par:4,yds:473,note:'Signature — three trees'},
-    {h:13, x:582,y:170,par:4,yds:424,note:''},
-    {h:14, x:388,y:235,par:3,yds:197,note:'Par 3 — steep bank'},
-    {h:15, x:265,y:325,par:4,yds:361,note:''},
-    {h:16, x:148,y:452,par:5,yds:500,note:'Long par 5 sweeping right'},
-    {h:17, x:452,y:468,par:3,yds:185,note:'Par 3'},
-    {h:18, x:638,y:425,par:4,yds:457,note:'Panoramic views — back to clubhouse'},
-  ];
+  const HOLES=COURSE_HOLES;
 
   const onC=GROUPS.filter(g=>g.status==='on-course'||g.status==='completed').sort((a,b)=>a.teeOff-b.teeOff);
   const occup={};
@@ -934,7 +1078,8 @@ function renderMap(){
     const cx=(a.x+b.x)/2 + dy*side, cy=(a.y+b.y)/2 - dx*side;
     const wOuter=len>300?32:len>180?26:20, wInner=len>300?18:len>180?14:10;
     fw+=`<path d="M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}" fill="none" stroke="#163b1c" stroke-width="${wOuter}" stroke-linecap="round" opacity="0.8"/>`;
-    fw+=`<path d="M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}" fill="none" stroke="#1e5228" stroke-width="${wInner}" stroke-linecap="round" opacity="0.95"/>`;
+    const inner = i<9 ? '#225c2c' : '#1d5230';   // front nine slightly warmer than the back
+    fw+=`<path d="M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}" fill="none" stroke="${inner}" stroke-width="${wInner}" stroke-linecap="round" opacity="0.95"/>`;
     // mowing stripe highlight on longer holes
     if(len>220) fw+=`<path d="M${a.x},${a.y} Q${cx},${cy} ${b.x},${b.y}" fill="none" stroke="rgba(255,255,255,.025)" stroke-width="${Math.round(wInner/3)}" stroke-linecap="round"/>`;
   }
@@ -963,6 +1108,60 @@ function renderMap(){
     p5m+=`<circle cx="${h.x}" cy="${h.y}" r="20" fill="none" stroke="rgba(255,220,100,.18)" stroke-width="1.5" stroke-dasharray="3 3"/>`;
   });
 
+  /* ── Illustration layers ──────────────────────────────────────────
+     Deterministic pseudo-random (seeded by hole index) so the drawing is
+     identical on every re-render — the board repaints every 30s.        */
+  const rnd=(i,k)=>{ const x=Math.sin(i*12.9898+k*78.233)*43758.5453; return x-Math.floor(x); };
+
+  // Putting surfaces, greenside bunkers, tee boxes
+  let greens='',bunkers='',teeboxes='';
+  HOLES.forEach((h,i)=>{
+    const rx=(13+rnd(i,2)*5).toFixed(1), ry=(10+rnd(i,3)*3).toFixed(1), rot=Math.round(rnd(i,1)*180);
+    greens+=`<ellipse cx="${h.x}" cy="${h.y}" rx="${rx}" ry="${ry}" transform="rotate(${rot},${h.x},${h.y})" fill="#3a8a46" opacity=".5"/>`;
+    const nb=rnd(i,4)>.45?2:1;
+    for(let b=0;b<nb;b++){
+      const ang=rnd(i,5+b)*Math.PI*2, d=18+rnd(i,7+b)*7;
+      const bx=(h.x+Math.cos(ang)*d).toFixed(1), by=(h.y+Math.sin(ang)*d).toFixed(1);
+      bunkers+=`<ellipse cx="${bx}" cy="${by}" rx="${(5+rnd(i,9+b)*3).toFixed(1)}" ry="${(3.4+rnd(i,11+b)*1.8).toFixed(1)}" transform="rotate(${Math.round(rnd(i,13+b)*180)},${bx},${by})" fill="#dbcaa4" opacity=".45"/>`;
+    }
+  });
+  for(let i=0;i<HOLES.length-1;i++){
+    const a=HOLES[i],b=HOLES[i+1],ang=Math.atan2(b.y-a.y,b.x-a.x);
+    const tx=(a.x+Math.cos(ang)*17).toFixed(1), ty=(a.y+Math.sin(ang)*17).toFixed(1);
+    teeboxes+=`<rect x="${(+tx-3.5).toFixed(1)}" y="${(+ty-2).toFixed(1)}" width="7" height="4" rx="1" fill="rgba(255,255,255,.26)" transform="rotate(${(ang*180/Math.PI).toFixed(0)},${tx},${ty})"/>`;
+  }
+
+  // Tree cover — clusters placed in the gaps between corridors
+  const TREES=[[112,92],[66,196],[58,372],[206,430],[332,58],[430,186],[524,92],[648,126],
+               [706,296],[824,214],[884,392],[762,472],[302,382],[492,296],[608,352],
+               [176,336],[430,424],[566,472],[862,146],[96,286],[248,164],[680,224]];
+  let trees='';
+  TREES.forEach(([cx,cy],i)=>{
+    const n=3+Math.floor(rnd(i,21)*3);
+    for(let t=0;t<n;t++){
+      const ox=(rnd(i,30+t)-.5)*26, oy=(rnd(i,40+t)-.5)*20, r=4+rnd(i,50+t)*3.5;
+      trees+=`<circle cx="${(cx+ox).toFixed(1)}" cy="${(cy+oy).toFixed(1)}" r="${r.toFixed(1)}" fill="#0d2a13" opacity=".9"/>`
+           + `<circle cx="${(cx+ox-r*.25).toFixed(1)}" cy="${(cy+oy-r*.3).toFixed(1)}" r="${(r*.58).toFixed(1)}" fill="#1b4a23" opacity=".75"/>`;
+    }
+  });
+
+  // Water hazard between 15/16/17
+  const pond=`<g><ellipse cx="332" cy="402" rx="38" ry="17" fill="#14496e" opacity=".5"/>`
+    +`<ellipse cx="332" cy="402" rx="38" ry="17" fill="none" stroke="rgba(140,200,240,.22)" stroke-width="1"/>`
+    +`<ellipse cx="320" cy="397" rx="13" ry="4.5" fill="rgba(255,255,255,.09)"/></g>`;
+
+  // Map furniture — compass + scale bar
+  const compass=`<g transform="translate(42,46)" opacity=".6">
+    <circle r="15" fill="rgba(8,22,10,.72)" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+    <polygon points="0,-11 3.2,0 0,3.2 -3.2,0" fill="#c8e6cf"/>
+    <polygon points="0,11 3.2,0 0,-3.2 -3.2,0" fill="rgba(255,255,255,.22)"/>
+    <text x="0" y="-18" text-anchor="middle" fill="#c8e6cf" font-size="7" font-weight="700" font-family="DM Sans,sans-serif">N</text></g>`;
+  const scalebar=`<g transform="translate(38,528)" opacity=".5">
+    <line x1="0" y1="0" x2="72" y2="0" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/>
+    <line x1="0" y1="-3.5" x2="0" y2="3.5" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/>
+    <line x1="72" y1="-3.5" x2="72" y2="3.5" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/>
+    <text x="36" y="-6" text-anchor="middle" fill="rgba(255,255,255,.55)" font-size="7" font-family="DM Sans,sans-serif">200 yds</text></g>`;
+
   // ── Hole markers — empty holes first, occupied on top ──
   let mEmpty='', mOccup='';
   HOLES.forEach(hd=>{
@@ -970,7 +1169,8 @@ function renderMap(){
     if(!occ){
       mEmpty+=`<g style="cursor:pointer" onclick="mapHoleClick(${hd.h},event)">
         <circle cx="${hd.x}" cy="${hd.y}" r="12" fill="#1c4824" stroke="rgba(255,255,255,.18)" stroke-width="1.2"/>
-        <text x="${hd.x}" y="${hd.y}" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,.5)" font-size="8" font-weight="600" font-family="DM Mono,monospace">${hd.h}</text>
+        <text x="${hd.x}" y="${hd.y-1}" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,.55)" font-size="8" font-weight="600" font-family="DM Mono,monospace">${hd.h}</text>
+        <text x="${hd.x}" y="${hd.y+7}" text-anchor="middle" dominant-baseline="central" fill="rgba(255,255,255,.28)" font-size="4.6" font-family="DM Sans,sans-serif">P${hd.par}</text>
       </g>`;
     } else {
       const col=psCol(occ.ps),ring=psRing(occ.ps);
@@ -1002,7 +1202,7 @@ function renderMap(){
   const H1=HOLES[0],H9=HOLES[8],H18=HOLES[17];
 
   const svgHtml=`<div style="position:relative">
-  <svg viewBox="0 0 940 510" style="width:100%;display:block" id="map-svg">
+  <svg viewBox="0 -46 940 602" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block" id="map-svg">
     <defs>
       <filter id="mglow" x="-60%" y="-60%" width="220%" height="220%">
         <feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -1018,7 +1218,7 @@ function renderMap(){
     </defs>
 
     <!-- Sky/background -->
-    <rect width="940" height="510" fill="url(#bgGrd)"/>
+    <rect x="0" y="-46" width="940" height="602" fill="url(#bgGrd)"/>
 
     <!-- Hill shading (hills are in upper portion — where holes 2-13 are) -->
     <ellipse cx="470" cy="200" rx="440" ry="180" fill="url(#hillGrd)" opacity="0.6"/>
@@ -1031,11 +1231,17 @@ function renderMap(){
              C90,470 44,438 38,390 C30,335 42,210 60,155Z"
       fill="#112515" stroke="#1e3d22" stroke-width="1.5" opacity="0.95"/>
 
+    <!-- Tree cover (behind the corridors) -->
+    ${trees}
+
     <!-- Fairway corridors -->
     ${fw}
 
-    <!-- Stanford creek hint -->
-    ${creek}
+    <!-- Putting surfaces + greenside bunkers + tee boxes -->
+    ${greens}${bunkers}${teeboxes}
+
+    <!-- Stanford creek hint + water hazard -->
+    ${creek}${pond}
 
     <!-- Routing guide line (faint) -->
     <polyline points="${rpts}" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1" stroke-dasharray="4 4"/>
@@ -1068,8 +1274,11 @@ function renderMap(){
     <!-- Hole 16 sweep arrow label (par 5 going right) -->
     <text x="298" y="442" fill="rgba(255,220,100,.35)" font-size="8.5" font-family="DM Sans,sans-serif" font-style="italic">Par 5 ——→</text>
 
+    <!-- Compass + scale -->
+    ${compass}${scalebar}
+
     <!-- Watermark -->
-    <text x="470" y="500" text-anchor="middle" fill="rgba(255,255,255,.06)" font-size="10" font-family="DM Sans,sans-serif" letter-spacing="3.5">STANFORD GOLF COURSE · PAR 70 · 6,778 YDS</text>
+    <text x="470" y="534" text-anchor="middle" fill="rgba(255,255,255,.07)" font-size="10" font-family="DM Sans,sans-serif" letter-spacing="3.5">STANFORD GOLF COURSE · PAR 70 · 6,778 YDS</text>
   </svg>
   <div class="map-tooltip-box" id="map-tt"></div>
   </div>`;
@@ -1097,7 +1306,7 @@ function renderMap(){
 }
 
 // ── Hole tooltip on click ──
-const _MAP_HOLES=[
+const COURSE_HOLES=[
   {h:1,x:868,y:322,par:5,yds:521,note:'Tee over Serra Blvd'},{h:2,x:468,y:120,par:4,yds:483,note:'Long par 4 into hills'},
   {h:3,x:240,y:72,par:3,yds:215,note:'Par 3'},{h:4,x:98,y:135,par:3,yds:168,note:'Par 3 — back-to-back'},
   {h:5,x:128,y:162,par:4,yds:447,note:''},{h:6,x:338,y:175,par:4,yds:429,note:''},
@@ -1109,12 +1318,15 @@ const _MAP_HOLES=[
   {h:17,x:452,y:468,par:3,yds:185,note:'Par 3'},{h:18,x:638,y:425,par:4,yds:457,note:'Panoramic views — back to clubhouse'},
 ];
 function mapHoleClick(holeNum,evt){
-  const hd=_MAP_HOLES.find(h=>h.h===holeNum); if(!hd) return;
+  const hd=COURSE_HOLES.find(h=>h.h===holeNum); if(!hd) return;
   const tt=document.getElementById('map-tt'); if(!tt) return;
   const svg=document.getElementById('map-svg'); if(!svg) return;
   const rect=svg.getBoundingClientRect();
-  const scX=rect.width/940,scY=rect.height/510;
-  const px=hd.x*scX, py=hd.y*scY;
+  // svg is letterboxed by preserveAspectRatio — derive the drawn box, not the element box
+  const VB={x:0,y:-46,w:940,h:602};
+  const sc=Math.min(rect.width/VB.w, rect.height/VB.h);
+  const offX=(rect.width-VB.w*sc)/2, offY=(rect.height-VB.h*sc)/2;
+  const px=offX+(hd.x-VB.x)*sc, py=offY+(hd.y-VB.y)*sc;
   const onC=GROUPS.filter(g=>g.status==='on-course'||g.status==='completed');
   const grp=onC.find(g=>Math.max(1,Math.min(18,position(g).hole))===holeNum);
   const pc=ps=>ps==='behind'?'#b0241c':ps==='watch'?'#a85f00':ps==='done'?'#4a7a88':'#2a7a48';
@@ -1133,101 +1345,232 @@ function mapHoleClick(holeNum,evt){
 }
 function highlightHole(h){ mapHoleClick(h,null); }
 
-function renderHistory(){
-  document.getElementById('history-board').innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px">${PLAYERS.map(p=>{
-    const g=p.avgDelta<=0.5,b=p.avgDelta>=3,c=g?'var(--green)':b?'var(--red)':'var(--amber)';
-    return `<div class="up-card"><div class="up-row"><span class="group-name">${p.name}</span><span class="flag ${p.type==='member'?'':'warn'}">${p.type}</span></div>
-      <div class="up-detail" style="margin-top:6px">Rounds: ${p.rounds||'first'} · Consistency: ${p.consistency||'—'}%</div>
-      <div style="margin-top:4px;font-weight:700;color:${c};font-size:13px">${p.rounds?(p.avgDelta>0?'+':'')+p.avgDelta.toFixed(1)+' min/hole · '+(g?'fast':b?'slow':'avg'):'unknown'}</div></div>`;
-  }).join('')}</div>`;
-}
-
-function populateGroupSelect(){
-  const sel=document.getElementById('dn-group');
-  const opts=GROUPS.filter(g=>g.status==='on-course'||g.status==='completed').map(g=>`<option value="${g.id}"${g.id===golferGroupId?' selected':''}>${g.name} — ${g.status==='completed'?'Done':paceStatus(g)==='on'?'On Pace':paceStatus(g)==='watch'?'Watch':'Behind'}</option>`).join('');
-  if(sel.innerHTML!==opts) sel.innerHTML=opts; sel.value=golferGroupId;
-}
-
 /* ══════════════════════════════════════════════
-   RENDER — GOLFER PAGE
-   Position sourced from hardware tracker only.
-   Golfer never reports their own location.
+   PLAYER DATABASE  — pace history & preventive action
+   Every player who has played here, with the behaviour
+   pattern the marshal needs BEFORE their next round.
 ══════════════════════════════════════════════ */
-function renderGolfer(){
-  const g=GROUPS.find(x=>x.id===golferGroupId);
-  document.getElementById('dn-group').value=golferGroupId;
-  const p=paceProf(g),turnTime=fmt(addM(g.teeOff,p.per*9)),finTime=fmt(addM(g.teeOff,p.total));
-  const ps=paceStatus(g),bMin=Math.round(minsBehind(g))||8;
-  const t=trackerForGrp(g.id);
-  const clipId=t?t.id:(g.id===1?'11':'—');
-  const pos=position(g);
+let pdbQuery='', pdbFilter='all', pdbSort='risk';
+const QUEUE_CAP=8;   // cards shown in the action queue; the rest are reachable via the 'Needs action' filter
 
-  let html=`
-    <div class="gv-topbar">
-      <div class="gv-course">Stanford Golf Course</div>
-      <div class="gv-group">Welcome, ${g.name}!</div>
-      <div class="gv-date">${NOW.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'})} · Tee ${fmt(g.teeOff)}</div>
-      <div class="gv-clip"><span class="clip-dot"></span>Tracker: Clip ${clipId}</div>
+// Risk is derived only from recorded history — never from a single round.
+function pdbRisk(p){
+  if(p.r<=1) return {lvl:'new',pts:0,lbl:'No history'};
+  let pts=0;
+  pts += p.d>=3?3:p.d>=1.5?2:p.d>=0.5?1:0;   // average minutes/hole over target
+  pts += p.mar>=3?2:p.mar>=1?1:0;            // times a marshal has been sent
+  pts += p.late>=2?1:0;                      // repeated late arrivals
+  pts += p.ns>=1?1:0;                        // no-shows
+  pts += (p.c&&p.c<55)?1:0;                  // erratic round-to-round
+  const lvl = pts>=5?'high':pts>=3?'elevated':pts>=1?'watch':'low';
+  return {lvl,pts,lbl:lvl==='high'?'High':lvl==='elevated'?'Elevated':lvl==='watch'?'Watch':'Low'};
+}
+
+function pdbAction(p,rk){
+  if(rk.lvl==='new')      return 'First round here — explain the pace policy at check-in';
+  if(rk.lvl==='high')     return 'Pace brief at check-in · marshal check at H.5 · avoid pairing behind a large group';
+  if(rk.lvl==='elevated') return (p.late>=2||p.tags.includes('Late arrival'))
+                                 ? 'Confirm arrival 30 min ahead · pace brief at handover'
+                                 : 'Pace brief at handover · verify position at the turn';
+  if(rk.lvl==='watch')    return 'Mention the pace target at clip handover';
+  return 'No action needed — reliable pace';
+}
+
+const pdbDeltaCol = d => d>=2.2?'var(--red)':d>=0.8?'var(--amber)':'var(--green)';
+
+function pdbSpark(tr){
+  if(!tr||!tr.length) return '<span class="pdb-none">no rounds logged</span>';
+  const w=52,h=16,min=Math.min(...tr,-0.5),max=Math.max(...tr,1.5),rg=(max-min)||1;
+  const y=v=>(h-((v-min)/rg)*h).toFixed(1);
+  const pts=tr.map((v,i)=>`${(i/(tr.length-1)*(w-3)).toFixed(1)},${y(v)}`).join(' ');
+  const c=pdbDeltaCol(tr[tr.length-1]);
+  return `<svg width="${w}" height="${h}" style="display:block;overflow:visible">
+    <line x1="0" y1="${y(0)}" x2="${w-3}" y2="${y(0)}" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 2"/>
+    <polyline points="${pts}" fill="none" stroke="${c}" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${w-3}" cy="${y(tr[tr.length-1])}" r="2.2" fill="${c}"/></svg>`;
+}
+
+function pdbFiltered(){
+  const q=pdbQuery.trim().toLowerCase();
+  let list=PLAYERS.map(p=>({p,rk:pdbRisk(p)}));
+  if(q) list=list.filter(({p})=>p.n.toLowerCase().includes(q)||p.t.includes(q)||p.tags.join(' ').toLowerCase().includes(q));
+  if(pdbFilter!=='all'){
+    if(pdbFilter==='action') list=list.filter(({p,rk})=>p.nx>0&&p.nx<=7&&(rk.lvl==='high'||rk.lvl==='elevated'||rk.lvl==='new'));
+    else list=list.filter(({rk})=>rk.lvl===pdbFilter);
+  }
+  const ord={high:0,elevated:1,watch:2,new:3,low:4};
+  const cmp={
+    risk:(a,b)=>ord[a.rk.lvl]-ord[b.rk.lvl]||b.rk.pts-a.rk.pts||b.p.d-a.p.d,
+    slow:(a,b)=>b.p.d-a.p.d,
+    fast:(a,b)=>a.p.d-b.p.d,
+    rounds:(a,b)=>b.p.r-a.p.r,
+    name:(a,b)=>a.p.n.localeCompare(b.p.n),
+    next:(a,b)=>(a.p.nx||999)-(b.p.nx||999),
+    recent:(a,b)=>a.p.last-b.p.last,
+  }[pdbSort];
+  return list.sort(cmp);
+}
+
+function renderHistory(){
+  const all=PLAYERS.map(p=>({p,rk:pdbRisk(p)}));
+  const n=l=>all.filter(x=>x.rk.lvl===l).length;
+  const avgD=(all.filter(x=>x.p.r>1).reduce((s,x)=>s+x.p.d,0)/all.filter(x=>x.p.r>1).length);
+  const queue=all.filter(({p,rk})=>p.nx>0&&p.nx<=7&&(rk.lvl==='high'||rk.lvl==='elevated'||rk.lvl==='new'))
+                 .sort((a,b)=>a.p.nx-b.p.nx);
+
+  const chip=(k,lbl)=>`<button class="pdb-chip${pdbFilter===k?' on':''}" data-f="${k}" onclick="pdbSetFilter('${k}')">${lbl}</button>`;
+
+  document.getElementById('history-board').innerHTML=`
+    <div class="stats-row" style="margin-bottom:16px">
+      <div class="stat-card"><div class="s-label">Players on File</div><div class="s-value">${PLAYERS.length}</div><div class="s-sub">all-time at this course</div></div>
+      <div class="stat-card red"><div class="s-label">High Risk</div><div class="s-value">${n('high')}</div><div class="s-sub">brief before next round</div></div>
+      <div class="stat-card amber"><div class="s-label">Elevated</div><div class="s-value">${n('elevated')}</div><div class="s-sub">monitor at the turn</div></div>
+      <div class="stat-card green"><div class="s-label">Reliable Pace</div><div class="s-value">${n('low')}</div><div class="s-sub">no action needed</div></div>
+      <div class="stat-card"><div class="s-label">Avg Pace Delta</div><div class="s-value">${avgD>0?'+':''}${avgD.toFixed(1)}</div><div class="s-sub">min / hole vs target</div></div>
     </div>
-    <div class="sms-preview">
-      <div class="sms-from">📱 SMS · Stanford Golf · ${fmt(g.teeOff)}</div>
-      <div class="sms-bubble">Welcome to Stanford Golf Course! Your round starts now. Tap for your pace target:<br><a>stanfordgolf.app/pace/${g.id}-x9k2</a></div>
+
+    <div class="panel" style="margin-bottom:16px">
+      <div class="panel-head">
+        <h2>⚑ Pre-Round Action Queue</h2>
+        <span class="ph-meta">${queue.length} player${queue.length===1?'':'s'} booked within 7 days needing a preventive touch${queue.length>QUEUE_CAP?` · showing the ${QUEUE_CAP} soonest`:''}</span>
+      </div>
+      ${queue.length?`<div class="pdb-queue">${queue.slice(0,QUEUE_CAP).map(({p,rk})=>`
+        <div class="pdb-q-card ${rk.lvl}" onclick="openPlayer('${p.n.replace(/'/g,"\\'")}')">
+          <div class="pdb-q-top"><span class="pdb-q-name">${p.n}</span><span class="pdb-q-in ${p.nx<=2?'urgent':'soon'}">in ${p.nx}d</span></div>
+          <div class="pdb-q-mid"><span class="risk-badge ${rk.lvl==='high'?'high':rk.lvl==='elevated'?'med':'low'}">${rk.lbl}</span>
+            <span class="pdb-q-delta" style="color:${pdbDeltaCol(p.d)}">${p.r>1?(p.d>0?'+':'')+p.d.toFixed(1)+' min/hole':'no history'}</span></div>
+          <div class="pdb-q-act">${pdbAction(p,rk)}</div>
+        </div>`).join('')}</div>
+        ${queue.length>QUEUE_CAP?`<div class="pdb-q-more">${queue.length-QUEUE_CAP} more flagged player${queue.length-QUEUE_CAP===1?'':'s'} booked within 7 days — <button class="pdb-link" onclick="pdbSetFilter('action');document.getElementById('pdb-search').scrollIntoView({behavior:'smooth',block:'center'})">view all in the database ↓</button></div>`:''}`
+        :`<div class="pdb-empty">No flagged players booked in the next 7 days.</div>`}
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Player Database</h2>
+        <span class="ph-meta">Click any player for their full pace record</span>
+      </div>
+      <div class="pdb-controls">
+        <input class="pdb-search" id="pdb-search" type="search" placeholder="Search name, type or behaviour…"
+               value="${pdbQuery.replace(/"/g,'&quot;')}" oninput="pdbSearch(this.value)">
+        <div class="pdb-chips">
+          ${chip('all','All')}${chip('action','Needs action')}${chip('high','High')}${chip('elevated','Elevated')}${chip('watch','Watch')}${chip('low','Reliable')}
+        </div>
+        <select class="pdb-sort" onchange="pdbSetSort(this.value)">
+          <option value="risk"${pdbSort==='risk'?' selected':''}>Sort: Risk</option>
+          <option value="next"${pdbSort==='next'?' selected':''}>Sort: Next booking</option>
+          <option value="slow"${pdbSort==='slow'?' selected':''}>Sort: Slowest</option>
+          <option value="fast"${pdbSort==='fast'?' selected':''}>Sort: Fastest</option>
+          <option value="rounds"${pdbSort==='rounds'?' selected':''}>Sort: Most rounds</option>
+          <option value="recent"${pdbSort==='recent'?' selected':''}>Sort: Most recent</option>
+          <option value="name"${pdbSort==='name'?' selected':''}>Sort: Name</option>
+        </select>
+      </div>
+      <div class="pdb-wrap">
+        <table class="pdb">
+          <thead><tr>
+            <th style="width:150px">Player</th>
+            <th style="width:74px">Type</th>
+            <th style="width:62px">Rounds</th>
+            <th style="width:96px">Avg Pace</th>
+            <th style="width:74px">Last 5</th>
+            <th style="width:60px">Consist.</th>
+            <th>Behaviour Pattern</th>
+            <th style="width:104px">Flags</th>
+            <th style="width:82px">Risk</th>
+            <th style="width:88px">Next</th>
+          </tr></thead>
+          <tbody id="pdb-body"></tbody>
+        </table>
+      </div>
+      <div class="pdb-foot" id="pdb-foot"></div>
     </div>`;
-
-  if(g.status==='completed'){
-    html+=`<div class="g-status-card on"><div class="gs-icon">🏁</div><div class="gs-head">Round Complete</div><div class="gs-msg">Thanks for playing today.</div></div>`;
-    if(g.finishBadge)
-      html+=`<div class="g-badge-card"><div class="g-badge-icon">${g.finishBadge==='top'?'🏅':'👍'}</div><div class="g-badge-head">${g.finishBadge==='top'?'Top 25% pace today':'On-pace round'}</div><div class="g-badge-msg">${g.finishBadge==='top'?'Great pace — thank you for helping keep the course moving.':'Solid round. See you next time.'}</div></div>`;
-    else
-      html+=`<div class="g-badge-card" style="background:#f4f5f2;border-color:var(--line)"><div class="g-badge-icon">⛳</div><div class="g-badge-head">Thanks for playing</div><div class="g-badge-msg">See you next time.</div></div>`;
-    html+=`<div class="g-return">📍 Please return <strong>Clip ${clipId}</strong> to the pro shop — thank you!</div>`;
-    document.getElementById('golfer-content').innerHTML=html;
-    renderGolferDemo(g); return;
-  }
-
-  // pace target card
-  html+=`<div class="g-pace-card">
-    <div class="g-pace-label">Currently on</div>
-    <div class="g-cur-hole"><span class="gch-num">Hole ${pos.hole}</span>
-      <span class="src ${pos.src}"><span class="sdot"></span>${pos.src==='live'?'📍 Tracker Live':'🕐 Estimated'}</span></div>
-    <div class="g-target-row">
-      <div class="g-target-col"><div class="g-target-val">${turnTime}</div><div class="g-target-lbl">Hole 9 by</div></div>
-      <div class="g-target-col"><div class="g-target-val">${finTime}</div><div class="g-target-lbl">Finish by</div></div>
-    </div></div>`;
-
-  // status card
-  if(ps==='on')     html+=`<div class="g-status-card on"><div class="gs-icon">✅</div><div class="gs-head">On Pace</div><div class="gs-msg">You're doing great. Keep it up.</div></div>`;
-  else if(ps==='watch') html+=`<div class="g-status-card watch"><div class="gs-icon">⚠️</div><div class="gs-head">Watch Your Pace</div><div class="gs-msg">You're ${bMin} min behind your target.<br>Ready golf from here helps everyone.</div></div>`;
-  else if(ps==='behind') html+=`<div class="g-status-card behind"><div class="gs-icon">🔴</div><div class="gs-head">Behind Pace</div><div class="gs-msg">The group behind you is getting close.<br>Wave them through if you're searching for a ball.</div></div>`;
-
-  // gap indicator (only when <12 min)
-  if(g.status==='on-course'){
-    const onC=GROUPS.filter(x=>x.status==='on-course').sort((a,b)=>a.teeOff-b.teeOff);
-    const idx=onC.findIndex(x=>x.id===g.id),behind=onC[idx+1];
-    if(behind){const gap=gapMin(g,behind);if(gap!==null&&gap<12){const warn=gap<gapThr(g,behind);
-      html+=`<div class="g-gap-card${warn?' warn':''}"><div class="g-gap-label">Group behind you</div><div class="g-gap-big">&#8776; ${gap} min away</div><div class="g-gap-msg">${warn?'They\'re catching up — ready golf helps everyone.':'Comfortable gap. Enjoy your round.'}</div></div>`;
-    }}
-  }
-
-  // pace tips
-  html+=`<div class="g-tips"><div class="g-tips-head" onclick="this.nextElementSibling.classList.toggle('hidden')">Ready golf tips <span>+</span></div>
-    <ul class="g-tips-body hidden"><li>Play your shot when ready — no need to wait for honors.</li><li>Pick up if you're running high on a hole.</li><li>Wave the group through if you're searching for a ball.</li><li>Line up your putt while others are putting.</li></ul></div>`;
-
-  document.getElementById('golfer-content').innerHTML=html;
-  renderGolferDemo(g);
+  renderPdbRows();
 }
 
-function renderGolferDemo(g){
-  const ps=paceStatus(g);
-  document.getElementById('g-demo-inner').innerHTML=`
-    <span class="gdl">Demo controls</span>
-    <button class="${ps==='on'?'active':''}" onclick="setGolferStatus(${g.id},'on')">On Pace</button>
-    <button class="${ps==='watch'?'active':''}" onclick="setGolferStatus(${g.id},'watch')">Watch</button>
-    <button class="${ps==='behind'?'active':''}" onclick="setGolferStatus(${g.id},'behind')">Behind</button>
-    <button onclick="completeRound(${g.id})">Round complete</button>`;
+function renderPdbRows(){
+  const list=pdbFiltered();
+  document.getElementById('pdb-body').innerHTML = list.length ? list.map(({p,rk})=>{
+    const flags=[];
+    if(p.mar)  flags.push(`<span class="pdb-flag red" title="Marshal sent ${p.mar}×">⚑ ${p.mar}</span>`);
+    if(p.late) flags.push(`<span class="pdb-flag amber" title="Late arrivals: ${p.late}">◷ ${p.late}</span>`);
+    if(p.ns)   flags.push(`<span class="pdb-flag grey" title="No-shows: ${p.ns}">✕ ${p.ns}</span>`);
+    return `<tr class="pdb-row ${rk.lvl}" onclick="openPlayer('${p.n.replace(/'/g,"\\'")}')">
+      <td><div class="pdb-name">${p.n}</div><div class="pdb-last">${p.last}d ago</div></td>
+      <td><span class="pdb-type ${p.t}">${p.t}</span></td>
+      <td class="pdb-num">${p.r}</td>
+      <td><span class="pdb-delta" style="color:${pdbDeltaCol(p.d)}">${p.r>1?(p.d>0?'+':'')+p.d.toFixed(1):'—'}</span>${p.r>1?'<span class="pdb-unit">min/hole</span>':''}</td>
+      <td>${pdbSpark(p.tr)}</td>
+      <td class="pdb-num">${p.c?p.c+'%':'—'}</td>
+      <td><div class="pdb-tags">${p.tags.map(t=>`<span class="pdb-tag${SLOW_TAGS.includes(t)?' slow':FAST_TAGS.includes(t)?' fast':''}">${t}</span>`).join('')}</div></td>
+      <td><div class="pdb-flags">${flags.join('')||'<span class="pdb-none">—</span>'}</div></td>
+      <td><span class="risk-badge ${rk.lvl==='high'?'high':rk.lvl==='elevated'?'med':'low'}">${rk.lbl}</span></td>
+      <td>${p.nx?`<span class="pdb-next${p.nx<=7?' soon':''}">in ${p.nx}d</span>`:'<span class="pdb-none">—</span>'}</td>
+    </tr>`;
+  }).join('') : `<tr><td colspan="10"><div class="pdb-empty">No players match this filter.</div></td></tr>`;
+  document.getElementById('pdb-foot').textContent=`Showing ${list.length} of ${PLAYERS.length} players`;
 }
-function setGolferStatus(id,s){ demoOverride[id]=s; renderGolfer(); }
-function completeRound(id){ const g=GROUPS.find(x=>x.id===id); g.status='completed'; if(!g.finishBadge) g.finishBadge='ontime'; renderGolfer(); }
+
+const SLOW_TAGS=['Slow greens','Ball hunting','Practice swings','Lost balls','Slow tee box','Photos','Beverage stops','Chatty group','Late arrival','Range finder'];
+const FAST_TAGS=['Ready golf','Plays fast','Keeps pace','Waves through'];
+
+function pdbSearch(v){ pdbQuery=v; renderPdbRows(); }
+function pdbSetSort(v){ pdbSort=v; renderPdbRows(); }
+function pdbSetFilter(f){
+  pdbFilter=f;
+  document.querySelectorAll('.pdb-chip').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
+  renderPdbRows();
+}
+
+function openPlayer(name){
+  const p=PLAYERS.find(x=>x.n===name); if(!p) return;
+  const rk=pdbRisk(p);
+  const row=(l,v)=>`<div class="pp-row"><span class="pp-lbl">${l}</span><span class="pp-val">${v}</span></div>`;
+  const rank=PLAYERS.filter(x=>x.r>1).sort((a,b)=>a.d-b.d).findIndex(x=>x.n===p.n)+1;
+  const tot=PLAYERS.filter(x=>x.r>1).length;
+  document.getElementById('modal-root').innerHTML=`
+  <div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal" style="max-width:560px">
+    <div class="modal-head">
+      <div><h3>${p.n}</h3><div class="mh-sub">${p.t} · ${p.r} round${p.r===1?'':'s'} on file · last played ${p.last} days ago</div></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="pp-hero ${rk.lvl}">
+        <div><div class="pp-hero-lbl">Pace Risk</div><div class="pp-hero-val">${rk.lbl}</div></div>
+        <div><div class="pp-hero-lbl">Avg vs Target</div><div class="pp-hero-val" style="color:${pdbDeltaCol(p.d)}">${p.r>1?(p.d>0?'+':'')+p.d.toFixed(1)+' min/hole':'—'}</div></div>
+        <div><div class="pp-hero-lbl">Consistency</div><div class="pp-hero-val">${p.c?p.c+'%':'—'}</div></div>
+      </div>
+
+      <div class="modal-row"><label>Last 5 rounds — minutes per hole vs target</label>
+        <div class="pp-trend">${p.tr.length?p.tr.map((v,i)=>`
+          <div class="pp-bar-col"><div class="pp-bar-wrap"><div class="pp-bar" style="height:${Math.max(4,Math.min(100,(v+2)/7.5*100)).toFixed(0)}%;background:${pdbDeltaCol(v)}"></div></div>
+          <span class="pp-bar-v" style="color:${pdbDeltaCol(v)}">${v>0?'+':''}${v.toFixed(1)}</span>
+          <span class="pp-bar-i">R${i+1}</span></div>`).join(''):'<div class="pdb-empty">No completed rounds logged yet.</div>'}
+        </div>
+      </div>
+
+      <div class="modal-row"><label>Recorded behaviour</label>
+        <div class="pdb-tags">${p.tags.map(t=>`<span class="pdb-tag${SLOW_TAGS.includes(t)?' slow':FAST_TAGS.includes(t)?' fast':''}">${t}</span>`).join('')}</div>
+      </div>
+
+      <div class="modal-row"><label>Operational record</label>
+        <div class="pp-grid">
+          ${row('Marshal dispatched',p.mar?`${p.mar}×`:'never')}
+          ${row('Late arrivals',p.late||'none')}
+          ${row('No-shows',p.ns||'none')}
+          ${row('Pace rank',p.r>1?`${rank} of ${tot} (1 = fastest)`:'—')}
+          ${row('Next booking',p.nx?`in ${p.nx} day${p.nx===1?'':'s'}`:'none scheduled')}
+        </div>
+      </div>
+
+      <div class="prompt-box" style="border-radius:7px;margin-top:2px">
+        <span class="plbl">⚑ Preventive action before next round</span>
+        <em>${pdbAction(p,rk)}</em>
+      </div>
+    </div>
+    <div class="modal-foot"><button class="btn ghost" onclick="closeModal()">Close</button></div>
+  </div></div>`;
+}
 
 /* ══════════════════════════════════════════════
    CHECK-IN MODAL  — 3-step wizard
@@ -1329,7 +1672,6 @@ function pickClip(id){
 }
 
 function buildConfirmStep(){
-  const g=GROUPS.find(x=>x.id===golferGroupId)||GROUPS.find(x=>x.status==='pending')||GROUPS[0];
   const sim={flags:[]};
   sim.players=+document.getElementById('ci-players').value;
   sim.mode=document.getElementById('ci-mode').value;
@@ -1422,7 +1764,7 @@ function openCheckOut(id){
       <div>
         <div class="modal-row" style="margin-bottom:6px"><label>3 · Round summary</label>
           <div class="checkout-summary">
-            <span class="cs-lbl">Auto-generated pace badge for golfer page</span>
+            <span class="cs-lbl">Auto-generated pace badge</span>
             ${badge==='top'?'🏅 Top 25% pace today — "Great pace. Thank you for helping keep the course moving."':badge==='ontime'?'👍 On-pace round — "Solid round. See you next time."':'No badge — slow round. No message sent to golfer.'}
           </div>
           <div class="modal-note">Badge appears on their SMS link page. Slow groups receive no message — no shaming.</div>
@@ -1497,25 +1839,16 @@ function logTurn(id){ GROUPS.find(x=>x.id===id).turnLogged=true; renderAll(); }
 const closeModal = () => document.getElementById('modal-root').innerHTML='';
 
 /* ══════════════════════════════════════════════
-   DEMO HELPERS
-══════════════════════════════════════════════ */
-function simulate(m){ NOW.setTime(NOW.getTime()+m*60000); TRACKERS.forEach(t=>{if(t.staleMin!=null)t.staleMin+=m;}); if(currentMainView==='pro'){if(currentTab==='dashboard')renderAll();else if(currentTab==='map')renderMap();}else renderGolfer(); }
-function forceGap(){ demoOverride.gapPair=[4,4]; setTab('dashboard'); setMainView('pro'); }
-function forceBehind(){ demoOverride[4]='behind'; setTab('dashboard'); setMainView('pro'); }
-function openCheckInDemo(){ setMainView('pro'); setTab('dashboard'); setTimeout(()=>openCheckIn(11),100); }
-function openCheckOutDemo(){ setMainView('pro'); setTab('dashboard'); setTimeout(()=>openCheckOut(2),100); }
-
-/* ══════════════════════════════════════════════
    BOOT
 ══════════════════════════════════════════════ */
 setInterval(()=>{
   NOW.setTime(NOW.getTime()+30000);
   TRACKERS.forEach(t=>{if(t.staleMin!=null)t.staleMin+=.5;});
   document.getElementById('refresh-meta').textContent=`Live · last refreshed ${fmt(new Date())}`;
-  if(currentMainView==='pro'){if(currentTab==='dashboard')renderAll();else if(currentTab==='map')renderMap();}else renderGolfer();
+  if(currentTab==='dashboard')renderAll(); else if(currentTab==='map')renderMap();
 },30000);
 
-setMainView('pro');
+renderAll();
 </script>
 
 
